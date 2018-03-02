@@ -233,7 +233,7 @@ public class Util {
             }
         }
         totalizers.put("9001", 1l);
-        totalizers.put("9900", totalizers.size() + 4l); //+4 é referente aos registros do bloco9
+        totalizers.put("9900", totalizers.size() + 3l); //+3 é referente aos registros do bloco9
         totalizers.put("9990", 1l);
         totalizers.put("9999", 1l);
 
