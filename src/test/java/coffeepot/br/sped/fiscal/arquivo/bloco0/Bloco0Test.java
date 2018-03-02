@@ -44,8 +44,6 @@ import coffeepot.bean.wr.typeHandler.HandlerParseException;
  * limitations under the License.
  * #L%
  */
-
-
 import coffeepot.br.sped.fiscal.arquivo.EstruturaTest;
 import coffeepot.br.sped.fiscal.reader.SpedFiscalReader;
 import coffeepot.br.sped.fiscal.tipos.FinalidadeArquivo;
@@ -65,6 +63,7 @@ import java.time.LocalDate;
  * @author Jeandeson O. Merelis
  */
 public class Bloco0Test {
+
     /* alguns registros só podem conter uma ocorrência no arquivo ou no bloco...
      verifique a documentação do Sped Fiscal para maiores detalhes,
      * você também pode conferir a classe do bloco que também tem o mapeamento e as cardinalidades.
@@ -73,7 +72,7 @@ public class Bloco0Test {
     @Test
     public void testBloco0() throws Exception {
         System.out.println("*** Teste de escrita do BLOCO 0 inteiro ***");
-    	Bloco0 bloco0 = createBloco0();
+        Bloco0 bloco0 = createBloco0();
 
         try {
             String file = EstruturaTest.TEST_BLOCO_OUT_DIR + "Bloco0Test.tmp";
@@ -85,9 +84,8 @@ public class Bloco0Test {
 
             // escreve registro 0990
             long countRecords = Util.countRecords(file, 0);
-            Reg0990 reg0990 = new Reg0990(countRecords+1);
+            Reg0990 reg0990 = new Reg0990(countRecords + 1);
             spedFiscalWriter.write(reg0990);
-
 
             spedFiscalWriter.flush();
             spedFiscalWriter.close();
@@ -99,10 +97,9 @@ public class Bloco0Test {
 
     @Test
     public void Bloco0Version10Test() throws UnknownRecordException, HandlerParseException, Exception {
-    	try {
+        try {
             StringWriter sw = new StringWriter();
             SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(sw, VersaoLayout.VERSAO_010);
-
 
             Reg0001 registroAbertura = new Reg0001(IndicadorMovimento.COM_DADOS);
             Reg0200 registro = new Reg0200();
@@ -116,9 +113,9 @@ public class Bloco0Test {
             spedFiscalWriter.close();
 
             try (StringReader sr = new StringReader(sw.toString())) {
-            	SpedFiscalReader reader = new SpedFiscalReader(sr, VersaoLayout.VERSAO_010);
-            	Bloco0 bloco0 = reader.parseToBloco0();
-            	assertNull( bloco0.getReg0200List().get(0).getCest());
+                SpedFiscalReader reader = new SpedFiscalReader(sr, VersaoLayout.VERSAO_010);
+                Bloco0 bloco0 = reader.parseToBloco0();
+                assertNull(bloco0.getReg0200List().get(0).getCest());
             }
 
         } catch (IOException ex) {
@@ -128,10 +125,9 @@ public class Bloco0Test {
 
     @Test
     public void Bloco0Version11Test() throws UnknownRecordException, HandlerParseException, Exception {
-    	try {
+        try {
             StringWriter sw = new StringWriter();
             SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(sw, VersaoLayout.VERSAO_011);
-
 
             Reg0001 registroAbertura = new Reg0001(IndicadorMovimento.COM_DADOS);
             Reg0200 registro = new Reg0200();
@@ -145,9 +141,9 @@ public class Bloco0Test {
             spedFiscalWriter.close();
 
             try (StringReader sr = new StringReader(sw.toString())) {
-            	SpedFiscalReader reader = new SpedFiscalReader(sr, VersaoLayout.VERSAO_011);
-            	Bloco0 bloco0 = reader.parseToBloco0();
-            	assertEquals("123124", bloco0.getReg0200List().get(0).getCest());
+                SpedFiscalReader reader = new SpedFiscalReader(sr, VersaoLayout.VERSAO_011);
+                Bloco0 bloco0 = reader.parseToBloco0();
+                assertEquals("123124", bloco0.getReg0200List().get(0).getCest());
             }
 
         } catch (IOException ex) {
@@ -171,6 +167,7 @@ public class Bloco0Test {
         bloco0.setReg0460List(createReg0460List());
         bloco0.setReg0500List(createReg0500List());
         bloco0.setReg0600List(createReg0600List());
+        bloco0.setReg0990(createReg0990());
         return bloco0;
     }
 
@@ -196,18 +193,23 @@ public class Bloco0Test {
 
     public static Reg0000 createReg0000() {
         Reg0000 reg = new Reg0000();
-        reg.setCnpj("12.123.123/0001-99");
+        //reg.setCnpj("12.123.123/0001-99");
+        reg.setCnpj("36.293.264/0001-28");
         reg.setCodFin(FinalidadeArquivo.ARQUIVO_ORIGINAL);
-        reg.setCodMun(555);
+        //reg.setCodMun(555);
+        reg.setCodMun(3302403);
         reg.setCodVer(VersaoLayout.getLastVersionImpl());
         reg.setDtFin(LocalDate.now());
         reg.setDtIni(LocalDate.now());
-        reg.setIe("AA-1516BBB-16.5");
-        reg.setIm("adfdfa1111");
+        //reg.setIe("AA-1516BBB-16.5");
+        reg.setIe("84257443");
+        //reg.setIm("adfdfa1111");
         reg.setIndAtiv(IndicadorAtividade.INDUSTRIAL);
         reg.setIndPerfil(Perfil.A);
-        reg.setNome("EMPRESA FATURA PRA CARAMBA");
-        reg.setUf("ES");
+        //reg.setNome("EMPRESA FATURA PRA CARAMBA");
+        reg.setNome("Globomar Comercial Ltda");
+        //reg.setUf("ES");
+        reg.setUf("RJ");
 
         return reg;
     }
@@ -280,12 +282,12 @@ public class Bloco0Test {
     public static Reg0150 createReg0150() {
         Reg0150 reg = new Reg0150();
         reg.setBairro("Bairro");
-        reg.setCnpj("123.123.123/0001-99");
-        reg.setCodMun(55);
+        reg.setCnpj("12.123.123/0001-99");
+        reg.setCodMun(3302403);
         reg.setCodPais(1);
         reg.setCodPart(UUID.randomUUID().toString());
         reg.setCompl("Complemento");
-        reg.setCpf("12345678901--11");
+        reg.setCpf("123.456.789-01");
         reg.setEnd("Rua Qualquer");
         reg.setIe("0IE 0001234567A");
         reg.setNome("João da Silva");
@@ -364,7 +366,7 @@ public class Bloco0Test {
         reg.setCodBarra("CODIGO DE BARRAS");
         reg.setCodGen("80");
         reg.setCodItem("CODIGO ITEM");
-        reg.setCodNcm("NCM888888888");
+        reg.setCodNcm("NCM88888889");
         reg.setDescrItem("Descrição do item");
         reg.setExIpi("001");
         reg.setTipoItem("00");
@@ -440,7 +442,7 @@ public class Bloco0Test {
         return reg;
     }
 
-    public static List<Reg0400> createReg0400List(){
+    public static List<Reg0400> createReg0400List() {
         List<Reg0400> list = new LinkedList<>();
 
         Reg0400 reg = new Reg0400();
@@ -461,7 +463,7 @@ public class Bloco0Test {
         return list;
     }
 
-    public static List<Reg0450> createReg0450List()  {
+    public static List<Reg0450> createReg0450List() {
         List<Reg0450> list = new LinkedList<>();
 
         Reg0450 reg = new Reg0450();
@@ -477,7 +479,7 @@ public class Bloco0Test {
         return list;
     }
 
-    public static List<Reg0460> createReg0460List(){
+    public static List<Reg0460> createReg0460List() {
         List<Reg0460> list = new LinkedList<>();
 
         Reg0460 reg = new Reg0460();
@@ -493,7 +495,7 @@ public class Bloco0Test {
         return list;
     }
 
-    public static List<Reg0500>  createReg0500List(){
+    public static List<Reg0500> createReg0500List() {
         List<Reg0500> list = new LinkedList<>();
         Reg0500 reg;
 
@@ -519,7 +521,7 @@ public class Bloco0Test {
 
     }
 
-    public static List<Reg0600> createReg0600List(){
+    public static List<Reg0600> createReg0600List() {
         List<Reg0600> list = new LinkedList<>();
         Reg0600 reg;
 
@@ -537,7 +539,7 @@ public class Bloco0Test {
         return list;
     }
 
-//    private static Reg0990 createReg0990() {
-//        return new Reg0990(60L);
-//    }
+    private static Reg0990 createReg0990() {
+        return new Reg0990(60L);
+    }
 }

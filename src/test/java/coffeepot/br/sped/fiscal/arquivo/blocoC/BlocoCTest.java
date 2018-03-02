@@ -45,7 +45,10 @@ import coffeepot.br.sped.fiscal.tipos.DocumentoImportacao;
 import coffeepot.br.sped.fiscal.tipos.EmissaoDocumento;
 import coffeepot.br.sped.fiscal.tipos.Frete;
 import coffeepot.br.sped.fiscal.tipos.IndicadorMovimento;
+import coffeepot.br.sped.fiscal.tipos.ModeloDocumentoArecadacao;
+import coffeepot.br.sped.fiscal.tipos.MotivoRessarcimento;
 import coffeepot.br.sped.fiscal.tipos.Operacao;
+import coffeepot.br.sped.fiscal.tipos.ResponsalvelRetencaoIcmsSt;
 import coffeepot.br.sped.fiscal.tipos.SituacaoDocumento;
 import coffeepot.br.sped.fiscal.tipos.TipoTituloCredito;
 import coffeepot.br.sped.fiscal.tipos.TipoTransporte;
@@ -144,11 +147,11 @@ public class BlocoCTest {
 
         reg.setRegC105(rc105);
         reg.setRegC110List(createRegC110List());
-        reg.setRegC120List(createRegC120List());
-        reg.setRegC130(createRegC130());
-        reg.setRegC140(createRegC140());
-        reg.setRegC160(createRegC160());
-        reg.setRegC165List(createRegC165List());
+        //reg.setRegC120List(createRegC120List());
+        //reg.setRegC130(createRegC130());
+        //reg.setRegC140(createRegC140());
+        //reg.setRegC160(createRegC160());
+        //reg.setRegC165List(createRegC165List());
         reg.setRegC170List(createRegC170List());
         reg.setRegC190List(createRegC190List());
         reg.setRegC195List(createRegC195List());
@@ -175,8 +178,8 @@ public class BlocoCTest {
         reg.setRegC112List(createRegC112List());
         reg.setRegC113List(createRegC113List());
         reg.setRegC114List(createRegC114List());
-        reg.setRegC115List(createRegC115List());
-        reg.setRegC116List(createRegC116List());
+        //reg.setRegC115List(createRegC115List());
+        //reg.setRegC116List(createRegC116List());
         //--
         return reg;
     }
@@ -192,7 +195,7 @@ public class BlocoCTest {
     public static RegC111 createRegC111() {
         RegC111 reg = new RegC111();
         reg.setIndProc(RegC111.OrigemProcesso.SEFAZ);
-        reg.setNumProc("Numero processo 1321654");
+        reg.setNumProc("123456789012345");
         return reg;
     }
 
@@ -234,6 +237,7 @@ public class BlocoCTest {
         reg.setNumDoc(123L);
         reg.setSer("1");
         reg.setSub(1);
+        reg.setChvDoce("33180336293264000128550010000000171507577876");
         return reg;
     }
 
@@ -247,10 +251,10 @@ public class BlocoCTest {
 
     public static RegC114 createRegC114() {
         RegC114 reg = new RegC114();
-        reg.setCodMod(DocumentoFiscal.M16);
+        reg.setCodMod(DocumentoFiscal.M55);
         reg.setDtDoc(LocalDate.now());
         reg.setEcfCx(1);
-        reg.setEcfFab("FAB000000000000000000001");
+        reg.setEcfFab("FAB000000000000000001");
         reg.setNumDoc(123L);
         return reg;
     }
@@ -356,8 +360,8 @@ public class BlocoCTest {
     public static RegC160 createRegC160() {
         RegC160 reg = new RegC160();
         reg.setCodPart("0001");
-        reg.setPesoBrt(222.222);
-        reg.setPesoLiq(200.333);
+        reg.setPesoBrt(222.22);
+        reg.setPesoLiq(200.33);
         reg.setQtdVol(15);
         reg.setUfId("ES");
         reg.setVeicId("MPA-1000");
@@ -408,13 +412,13 @@ public class BlocoCTest {
         reg.setAliqSt(1.09);
         reg.setCfop(6101);
         reg.setCodCta("0001");
-        reg.setCodEnq("1313");
+        reg.setCodEnq("999");
         reg.setCodItem("123");
         reg.setCodNat("123");
-        reg.setCstCofins("000");
+        reg.setCstCofins("01");
         reg.setCstIcms("000");
-        reg.setCstIpi("00");
-        reg.setCstPis("00");
+        reg.setCstIpi("03");
+        reg.setCstPis("04");
         reg.setDescrCompl("descr compl");
         reg.setIndApur(ApuracaoIpi.MENSAL);
         reg.setIndMov(Boolean.TRUE);
@@ -436,15 +440,15 @@ public class BlocoCTest {
         reg.setVlItem(123.12);
         reg.setVlPis(12.12);
 
-        reg.setRegC171List(createRegC171List());
-        reg.setRegC172List(createRegC172List());
-        reg.setRegC173List(createRegC173List());
-        reg.setRegC174List(createRegC174List());
-        reg.setRegC175List(createRegC175List());
+        //reg.setRegC171List(createRegC171List());
+        //reg.setRegC172List(createRegC172List());
+        //reg.setRegC173List(createRegC173List());
+        //reg.setRegC174List(createRegC174List());
+        //reg.setRegC175List(createRegC175List());
         reg.setRegC176List(createRegC176List());
-        reg.setRegC177(createRegC177());
-        reg.setRegC178(createRegC178());
-        reg.setRegC179(createRegC179());
+        //reg.setRegC177(createRegC177());
+        //reg.setRegC178(createRegC178());
+        //reg.setRegC179(createRegC179());
 
         return reg;
     }
@@ -551,6 +555,24 @@ public class BlocoCTest {
         reg.setSerUltE("1");
         reg.setVlUnitBcSt(12.12);
         reg.setVlUnitUltE(12.12);
+        reg.setVlUnitBcSt(12.12);
+        reg.setChaveNfeUltE("");
+        reg.setNumItemUltE(1L);
+        reg.setVlUnitBcIcmsUltE(12.12);
+        reg.setAliqIcmsUltE(12.12);
+        reg.setVlUnitLimiteBcIcmsUltE(12.12);
+        reg.setVlUnitIcmsUltE(12.12);
+        reg.setAliqStUltE(12.12);
+        reg.setVlUnitRes(12.12);
+        reg.setCodRespRet(ResponsalvelRetencaoIcmsSt.REMETENTE_DIRETO);
+        reg.setCodMotRes(MotivoRessarcimento.OUTROS);
+        reg.setChaveNfeRet("");
+        reg.setCodPartNfeRet("");
+        reg.setSerNfeRet("");
+        reg.setNumNfeRet(12L);
+        reg.setItemNfeRet(1L);
+        reg.setCodDa(ModeloDocumentoArecadacao.GNRE);
+        reg.setNumDa("");
         return reg;
     }
 
