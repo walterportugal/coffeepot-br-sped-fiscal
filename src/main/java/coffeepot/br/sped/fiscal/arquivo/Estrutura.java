@@ -34,6 +34,7 @@ import coffeepot.br.sped.fiscal.arquivo.blocoD.BlocoD;
 import coffeepot.br.sped.fiscal.arquivo.blocoE.BlocoE;
 import coffeepot.br.sped.fiscal.arquivo.blocoG.BlocoG;
 import coffeepot.br.sped.fiscal.arquivo.blocoH.BlocoH;
+import coffeepot.br.sped.fiscal.arquivo.blocoK.BlocoK;
 
 /**
  * Estrutura do Sped Fiscal.
@@ -70,6 +71,7 @@ import coffeepot.br.sped.fiscal.arquivo.blocoH.BlocoH;
     @Field(name = "blocoE"),
     @Field(name = "blocoG"),
     @Field(name = "blocoH"),
+    @Field(name = "blocoK"),
     @Field(name = "bloco1"),
     @Field(name = "bloco9")
 })
@@ -82,6 +84,7 @@ public class Estrutura {
     private BlocoE blocoE;
     private BlocoG blocoG;
     private BlocoH blocoH;
+    private BlocoK blocoK;
     private Bloco1 bloco1;
     private Bloco9 bloco9;
 
@@ -131,6 +134,14 @@ public class Estrutura {
 
     public void setBlocoH(BlocoH blocoH) {
         this.blocoH = blocoH;
+    }
+    
+    public BlocoK getBlocoK() {
+        return blocoK;
+    }
+
+    public void setBlocoK(BlocoK blocoK) {
+        this.blocoK = blocoK;
     }
 
     public Bloco1 getBloco1() {
