@@ -63,7 +63,7 @@ import coffeepot.br.sped.fiscal.writer.SpedFiscalWriter;
 //private [^+ ]+ regex util.
 /**
  *
- * @author Jeandeson O. Merelis
+ * @author Jeandeson O. Merelis &amp; Edivaldo Merlo Stens
  */
 public class EstruturaTest2 {
 

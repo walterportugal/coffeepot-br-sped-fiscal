@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 - Edivaldo Merlo Stens
+ * Copyright 2013 - Jeandeson O. Merelis
  */
 package coffeepot.br.sped.fiscal.arquivo.blocoK;
 
@@ -27,8 +27,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -36,7 +34,6 @@ import coffeepot.br.sped.fiscal.arquivo.EstruturaTest;
 import coffeepot.br.sped.fiscal.tipos.IndicadorMovimento;
 import coffeepot.br.sped.fiscal.util.RecordCounter;
 import coffeepot.br.sped.fiscal.writer.SpedFiscalWriter;
-import java.time.LocalDate;
 import org.junit.Test;
 
 /**
@@ -48,7 +45,7 @@ public class BlocoKTest {
     @Test
     public void testBloco0() throws Exception {
 
-        System.out.println("**** Teste de escrita do BLOCO E inteiro ***");
+        System.out.println("**** Teste de escrita do BLOCO K inteiro ***");
 
         BlocoK bloco = createBlocoK();
 

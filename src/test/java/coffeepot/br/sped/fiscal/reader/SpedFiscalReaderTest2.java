@@ -57,7 +57,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Jeandeson O. Merelis
+ * @author Jeandeson O. Merelis &amp; Edivaldo Merlo Stens
  */
 public class SpedFiscalReaderTest2 {
 
