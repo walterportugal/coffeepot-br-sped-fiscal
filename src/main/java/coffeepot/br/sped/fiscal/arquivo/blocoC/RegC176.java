@@ -26,6 +26,9 @@ package coffeepot.br.sped.fiscal.arquivo.blocoC;
 
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
+import coffeepot.br.sped.fiscal.tipos.ModeloDocumentoArecadacao;
+import coffeepot.br.sped.fiscal.tipos.ResponsalvelRetencaoIcmsSt;
+import coffeepot.br.sped.fiscal.tipos.MotivoRessarcimento;
 import java.time.LocalDate;
 import lombok.Getter;
 import lombok.Setter;
@@ -43,7 +46,24 @@ import lombok.Setter;
     @Field(name = "codPartUltE"),
     @Field(name = "quantUltE"),
     @Field(name = "vlUnitUltE"),
-    @Field(name = "vlUnitBcSt")
+    @Field(name = "vlUnitBcSt"),
+    @Field(name = "chaveNfeUltE"),
+    @Field(name = "numItemUltE"),
+    @Field(name = "vlUnitBcIcmsUltE"),
+    @Field(name = "aliqIcmsUltE"),
+    @Field(name = "vlUnitLimiteBcIcmsUltE"),
+    @Field(name = "vlUnitIcmsUltE"),
+    @Field(name = "aliqStUltE"),
+    @Field(name = "vlUnitRes"),
+    @Field(name = "codRespRet"),
+    @Field(name = "codMotRes"),
+    @Field(name = "chaveNfeRet"),
+    @Field(name = "codPartNfeRet"),
+    @Field(name = "serNfeRet"),
+    @Field(name = "numNfeRet"),
+    @Field(name = "itemNfeRet"),
+    @Field(name = "codDa"),
+    @Field(name = "numDa"),
 })
 @Getter
 @Setter
@@ -57,5 +77,22 @@ public class RegC176 {
     private Double quantUltE;
     private Double vlUnitUltE;
     private Double vlUnitBcSt;
+    private String chaveNfeUltE;
+    private Long numItemUltE;
+    private Double vlUnitBcIcmsUltE;
+    private Double aliqIcmsUltE;
+    private Double vlUnitLimiteBcIcmsUltE;
+    private Double vlUnitIcmsUltE;
+    private Double aliqStUltE;
+    private Double vlUnitRes;
+    private ResponsalvelRetencaoIcmsSt codRespRet;
+    private MotivoRessarcimento codMotRes;
+    private String chaveNfeRet;
+    private String codPartNfeRet;
+    private String serNfeRet;
+    private Long numNfeRet;
+    private Long itemNfeRet;
+    private ModeloDocumentoArecadacao codDa;
+    private String numDa;
 
 }
