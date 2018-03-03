@@ -13,7 +13,6 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
@@ -54,6 +53,7 @@ import coffeepot.br.sped.fiscal.tipos.NaturezaContaContabil;
 import coffeepot.br.sped.fiscal.tipos.Perfil;
 import coffeepot.br.sped.fiscal.tipos.TipoContaContabil;
 import coffeepot.br.sped.fiscal.tipos.VersaoLayout;
+import coffeepot.br.sped.fiscal.util.RecordCounter;
 import coffeepot.br.sped.fiscal.util.Util;
 import coffeepot.br.sped.fiscal.writer.SpedFiscalWriter;
 import java.time.LocalDate;
@@ -68,7 +68,6 @@ public class Bloco0Test {
      verifique a documentação do Sped Fiscal para maiores detalhes,
      * você também pode conferir a classe do bloco que também tem o mapeamento e as cardinalidades.
      */
-
     @Test
     public void testBloco0() throws Exception {
         System.out.println("*** Teste de escrita do BLOCO 0 inteiro ***");
@@ -167,7 +166,7 @@ public class Bloco0Test {
         bloco0.setReg0460List(createReg0460List());
         bloco0.setReg0500List(createReg0500List());
         bloco0.setReg0600List(createReg0600List());
-        bloco0.setReg0990(createReg0990());
+        bloco0.setReg0990(createReg0990(bloco0));
         return bloco0;
     }
 
@@ -297,14 +296,14 @@ public class Bloco0Test {
 
         Reg0175 r0175 = new Reg0175();
         r0175.setDtAlt(LocalDate.now());
-        r0175.setNrCamp(3);
+        r0175.setNrCamp(Reg0175.NumeroCampo.NOME);
         r0175.setContAnt("Joana da silva");
 
         list.add(r0175);
 
         r0175 = new Reg0175();
         r0175.setDtAlt(LocalDate.now());
-        r0175.setNrCamp(10);
+        r0175.setNrCamp(Reg0175.NumeroCampo.LOGRADOURO);
         r0175.setContAnt("Rua Sem Nome");
         list.add(r0175);
 
@@ -539,7 +538,10 @@ public class Bloco0Test {
         return list;
     }
 
-    private static Reg0990 createReg0990() {
-        return new Reg0990(60L);
+    private static Reg0990 createReg0990(Bloco0 bloco) {
+        long sizeOf = RecordCounter.count(bloco);
+        Reg0990 reg0990 = new Reg0990(sizeOf + 1);
+
+        return reg0990;
     }
 }
