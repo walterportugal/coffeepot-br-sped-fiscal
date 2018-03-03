@@ -33,6 +33,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 
 /**
  *
@@ -56,14 +57,14 @@ public class SpedFiscalWriter {
     }
 
     /**
-     * Este construtor cria um objeto BufferedWriter com charSet ISO-8859-1,
+     * Este construtor cria um objeto BufferedWriter com charSet UTF-8,
      * onde o local de saída é o arquivo que você fornece como parâmetro.
      *
      * @param file
      * @throws IOException
      */
     public SpedFiscalWriter(File file) throws IOException {
-        Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "ISO-8859-1"));
+        Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
         this.beanWriter = WriterFactory.createObjectWriter(fw);
     }
 
