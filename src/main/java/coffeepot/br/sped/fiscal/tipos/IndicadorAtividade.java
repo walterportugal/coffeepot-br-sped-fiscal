@@ -3,6 +3,8 @@
  */
 package coffeepot.br.sped.fiscal.tipos;
 
+import org.apache.commons.lang3.StringUtils;
+
 /*
  * #%L
  * coffeepot-br-sped-fiscal
@@ -22,20 +24,17 @@ package coffeepot.br.sped.fiscal.tipos;
  * limitations under the License.
  * #L%
  */
-
-
 /**
  * Indicador de tipo de atividade.
  *
  * @author Jeandeson O. Merelis
  */
-public enum IndicadorAtividade implements EnumCodificado{
+public enum IndicadorAtividade implements EnumCodificado {
 
     /**
      * Industrial ou equiparado a industrial.
      */
     INDUSTRIAL("0"),
-
     /**
      * Outros.
      */
@@ -50,5 +49,29 @@ public enum IndicadorAtividade implements EnumCodificado{
     @Override
     public String getCodigo() {
         return codigo;
+    }
+
+    public static IndicadorAtividade valueOfStripToNull(final String v) {
+        if (StringUtils.stripToNull(v) == null) {
+            return null;
+        }
+        return IndicadorAtividade.valueOf(v);
+    }
+
+    public static IndicadorAtividade valueOfCodigoStripToNull(final String codigo) {
+        if (StringUtils.stripToNull(codigo) == null) {
+            return null;
+        }
+
+        return valueOfCodigo(codigo);
+    }
+
+    public static IndicadorAtividade valueOfCodigo(final String codigo) {
+        for (IndicadorAtividade n : values()) {
+            if (n.getCodigo().equalsIgnoreCase(codigo)) {
+                return n;
+            }
+        }
+        return null;
     }
 }

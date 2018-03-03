@@ -3,11 +3,15 @@
  */
 package coffeepot.br.sped.fiscal.tipos;
 
+import org.apache.commons.lang3.StringUtils;
+
 /*
- * #%L
- * coffeepot-br-sped-fiscal
+* #%L
+ * * coffeepot-br-sped-fiscal
+ * *
  * %%
  * Copyright (C) 2013 Jeandeson O. Merelis
+ * *
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +26,6 @@ package coffeepot.br.sped.fiscal.tipos;
  * limitations under the License.
  * #L%
  */
-
-
 /**
  * Finalidade do arquivo.
  *
@@ -49,5 +51,29 @@ public enum FinalidadeArquivo implements EnumCodificado {
     @Override
     public String getCodigo() {
         return codigo;
+    }
+
+    public static FinalidadeArquivo valueOfStripToNull(final String v) {
+        if (StringUtils.stripToNull(v) == null) {
+            return null;
+        }
+        return FinalidadeArquivo.valueOf(v);
+    }
+
+    public static FinalidadeArquivo valueOfCodigoStripToNull(final String codigo) {
+        if (StringUtils.stripToNull(codigo) == null) {
+            return null;
+        }
+
+        return valueOfCodigo(codigo);
+    }
+
+    public static FinalidadeArquivo valueOfCodigo(final String codigo) {
+        for (FinalidadeArquivo n : values()) {
+            if (n.getCodigo().equalsIgnoreCase(codigo)) {
+                return n;
+            }
+        }
+        return null;
     }
 }

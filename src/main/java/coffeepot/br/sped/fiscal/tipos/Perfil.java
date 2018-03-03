@@ -3,6 +3,8 @@
  */
 package coffeepot.br.sped.fiscal.tipos;
 
+import org.apache.commons.lang3.StringUtils;
+
 /*
  * #%L
  * coffeepot-br-sped-fiscal
@@ -22,14 +24,12 @@ package coffeepot.br.sped.fiscal.tipos;
  * limitations under the License.
  * #L%
  */
-
-
 /**
  * Perfil de apresentação do arquivo fiscal.
  *
  * @author Jeandeson O. Merelis
  */
-public enum Perfil implements EnumCodificado{
+public enum Perfil implements EnumCodificado {
 
     A("A"),
     B("B"),
@@ -44,6 +44,30 @@ public enum Perfil implements EnumCodificado{
     @Override
     public String getCodigo() {
         return codigo;
+    }
+
+    public static Perfil valueOfStripToNull(final String v) {
+        if (StringUtils.stripToNull(v) == null) {
+            return null;
+        }
+        return Perfil.valueOf(v);
+    }
+
+    public static Perfil valueOfCodigoStripToNull(final String codigo) {
+        if (StringUtils.stripToNull(codigo) == null) {
+            return null;
+        }
+
+        return valueOfCodigo(codigo);
+    }
+
+    public static Perfil valueOfCodigo(final String codigo) {
+        for (Perfil n : values()) {
+            if (n.getCodigo().equalsIgnoreCase(codigo)) {
+                return n;
+            }
+        }
+        return null;
     }
 
 }
