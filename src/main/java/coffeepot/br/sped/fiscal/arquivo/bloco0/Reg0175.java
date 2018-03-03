@@ -22,10 +22,9 @@ package coffeepot.br.sped.fiscal.arquivo.bloco0;
  * limitations under the License.
  * #L%
  */
-
-
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
+import coffeepot.br.sped.fiscal.tipos.EnumCodificado;
 import java.time.LocalDate;
 import lombok.Getter;
 import lombok.Setter;
@@ -45,7 +44,35 @@ import lombok.Setter;
 public class Reg0175 {
 
     private LocalDate dtAlt;
-    private int nrCamp;
+    private NumeroCampo nrCamp;
     private String contAnt;
 
+    /**
+     * Indicador de Número do campo alterado, referenciado no registro C175.
+     *
+     * @author Edivaldo Merlo Stens
+     */
+    public enum NumeroCampo implements EnumCodificado {
+        NOME("03"),
+        CODIGO_PAIS("04"),
+        CNPJ("05"),
+        CPF("06"),
+        CODIGO_MUNICIPIO("08"),
+        INSCRICAO_SUFRAMA("09"),
+        LOGRADOURO("10"),
+        NUMERO("11"),
+        COMPLEMENTO("12"),
+        BAIRRO("13");
+
+        private final String codigo;
+
+        private NumeroCampo(String codigo) {
+            this.codigo = codigo;
+        }
+
+        @Override
+        public String getCodigo() {
+            return String.valueOf(codigo);
+        }
+    }
 }
