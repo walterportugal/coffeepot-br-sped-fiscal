@@ -26,14 +26,16 @@ package coffeepot.br.sped.fiscal.arquivo.blocoK;
 
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- * @author Djeison A. Selzlein &amp; Anderson A. Mallmann
+ * @author Djeison A. Selzlein &amp; Anderson A. Mallmann &amp; Edivaldo Merlo Stens
  */
 @Record(fields = {
     @Field(name = "regK001"),
+    @Field(name = "regK100List"),
     @Field(name = "regK990")
 })
 @Getter
@@ -41,6 +43,7 @@ import lombok.Setter;
 public class BlocoK {
 
     private RegK001 regK001;
+    private List<RegK100> regK100List;
     private RegK990 regK990;
 
 }

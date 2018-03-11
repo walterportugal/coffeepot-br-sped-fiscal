@@ -1,0 +1,66 @@
+|0000|012|0|11032018|11032018|Globomar Comercial Ltda|36293264000128||RJ|84257443|3302403|||A|0|
+|0001|0|
+|0005|Nome fantasia|29700000|Rua Sem Nome|s/n|Complemento|Bairro|2777775555|2777775555|email@email.com|
+|0015|RJ|IESUBSTITUTORJ|
+|0015|MG|IESUBSTITUTOMG|
+|0015|SP|IESUBSTITUTOSP|
+|0100|Contador João|12312312399|CRC1516165161|12123123012399|29700000|Rua Sem Nome|s/n|Complemento|Bairro|2777775555|2777775555|email@email.com|0000000|
+|0150|42330c7d-e997-4ef2-9275-1b5dea9cb795|João da Silva|1|12123123000199|12345678901|0IE0001234567A|3302403||Rua Qualquer|S/N|Complemento|Bairro|
+|0175|11032018|03|Joana da silva|
+|0175|11032018|10|Rua Sem Nome|
+|0150|315c2444-15b4-4d45-bb37-227568a2587c|João da Silva|1|12123123000199|12345678901|0IE0001234567A|3302403||Rua Qualquer|S/N|Complemento|Bairro|
+|0175|11032018|03|Joana da silva|
+|0175|11032018|10|Rua Sem Nome|
+|0150|2784e419-2ca0-4507-a8c1-fe277b070615|João da Silva|1|12123123000199|12345678901|0IE0001234567A|3302403||Rua Qualquer|S/N|Complemento|Bairro|
+|0175|11032018|03|Joana da silva|
+|0175|11032018|10|Rua Sem Nome|
+|0190|un|Unidade|
+|0190|kg|Kilograma|
+|0190|m|Metro|
+|0190|cx|Caixa|
+|0190|kwh|Kilowatts/hora|
+|0200|CODIGO ITEM|Descrição do item|CODIGO DE BARRAS|CODIGO ANTERIOR|un|00|88888889|001|80||17||
+|0205|Descricao anterior|11032018|11032018|CODIGO ANTERIOR|
+|0205|Descricao anterior 2|11032018|11032018|CODIGO ANTERIOR 2|
+|0205|Descricao anterior 3|11032018|11032018|CODIGO ANTERIOR 3|
+|0206|CodigoComb|
+|0210|123456|124,252|perda|
+|0210|654321|321,654|perda2|
+|0220|cx|12|
+|0220|kg|1000|
+|0200|CODIGO ITEM|Descrição do item|CODIGO DE BARRAS|CODIGO ANTERIOR|un|00|88888889|001|80||17||
+|0205|Descricao anterior|11032018|11032018|CODIGO ANTERIOR|
+|0205|Descricao anterior 2|11032018|11032018|CODIGO ANTERIOR 2|
+|0205|Descricao anterior 3|11032018|11032018|CODIGO ANTERIOR 3|
+|0206|CodigoComb|
+|0210|123456|124,252|perda|
+|0210|654321|321,654|perda2|
+|0220|cx|12|
+|0220|kg|1000|
+|0200|CODIGO ITEM|Descrição do item|CODIGO DE BARRAS|CODIGO ANTERIOR|un|00|88888889|001|80||17||
+|0205|Descricao anterior|11032018|11032018|CODIGO ANTERIOR|
+|0205|Descricao anterior 2|11032018|11032018|CODIGO ANTERIOR 2|
+|0205|Descricao anterior 3|11032018|11032018|CODIGO ANTERIOR 3|
+|0206|CodigoComb|
+|0210|123456|124,252|perda|
+|0210|654321|321,654|perda2|
+|0220|cx|12|
+|0220|kg|1000|
+|0300|Cod ind bem|1|Descr item|Cod prnc|COD CONTA CONTABIL|3|
+|0305|Cod ccus|Func|12|
+|0300|Cod ind bem|1|Descr item|Cod prnc|COD CONTA CONTABIL|3|
+|0305|Cod ccus|Func|12|
+|0300|Cod ind bem|1|Descr item|Cod prnc|COD CONTA CONTABIL|3|
+|0305|Cod ccus|Func|12|
+|0400|1|Vendas|
+|0400|2|Industrialização|
+|0400|3|Devolução|
+|0450|COD1|Texto da informação complementar|
+|0450|COD2|Texto da informação complementar 2|
+|0460|COD1|Texto da observação|
+|0460|COD2|Texto da observação 2|
+|0500|11032018|01|S|1|cod conta|Nome da conta|
+|0500|11032018|02|A|1|cod conta 2|Nome da conta 2|
+|0600|11032018|codigo centro custo|nome centro custo|
+|0600|11032018|codigo centro custo 2|nome centro custo 2|
+|0990|66|

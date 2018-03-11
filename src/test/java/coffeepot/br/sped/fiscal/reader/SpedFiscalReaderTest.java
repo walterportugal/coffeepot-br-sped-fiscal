@@ -40,6 +40,7 @@ import coffeepot.br.sped.fiscal.arquivo.bloco0.Bloco0Test;
 import coffeepot.br.sped.fiscal.arquivo.bloco0.Reg0200;
 import coffeepot.br.sped.fiscal.arquivo.blocoC.BlocoC;
 import coffeepot.br.sped.fiscal.arquivo.blocoD.BlocoD;
+import coffeepot.br.sped.fiscal.config.Config;
 import coffeepot.br.sped.fiscal.tipos.VersaoLayout;
 import coffeepot.br.sped.fiscal.writer.SpedFiscalWriter;
 import java.io.File;
@@ -58,6 +59,7 @@ import static org.junit.Assert.*;
  *
  * @author Jeandeson O. Merelis
  */
+@Deprecated
 public class SpedFiscalReaderTest {
 
     //TODO: Fazer validação dos dados lidos, campo a campo.
@@ -80,124 +82,120 @@ public class SpedFiscalReaderTest {
     public void tearDown() {
     }
 
-
-
-    @Test
+    //@Test
     public void read_semInformarVersao_temQueAutodetectarVersaoComoVersao002() throws Exception {
-        Bloco0 b = Bloco0Test.createBloco0();
-        b.getReg0000().setCodVer( VersaoLayout.VERSAO_002 );
-
+        Bloco0 b = Bloco0Test.getDataBloco0();
+        b.getReg0000().setCodVer(VersaoLayout.VERSAO_002);
 
         Reg0200 reg = new Reg0200();
-        reg.setAliqIcms( 17d );
-        reg.setCodAntItem( "CODIGO ANTERIOR" );
-        reg.setCodBarra( "CODIGO DE BARRAS" );
-        reg.setCodGen( "80" );
-        reg.setCodItem( "CODIGO ITEM" );
-        reg.setCodNcm( "12345678" );
-        reg.setDescrItem( "Descrição do item" );
-        reg.setExIpi( "001" );
-        reg.setTipoItem( "00" );
-        reg.setUnidInv( "un" );
-        reg.setCest( "123456" );
+        reg.setAliqIcms(17d);
+        reg.setCodAntItem("CODIGO ANTERIOR");
+        reg.setCodBarra("CODIGO DE BARRAS");
+        reg.setCodGen("80");
+        reg.setCodItem("CODIGO ITEM");
+        reg.setCodNcm("12345678");
+        reg.setDescrItem("Descrição do item");
+        reg.setExIpi("001");
+        reg.setTipoItem("00");
+        reg.setUnidInv("un");
+        reg.setCest("123456");
 
-        b.getReg0200List().add( 0, reg );
+        b.getReg0200List().add(0, reg);
 
         StringWriter sw = new StringWriter();
-        SpedFiscalWriter w = new SpedFiscalWriter( sw, VersaoLayout.VERSAO_002 );
+        SpedFiscalWriter w = new SpedFiscalWriter(sw, VersaoLayout.VERSAO_002);
 
-        w.write( b );
+        w.write(b);
         w.flush();
         w.close();
 
-        StringReader sr = new StringReader( sw.toString() );
+        StringReader sr = new StringReader(sw.toString());
 
-        SpedFiscalReader r = new SpedFiscalReader( sr );
+        SpedFiscalReader r = new SpedFiscalReader(sr);
         Bloco0 b0 = r.parseToBloco0();
 
-        assertEquals( 2 , r.getVersion());
-        assertEquals( VersaoLayout.VERSAO_002, b0.getReg0000().getCodVer() );
-        assertNull( b0.getReg0200List().get( 0 ).getCest() );
+        assertEquals(2, r.getVersion());
+        assertEquals(VersaoLayout.VERSAO_002, b0.getReg0000().getCodVer());
+        assertNull(b0.getReg0200List().get(0).getCest());
     }
 
-    @Test
+    //@Test
     public void read_semInformarVersao_temQueAutodetectarVersaoComoVersao010() throws Exception {
-        Bloco0 b = Bloco0Test.createBloco0();
-        b.getReg0000().setCodVer( VersaoLayout.VERSAO_010 );
+        Bloco0 b = Bloco0Test.getDataBloco0();
+        b.getReg0000().setCodVer(VersaoLayout.VERSAO_010);
 
         Reg0200 reg = new Reg0200();
-        reg.setAliqIcms( 17d );
-        reg.setCodAntItem( "CODIGO ANTERIOR" );
-        reg.setCodBarra( "CODIGO DE BARRAS" );
-        reg.setCodGen( "80" );
-        reg.setCodItem( "CODIGO ITEM" );
-        reg.setCodNcm( "12345678" );
-        reg.setDescrItem( "Descrição do item" );
-        reg.setExIpi( "001" );
-        reg.setTipoItem( "00" );
-        reg.setUnidInv( "un" );
-        reg.setCest( "123456" );
+        reg.setAliqIcms(17d);
+        reg.setCodAntItem("CODIGO ANTERIOR");
+        reg.setCodBarra("CODIGO DE BARRAS");
+        reg.setCodGen("80");
+        reg.setCodItem("CODIGO ITEM");
+        reg.setCodNcm("12345678");
+        reg.setDescrItem("Descrição do item");
+        reg.setExIpi("001");
+        reg.setTipoItem("00");
+        reg.setUnidInv("un");
+        reg.setCest("123456");
 
-        b.getReg0200List().add( 0, reg );
+        b.getReg0200List().add(0, reg);
 
         StringWriter sw = new StringWriter();
-        SpedFiscalWriter w = new SpedFiscalWriter( sw, VersaoLayout.VERSAO_010 );
+        SpedFiscalWriter w = new SpedFiscalWriter(sw, VersaoLayout.VERSAO_010);
 
-        w.write( b );
+        w.write(b);
         w.flush();
         w.close();
 
-        StringReader sr = new StringReader( sw.toString() );
+        StringReader sr = new StringReader(sw.toString());
 
-        SpedFiscalReader r = new SpedFiscalReader( sr );
+        SpedFiscalReader r = new SpedFiscalReader(sr);
         Bloco0 b0 = r.parseToBloco0();
 
-        assertEquals( 10 , r.getVersion());
-        assertEquals( VersaoLayout.VERSAO_010, b0.getReg0000().getCodVer() );
-        assertNull( b0.getReg0200List().get( 0 ).getCest() );
+        assertEquals(10, r.getVersion());
+        assertEquals(VersaoLayout.VERSAO_010, b0.getReg0000().getCodVer());
+        assertNull(b0.getReg0200List().get(0).getCest());
     }
 
-    @Test
+    //@Test
     public void read_semInformarVersao_temQueAutodetectarVersaoComoVersao011() throws Exception {
-        Bloco0 b = Bloco0Test.createBloco0();
-        b.getReg0000().setCodVer( VersaoLayout.VERSAO_011 );
+        Bloco0 b = Bloco0Test.getDataBloco0();
+        b.getReg0000().setCodVer(VersaoLayout.VERSAO_011);
 
         Reg0200 reg = new Reg0200();
-        reg.setAliqIcms( 17d );
-        reg.setCodAntItem( "CODIGO ANTERIOR" );
-        reg.setCodBarra( "CODIGO DE BARRAS" );
-        reg.setCodGen( "80" );
-        reg.setCodItem( "CODIGO ITEM" );
-        reg.setCodNcm( "12345678" );
-        reg.setDescrItem( "Descrição do item" );
-        reg.setExIpi( "001" );
-        reg.setTipoItem( "00" );
-        reg.setUnidInv( "un" );
-        reg.setCest( "123456" );
+        reg.setAliqIcms(17d);
+        reg.setCodAntItem("CODIGO ANTERIOR");
+        reg.setCodBarra("CODIGO DE BARRAS");
+        reg.setCodGen("80");
+        reg.setCodItem("CODIGO ITEM");
+        reg.setCodNcm("12345678");
+        reg.setDescrItem("Descrição do item");
+        reg.setExIpi("001");
+        reg.setTipoItem("00");
+        reg.setUnidInv("un");
+        reg.setCest("123456");
 
-        b.getReg0200List().add( 0, reg );
+        b.getReg0200List().add(0, reg);
 
         StringWriter sw = new StringWriter();
-        SpedFiscalWriter w = new SpedFiscalWriter( sw, VersaoLayout.VERSAO_011 );
+        SpedFiscalWriter w = new SpedFiscalWriter(sw, VersaoLayout.VERSAO_011);
 
-        w.write( b );
+        w.write(b);
         w.flush();
         w.close();
 
-        StringReader sr = new StringReader( sw.toString() );
+        StringReader sr = new StringReader(sw.toString());
 
-        SpedFiscalReader r = new SpedFiscalReader( sr );
+        SpedFiscalReader r = new SpedFiscalReader(sr);
         Bloco0 b0 = r.parseToBloco0();
 
-        assertEquals( 11 , r.getVersion());
-        assertEquals( VersaoLayout.VERSAO_011, b0.getReg0000().getCodVer() );
-        assertEquals( "123456", b0.getReg0200List().get( 0 ).getCest() );
+        assertEquals(11, r.getVersion());
+        assertEquals(VersaoLayout.VERSAO_011, b0.getReg0000().getCodVer());
+        assertEquals("123456", b0.getReg0200List().get(0).getCest());
     }
 
-
-    @Test
+    //@Test
     public void temQueLerSomenteOBlocoC() throws Exception {
-        File file = new File("SpedFiscalTest.tmp");
+        File file = new File(Config.TEST_BLOCO_OUT_DIR + "SpedFiscalTest2.txt");
 
 //        try (BufferedReader br = new BufferedReader(new FileReader(file))){
         try (FileReader fr = new FileReader(file)) {
@@ -208,9 +206,9 @@ public class SpedFiscalReaderTest {
 
     }
 
-    @Test
+    //@Test
     public void temQueLerBlocoCeDSeparadamente() throws Exception {
-        File file = new File("SpedFiscalTest.tmp");
+        File file = new File(Config.TEST_BLOCO_OUT_DIR + "SpedFiscalTest2.txt");
 
 //        try (BufferedReader br = new BufferedReader(new FileReader(file))){
         try (FileReader fr = new FileReader(file)) {
@@ -223,10 +221,10 @@ public class SpedFiscalReaderTest {
 
     }
 
-    @Test
+    //@Test
     public void temQueLerTodoArquivo() throws Exception {
 
-        File file = new File("SpedFiscalTest.tmp");
+        File file = new File(Config.TEST_BLOCO_OUT_DIR + "SpedFiscalTest2.txt");
         try (FileReader fr = new FileReader(file)) {
             SpedFiscalReader reader = new SpedFiscalReader(fr);
             EstruturaSemBlocos sped = reader.parseToEstruturaSemBlocos();

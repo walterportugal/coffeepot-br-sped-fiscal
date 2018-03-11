@@ -52,6 +52,7 @@ import lombok.Setter;
 	@Field(name = "vlIcmsRecolher"),
 	@Field(name = "vlSldCredorTransportar"),
 	@Field(name = "debEsp"),
+        //
 	@Field(name = "regE111List"),
 	@Field(name = "regE115List"),
 	@Field(name = "regE116List")
@@ -73,6 +74,7 @@ public class RegE110{
 	private Double vlIcmsRecolher;
 	private Double vlSldCredorTransportar;
 	private Double debEsp;
+        //
 	private List<RegE111> regE111List;
 	private List<RegE115> regE115List;
 	private List<RegE116> regE116List;

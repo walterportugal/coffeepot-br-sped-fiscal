@@ -34,6 +34,7 @@ import coffeepot.br.sped.fiscal.arquivo.blocoD.BlocoD;
 import coffeepot.br.sped.fiscal.arquivo.blocoE.BlocoE;
 import coffeepot.br.sped.fiscal.arquivo.blocoG.BlocoG;
 import coffeepot.br.sped.fiscal.arquivo.blocoH.BlocoH;
+import coffeepot.br.sped.fiscal.arquivo.blocoK.BlocoK;
 import coffeepot.br.sped.fiscal.tipos.VersaoLayout;
 import java.io.IOException;
 import java.io.Reader;
@@ -108,5 +109,11 @@ public class SpedFiscalReader {
         reader.findLineStartsWith("|H001|");
         reader.processUpToTheLineStartsWith("|H990|");
         return reader.parse(BlocoH.class);
+    }
+    
+    public BlocoK parseToBlocoK() throws UnknownRecordException, HandlerParseException, IOException, Exception {
+        reader.findLineStartsWith("|K001|");
+        reader.processUpToTheLineStartsWith("|K990|");
+        return reader.parse(BlocoK.class);
     }
 }

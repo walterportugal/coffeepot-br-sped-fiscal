@@ -42,13 +42,11 @@ package coffeepot.br.sped.fiscal.tipos;
 public class EnumParser {
 
     /**
-     *
+     * 
      * @param <E>
      * @param enumClass
      * @param codigo
-     * @return
-     *
-     * @throws ParseException
+     * @return 
      */
     public static <E extends Enum<E>> E parseEnumCodificado( Class<E> enumClass, String codigo ) {
         if (!EnumCodificado.class.isAssignableFrom( enumClass )) {

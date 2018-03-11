@@ -44,7 +44,8 @@ import lombok.Setter;
 	@Field(name = "numDoc"),
 	@Field(name = "dtDoc"),
 	@Field(name = "codItem"),
-	@Field(name = "vlAjItem")
+	@Field(name = "vlAjItem"),
+	@Field(name = "chvDOCe")
 })
 @Getter
 @Setter
@@ -58,5 +59,6 @@ public class RegE113{
 	private LocalDate dtDoc;
 	private String codItem;
 	private Double vlAjItem;
+	private String chvDOCe;
 
 }

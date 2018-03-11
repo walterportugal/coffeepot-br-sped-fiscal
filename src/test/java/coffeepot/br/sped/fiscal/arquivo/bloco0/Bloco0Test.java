@@ -44,6 +44,7 @@ import coffeepot.bean.wr.typeHandler.HandlerParseException;
  * #L%
  */
 import coffeepot.br.sped.fiscal.arquivo.EstruturaTest;
+import coffeepot.br.sped.fiscal.config.Config;
 import coffeepot.br.sped.fiscal.reader.SpedFiscalReader;
 import coffeepot.br.sped.fiscal.tipos.FinalidadeArquivo;
 import coffeepot.br.sped.fiscal.tipos.IdentificacaoMercadoria;
@@ -53,9 +54,11 @@ import coffeepot.br.sped.fiscal.tipos.NaturezaContaContabil;
 import coffeepot.br.sped.fiscal.tipos.Perfil;
 import coffeepot.br.sped.fiscal.tipos.TipoContaContabil;
 import coffeepot.br.sped.fiscal.tipos.VersaoLayout;
-import coffeepot.br.sped.fiscal.util.RecordCounter;
 import coffeepot.br.sped.fiscal.util.Util;
 import coffeepot.br.sped.fiscal.writer.SpedFiscalWriter;
+import java.io.File;
+import java.lang.reflect.InvocationTargetException;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 
 /**
@@ -71,27 +74,16 @@ public class Bloco0Test {
     @Test
     public void testBloco0() throws Exception {
         System.out.println("*** Teste de escrita do BLOCO 0 inteiro ***");
-        Bloco0 bloco0 = createBloco0();
+        File file = new File(Config.TEST_BLOCO_OUT_DIR + "Bloco0Test.txt");
 
-        try {
-            String file = EstruturaTest.TEST_BLOCO_OUT_DIR + "Bloco0Test.tmp";
-            Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "ISO-8859-1"));
-            SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(fw);
+        Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
+        SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(fw);
 
-            spedFiscalWriter.write(bloco0);
-            spedFiscalWriter.flush();
+        Bloco0 bloco0 = createBloco0(file, spedFiscalWriter);
 
-            // escreve registro 0990
-            long countRecords = Util.countRecords(file, 0);
-            Reg0990 reg0990 = new Reg0990(countRecords + 1);
-            spedFiscalWriter.write(reg0990);
+        spedFiscalWriter.close();
 
-            spedFiscalWriter.flush();
-            spedFiscalWriter.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Bloco0Test.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        System.out.println("Arquivo gerado em: " + file.getAbsolutePath());
     }
 
     @Test
@@ -150,24 +142,28 @@ public class Bloco0Test {
         }
     }
 
-    public static Bloco0 createBloco0() {
-        Bloco0 bloco0 = new Bloco0();
-        bloco0.setReg0000(createReg0000());
-        bloco0.setReg0001(createReg0001());
-        bloco0.setReg0005(createReg0005());
-        bloco0.setReg0015List(createReg0015List());
-        bloco0.setReg0100(createReg0100());
-        bloco0.setReg0150List(createReg0150List());
-        bloco0.setReg0190List(createReg0190List());
-        bloco0.setReg0200List(createReg0200List());
-        bloco0.setReg0300List(createReg0300List());
-        bloco0.setReg0400List(createReg0400List());
-        bloco0.setReg0450List(createReg0450List());
-        bloco0.setReg0460List(createReg0460List());
-        bloco0.setReg0500List(createReg0500List());
-        bloco0.setReg0600List(createReg0600List());
-        bloco0.setReg0990(createReg0990(bloco0));
-        return bloco0;
+    public static Bloco0 createBloco0(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
+        Bloco0 bloco = getDataBloco0();
+        return (Bloco0) Util.createFileFromBloco(bloco, file, spedFiscalWriter);
+    }
+
+    public static Bloco0 getDataBloco0() {
+        Bloco0 bloco = new Bloco0();
+        bloco.setReg0000(createReg0000());
+        bloco.setReg0001(createReg0001());
+        bloco.setReg0005(createReg0005());
+        bloco.setReg0015List(createReg0015List());
+        bloco.setReg0100(createReg0100());
+        bloco.setReg0150List(createReg0150List());
+        bloco.setReg0190List(createReg0190List());
+        bloco.setReg0200List(createReg0200List());
+        bloco.setReg0300List(createReg0300List());
+        bloco.setReg0400List(createReg0400List());
+        bloco.setReg0450List(createReg0450List());
+        bloco.setReg0460List(createReg0460List());
+        bloco.setReg0500List(createReg0500List());
+        bloco.setReg0600List(createReg0600List());
+        return bloco;
     }
 
     @Test
@@ -176,8 +172,8 @@ public class Bloco0Test {
         Reg0000 reg = createReg0000();
 
         try {
-            String file = EstruturaTest.TEST_REG_OUT_DIR + "Reg0000Test.txt";
-            Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "ISO-8859-1"));
+            File file = new File(Config.TEST_REG_OUT_DIR + "Reg0000Test.txt");
+            Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
             SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(fw);
 
             spedFiscalWriter.write(reg);
@@ -185,9 +181,11 @@ public class Bloco0Test {
             spedFiscalWriter.flush();
             spedFiscalWriter.close();
             assertTrue(true);
+
         } catch (IOException ex) {
             Logger.getLogger(Bloco0Test.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
     public static Reg0000 createReg0000() {
@@ -355,8 +353,10 @@ public class Bloco0Test {
         Reg0200 reg;
         Reg0205 reg0205;
         Reg0206 reg0206;
+        Reg0210 reg0210;
         Reg0220 reg0220;
         List<Reg0205> reg0205List;
+        List<Reg0210> reg0210List;
         List<Reg0220> reg0220List;
 
         reg = new Reg0200();
@@ -372,6 +372,7 @@ public class Bloco0Test {
         reg.setUnidInv("un");
 
         reg0205List = new ArrayList<>();
+        reg0210List = new ArrayList<>();
         reg0220List = new ArrayList<>();
 
         reg0205 = new Reg0205();
@@ -396,6 +397,17 @@ public class Bloco0Test {
         reg0206 = new Reg0206();
         reg0206.setCodComb("CodigoComb");
 
+        reg0210 = new Reg0210();
+        reg0210.setCodItemComp("123456");
+        reg0210.setQtdComp(124.252);
+        reg0210.setPerda(0.2566);
+        reg0210List.add(reg0210);
+        reg0210 = new Reg0210();
+        reg0210.setCodItemComp("654321");
+        reg0210.setQtdComp(321.654);
+        reg0210.setPerda(0.2564);
+        reg0210List.add(reg0210);
+
         reg0220 = new Reg0220();
         reg0220.setUnidConv("cx");
         reg0220.setFatConv(12d);
@@ -407,6 +419,7 @@ public class Bloco0Test {
 
         reg.setReg0205List(reg0205List);
         reg.setReg0206(reg0206);
+        reg.setReg0210List(reg0210List);
         reg.setReg0220List(reg0220List);
 
         return reg;
@@ -538,10 +551,4 @@ public class Bloco0Test {
         return list;
     }
 
-    private static Reg0990 createReg0990(Bloco0 bloco) {
-        long sizeOf = RecordCounter.count(bloco);
-        Reg0990 reg0990 = new Reg0990(sizeOf + 1);
-
-        return reg0990;
-    }
 }

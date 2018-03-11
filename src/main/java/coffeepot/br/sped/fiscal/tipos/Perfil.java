@@ -3,7 +3,6 @@
  */
 package coffeepot.br.sped.fiscal.tipos;
 
-import org.apache.commons.lang3.StringUtils;
 
 /*
  * #%L
@@ -47,14 +46,14 @@ public enum Perfil implements EnumCodificado {
     }
 
     public static Perfil valueOfStripToNull(final String v) {
-        if (StringUtils.stripToNull(v) == null) {
+        if (v == null || v.length() == 0) {
             return null;
         }
         return Perfil.valueOf(v);
     }
 
     public static Perfil valueOfCodigoStripToNull(final String codigo) {
-        if (StringUtils.stripToNull(codigo) == null) {
+        if (codigo == null || codigo.length() == 0) {
             return null;
         }
 

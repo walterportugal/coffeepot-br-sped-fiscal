@@ -24,19 +24,19 @@ package coffeepot.br.sped.fiscal.arquivo.blocoE;
  */
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import coffeepot.br.sped.fiscal.arquivo.EstruturaTest;
+import coffeepot.br.sped.fiscal.config.Config;
 import coffeepot.br.sped.fiscal.tipos.IndicadorMovimento;
-import coffeepot.br.sped.fiscal.util.RecordCounter;
+import coffeepot.br.sped.fiscal.util.Util;
 import coffeepot.br.sped.fiscal.writer.SpedFiscalWriter;
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import org.junit.Test;
 
@@ -51,42 +51,47 @@ public class BlocoETest {
 
         System.out.println("**** Teste de escrita do BLOCO E inteiro ***");
 
-        BlocoE bloco = createBlocoE();
+        File file = new File(Config.TEST_BLOCO_OUT_DIR + "BlocoETest.txt");
 
+        Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
+        SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(fw);
+
+        BlocoE bloco = createBlocoE(file, spedFiscalWriter);
+        spedFiscalWriter.close();
+
+        /*
         try {
-            String file = EstruturaTest.TEST_BLOCO_OUT_DIR + "BlocoETest.tmp";
-            Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "ISO-8859-1"));
+            Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
             SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(fw);
 
             spedFiscalWriter.write(bloco);
 
             spedFiscalWriter.flush();
             spedFiscalWriter.close();
+
+            System.out.println("Arquivo gerado em: " + file.getAbsolutePath());
         } catch (IOException ex) {
             Logger.getLogger(BlocoETest.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+         */
     }
 
-    public static BlocoE createBlocoE() {
+    public static BlocoE createBlocoE(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
+        BlocoE bloco = getDataBlocoE();
+        return (BlocoE) Util.createFileFromBloco(bloco, file, spedFiscalWriter);
+    }
+
+    public static BlocoE getDataBlocoE() {
         BlocoE bloco = new BlocoE();
-        RegE001 r1 = new RegE001(IndicadorMovimento.SEM_DADOS);
-        RegE100 r100 = createRegE100();
-        bloco.setRegE001(r1);
-        bloco.setRegE001(createReg0001());
+        bloco.setRegE001(createRegE001());
         bloco.setRegE100List(createRegE100List());
         //TODO: completar testes bloco E
-        //bloco.setRegE200List(createRegE200List());
-        //bloco.setRegE500List(createRegE500List());
+        //bloco.setRegE300List(createRegE300List());
 
-        long sizeOf = RecordCounter.count(bloco);
-        RegE990 regE990 = new RegE990(sizeOf + 1);
-
-        bloco.setRegE990(regE990);
         return bloco;
     }
 
-    public static RegE001 createReg0001() {
+    public static RegE001 createRegE001() {
         RegE001 reg = new RegE001(IndicadorMovimento.COM_DADOS);
         return reg;
     }

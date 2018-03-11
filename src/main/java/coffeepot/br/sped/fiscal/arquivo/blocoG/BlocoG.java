@@ -22,10 +22,9 @@ package coffeepot.br.sped.fiscal.arquivo.blocoG;
  * limitations under the License.
  * #L%
  */
-
-
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -37,8 +36,7 @@ import lombok.Setter;
  */
 @Record(fields = {
     @Field(name = "regG001"),
-    //TODO: Registros Bloco G ainda não implementados
-    //    @Field(name = "regG110List"),
+    @Field(name = "regG110List"),
     @Field(name = "regG990")
 })
 @Getter
@@ -46,8 +44,7 @@ import lombok.Setter;
 public class BlocoG {
 
     private RegG001 regG001;
-    //TODO: Registros Bloco G ainda não implementados
-//    private List<RegG110> regG110List;
+    private List<RegG110> regG110List;
     private RegG990 regG990;
 
 }

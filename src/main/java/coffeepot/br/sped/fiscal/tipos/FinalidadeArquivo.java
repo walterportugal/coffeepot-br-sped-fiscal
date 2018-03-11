@@ -3,8 +3,6 @@
  */
 package coffeepot.br.sped.fiscal.tipos;
 
-import org.apache.commons.lang3.StringUtils;
-
 /*
 * #%L
  * * coffeepot-br-sped-fiscal
@@ -54,14 +52,14 @@ public enum FinalidadeArquivo implements EnumCodificado {
     }
 
     public static FinalidadeArquivo valueOfStripToNull(final String v) {
-        if (StringUtils.stripToNull(v) == null) {
+        if (v == null || v.length() == 0) {
             return null;
         }
         return FinalidadeArquivo.valueOf(v);
     }
 
     public static FinalidadeArquivo valueOfCodigoStripToNull(final String codigo) {
-        if (StringUtils.stripToNull(codigo) == null) {
+        if (codigo == null || codigo.length() == 0) {
             return null;
         }
 

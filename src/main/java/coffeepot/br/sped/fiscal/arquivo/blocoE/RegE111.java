@@ -41,6 +41,7 @@ import lombok.Setter;
 	@Field(name = "codAjApur"),
 	@Field(name = "descrComplAj"),
 	@Field(name = "vlAjApur"),
+        //
 	@Field(name = "regE112List"),
 	@Field(name = "regE113List")
 })
@@ -66,6 +67,7 @@ public class RegE111{
     private String codAjApur;
     private String descrComplAj;
     private Double vlAjApur;
+    //
     private List<RegE112> regE112List;
     private List<RegE113> regE113List;
 

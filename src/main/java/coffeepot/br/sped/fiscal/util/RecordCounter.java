@@ -38,6 +38,7 @@ import coffeepot.bean.wr.types.FormatType;
  *
  * @author Jeandeson O. Merelis
  */
+@Deprecated
 public class RecordCounter {
 
     private static boolean isARecord(Class<?> clazz) {
@@ -133,7 +134,7 @@ public class RecordCounter {
                     }
                     continue;
                 }
-
+                
                 if (isARecord(o.getClass())) {
                     count += count(o, forFormatType);
                 } else {
@@ -141,7 +142,7 @@ public class RecordCounter {
                 }
 
             } catch (Exception ex) {
-               // Logger.getLogger(RecordCounter.class.getName()).log(Level.SEVERE, null, ex);
+               //Logger.getLogger(RecordCounter.class.getName()).log(Level.SEVERE, null, ex);
             }
 
 
@@ -151,6 +152,109 @@ public class RecordCounter {
             count++;
         }
 
+        return count;
+    }
+    
+    public static long count2(Object obj, FormatType forFormatType) {
+        System.err.println("--I");
+        System.err.println("#00 " + obj.getClass().getName());
+        long count = 0;
+        if (obj == null || !isARecord(obj.getClass())) {
+            System.err.println("#01 "+ count + " " + obj.getClass().getName());
+            return count;
+        }
+        Field[] fields = getFields(obj.getClass(), forFormatType);
+        System.err.println("#02 "+ count + " " + obj.getClass().getName() + " " + fields.length);
+        if (fields == null || fields.length == 0) {
+            System.err.println("#03 "+ count + " " + obj.getClass().getName() + " " + fields.length);
+            return count;
+        }
+
+        //se o objeto não escreve nenhum campo, então ele não conta.
+        // Um exemplo disso é próprio bloco, que contém a estrutura dos registros.
+        boolean writesSomeField = false;
+
+
+        for (Field f : fields) {
+            System.err.println("#04 " + count + " " + obj.getClass().getName() + " " + " " + f.name()+" " + f.constantValue()+"|");
+            if (!"".equals(f.constantValue())) {
+                System.err.println("#05 " + count + " " + obj.getClass().getName() + " " + " " + f.name()+" " + f.constantValue()+"|");
+                continue;
+            }
+            
+            Object o;
+            java.lang.reflect.Field declaredField;
+            System.err.println("#06 " + count + " " + obj.getClass().getName() + " " + " " + f.name()+" " + f.constantValue());
+
+            try {
+                declaredField = obj.getClass().getDeclaredField(f.name());
+                declaredField.setAccessible(true);
+                o = declaredField.get(obj);
+                if (o == null) {
+                    System.err.println("#07 " + count + " " + obj.getClass().getName() + " " + " " + f.name()+" " + f.constantValue());
+                    if (!isARecord(declaredField.getType())) {                        
+                        System.err.println("#08 " + count + " " + o.getClass().getName() + " " + " " + f.name()+" " + f.constantValue());
+                        writesSomeField = true;
+                    }
+                    continue;
+                }
+
+                if (Collection.class.isAssignableFrom(declaredField.getType())) {
+                    System.err.println("#09 " + count + " " + o.getClass().getName() + " " + " " + f.name()+" " + f.constantValue());
+                    Type genericType = declaredField.getGenericType();
+                    if (ParameterizedType.class.isAssignableFrom(genericType.getClass())) {
+                        System.err.println("#10 " + count + " " + o.getClass().getName() + " " + " " + f.name()+" " + f.constantValue());
+                        ParameterizedType pt = (ParameterizedType) genericType;
+                        Type[] actualTypeArguments = pt.getActualTypeArguments();
+                        if (actualTypeArguments != null && actualTypeArguments.length > 0) {
+                            System.err.println("#11 " + count + " " + o.getClass().getName() + " " + " " + f.name()+" " + f.constantValue());
+                            // verifica se é uma lista de records
+                            if (isARecord((Class<?>) actualTypeArguments[0])) {
+                                System.err.println("#12 " + count + " " + o.getClass().getName() + " " + " " + f.name()+" " + f.constantValue());
+                                Collection c = (Collection) o;
+                                Iterator it = c.iterator();
+                                while (it.hasNext()) {
+                                    System.err.println("#13 " + count + " " + o.getClass().getName() + " " + " " + f.name()+" " + f.constantValue());
+                                    count += count(it.next(), forFormatType);
+                                }
+                            }
+                        }
+                    }
+                    continue;
+                }
+                
+                System.err.println("#13-1 " + count + " " + o.getClass().getName() + " " + " " + f.name()+" " + f.constantValue());
+
+                if (isARecord(o.getClass())) {
+                    System.err.println("#13-2 " + count + " " + o.getClass().getName() + " " + " " + f.name()+" " + f.constantValue() + " "+forFormatType);
+                    count += count(o, forFormatType);
+                    System.err.println("#14 " + count + " " + o.getClass().getName() + " " + " " + f.name()+" " + f.constantValue());
+                } else {
+                    System.err.println("#14-1 " + count + " " + o.getClass().getName() + " " + " " + f.name()+" " + f.constantValue());
+                    writesSomeField = true;                   
+                }
+
+            } catch (Exception ex) {
+                // REMOVER este bloco de condição
+                if(false){
+                    if(ex.getMessage() != null && ex.getMessage().equals("indMov")){
+                        count++;
+                    }
+                }
+               //Logger.getLogger(RecordCounter.class.getName()).log(Level.SEVERE, null, ex);
+               System.err.println("#EX " + ex.getMessage());
+            }
+            System.err.println("#15 " + count + " " + obj.getClass().getName() + " " + " " + f.name()+" " + f.constantValue());
+
+
+        }
+
+        if (writesSomeField) {
+            System.err.println("#16 " + count + " " + obj.getClass().getName());
+            count++;
+        }
+
+        System.err.println("--F");
         return count;
     }
 

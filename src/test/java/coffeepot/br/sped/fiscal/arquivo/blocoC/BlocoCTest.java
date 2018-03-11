@@ -8,11 +8,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import org.junit.Test;
 
@@ -35,9 +32,7 @@ import org.junit.Test;
  * limitations under the License.
  * #L%
  */
-
-
-import coffeepot.br.sped.fiscal.arquivo.EstruturaTest;
+import coffeepot.br.sped.fiscal.config.Config;
 import coffeepot.br.sped.fiscal.tipos.ApuracaoIpi;
 import coffeepot.br.sped.fiscal.tipos.CondicaoPagamento;
 import coffeepot.br.sped.fiscal.tipos.DocumentoFiscal;
@@ -52,8 +47,11 @@ import coffeepot.br.sped.fiscal.tipos.ResponsalvelRetencaoIcmsSt;
 import coffeepot.br.sped.fiscal.tipos.SituacaoDocumento;
 import coffeepot.br.sped.fiscal.tipos.TipoTituloCredito;
 import coffeepot.br.sped.fiscal.tipos.TipoTransporte;
-import coffeepot.br.sped.fiscal.util.RecordCounter;
+import coffeepot.br.sped.fiscal.util.Util;
 import coffeepot.br.sped.fiscal.writer.SpedFiscalWriter;
+import java.io.File;
+import java.lang.reflect.InvocationTargetException;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -68,35 +66,44 @@ public class BlocoCTest {
 
         System.out.println("**** Teste de escrita do BLOCO C inteiro ***");
 
-        BlocoC bloco = createBlocoC();
+        File file = new File(Config.TEST_BLOCO_OUT_DIR + "BlocoCTest.txt");
 
+        Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
+        SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(fw);
+
+        BlocoC bloco = createBlocoC(file, spedFiscalWriter);
+        spedFiscalWriter.close();
+
+        /*
         try {
-            String file = EstruturaTest.TEST_BLOCO_OUT_DIR + "BlocoCTest.tmp";
-            Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "ISO-8859-1"));
+            Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
             SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(fw);
 
             spedFiscalWriter.write(bloco);
 
             spedFiscalWriter.flush();
             spedFiscalWriter.close();
+
         } catch (IOException ex) {
             Logger.getLogger(BlocoCTest.class.getName()).log(Level.SEVERE, null, ex);
         }
+         */
+        System.out.println("Arquivo gerado em: " + file.getAbsolutePath());
 
     }
 
-    public static BlocoC createBlocoC() {
+    public static BlocoC createBlocoC(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
+        BlocoC bloco = getDataBlocoC();
+        return (BlocoC) Util.createFileFromBloco(bloco, file, spedFiscalWriter);
+    }
+
+    public static BlocoC getDataBlocoC() {
         BlocoC bloco = new BlocoC();
         bloco.setRegC001(createReg0001());
         bloco.setRegC100List(createRegC100List());
         //TODO: completar testes bloco C
         //bloco.setRegC300List(createRegC300List());
 
-
-        long sizeOf = RecordCounter.count(bloco);
-        RegC990 regC990 = new RegC990(sizeOf + 1);
-
-        bloco.setRegC990(regC990);
         return bloco;
     }
 
@@ -107,7 +114,7 @@ public class BlocoCTest {
 
     public static List<RegC100> createRegC100List() {
         List<RegC100> list = new LinkedList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             list.add(createRegC100());
         }
         return list;
@@ -140,12 +147,17 @@ public class BlocoCTest {
         reg.setVlSeg(99.0);
         reg.setVlCofinsSt(123.99);
 
+        RegC101 rc101 = new RegC101();
+        rc101.setVlFcpUfDest(10.25);
+        rc101.setVlIcmsUfDest(15.26);
+        rc101.setVlIcmsUfRem(20.27);
+        reg.setRegC101(rc101);
+        
         RegC105 rc105 = new RegC105();
         rc105.setOper(0);
         rc105.setUf("SP");
-
-
         reg.setRegC105(rc105);
+        
         reg.setRegC110List(createRegC110List());
         //reg.setRegC120List(createRegC120List());
         //reg.setRegC130(createRegC130());
@@ -159,8 +171,6 @@ public class BlocoCTest {
         return reg;
     }
 
-    //<editor-fold defaultstate="collapsed" desc="createRegC1..">
-    //<editor-fold defaultstate="collapsed" desc="createRegC110List">
     public static List<RegC110> createRegC110List() {
         List<RegC110> list = new LinkedList<>();
         list.add(createRegC110());
@@ -658,7 +668,5 @@ public class BlocoCTest {
         reg.setVlOutros(12.12);
         return reg;
     }
-    //</editor-fold>
-
 
 }

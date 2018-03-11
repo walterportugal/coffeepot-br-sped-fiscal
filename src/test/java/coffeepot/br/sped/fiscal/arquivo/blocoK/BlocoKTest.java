@@ -22,18 +22,19 @@ package coffeepot.br.sped.fiscal.arquivo.blocoK;
  * limitations under the License.
  * #L%
  */
+import coffeepot.br.sped.fiscal.config.Config;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import coffeepot.br.sped.fiscal.arquivo.EstruturaTest;
 import coffeepot.br.sped.fiscal.tipos.IndicadorMovimento;
-import coffeepot.br.sped.fiscal.util.RecordCounter;
+import coffeepot.br.sped.fiscal.util.Util;
 import coffeepot.br.sped.fiscal.writer.SpedFiscalWriter;
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.nio.charset.StandardCharsets;
 import org.junit.Test;
 
 /**
@@ -47,42 +48,50 @@ public class BlocoKTest {
 
         System.out.println("**** Teste de escrita do BLOCO K inteiro ***");
 
-        BlocoK bloco = createBlocoK();
+        File file = new File(Config.TEST_BLOCO_OUT_DIR + "BlocoKTest.txt");
 
+        Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
+        SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(fw);
+
+        BlocoK bloco = createBlocoK(file, spedFiscalWriter);
+        spedFiscalWriter.close();
+
+        /*
         try {
-            String file = EstruturaTest.TEST_BLOCO_OUT_DIR + "BlocoKTest.tmp";
-            Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "ISO-8859-1"));
+            Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
             SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(fw);
 
             spedFiscalWriter.write(bloco);
 
             spedFiscalWriter.flush();
             spedFiscalWriter.close();
+            
         } catch (IOException ex) {
             Logger.getLogger(BlocoKTest.class.getName()).log(Level.SEVERE, null, ex);
         }
+         */
+        System.out.println("Arquivo gerado em: " + file.getAbsolutePath());
 
     }
 
-    public static BlocoK createBlocoK() {
+    public static BlocoK createBlocoK(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
+        BlocoK bloco = getDataBlocoK();
+        return (BlocoK) Util.createFileFromBloco(bloco, file, spedFiscalWriter);
+    }
+
+    public static BlocoK getDataBlocoK() {
         BlocoK bloco = new BlocoK();
-        RegK001 r1 = new RegK001(IndicadorMovimento.SEM_DADOS);
-        bloco.setRegK001(r1);
-        bloco.setRegK001(createReg0001());
+        bloco.setRegK001(createRegK001());
         //bloco.setRegK100List(createRegK100List());
         //TODO: completar testes bloco E
         //bloco.setRegK200List(createRegK200List());
         //bloco.setRegK500List(createRegK500List());
 
-        long sizeOf = RecordCounter.count(bloco);
-        RegK990 regE990 = new RegK990(sizeOf + 1);
-
-        bloco.setRegK990(regE990);
         return bloco;
     }
 
-    public static RegK001 createReg0001() {
-        RegK001 reg = new RegK001(IndicadorMovimento.COM_DADOS);
+    public static RegK001 createRegK001() {
+        RegK001 reg = new RegK001(IndicadorMovimento.SEM_DADOS);
         return reg;
     }
 

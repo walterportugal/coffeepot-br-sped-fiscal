@@ -33,58 +33,45 @@ import org.junit.Test;
  * limitations under the License.
  * #L%
  */
-import coffeepot.br.sped.fiscal.arquivo.bloco0.Bloco0;
 import coffeepot.br.sped.fiscal.arquivo.bloco0.Bloco0Test;
-import coffeepot.br.sped.fiscal.arquivo.bloco1.Bloco1;
-import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1001;
-import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1990;
+import coffeepot.br.sped.fiscal.arquivo.bloco1.Bloco1Test;
 import coffeepot.br.sped.fiscal.arquivo.bloco9.Bloco9;
-import coffeepot.br.sped.fiscal.arquivo.blocoC.BlocoC;
 import coffeepot.br.sped.fiscal.arquivo.blocoC.BlocoCTest;
-import coffeepot.br.sped.fiscal.arquivo.blocoD.BlocoD;
-import coffeepot.br.sped.fiscal.arquivo.blocoD.RegD001;
-import coffeepot.br.sped.fiscal.arquivo.blocoD.RegD990;
-import coffeepot.br.sped.fiscal.arquivo.blocoE.BlocoE;
-import coffeepot.br.sped.fiscal.arquivo.blocoE.RegE001;
-import coffeepot.br.sped.fiscal.arquivo.blocoE.RegE990;
-import coffeepot.br.sped.fiscal.arquivo.blocoG.BlocoG;
-import coffeepot.br.sped.fiscal.arquivo.blocoG.RegG001;
-import coffeepot.br.sped.fiscal.arquivo.blocoG.RegG990;
-import coffeepot.br.sped.fiscal.arquivo.blocoH.BlocoH;
-import coffeepot.br.sped.fiscal.arquivo.blocoH.RegH001;
-import coffeepot.br.sped.fiscal.arquivo.blocoH.RegH990;
-import coffeepot.br.sped.fiscal.tipos.IndicadorMovimento;
+import coffeepot.br.sped.fiscal.arquivo.blocoD.BlocoDTest;
+import coffeepot.br.sped.fiscal.arquivo.blocoE.BlocoETest;
+import coffeepot.br.sped.fiscal.arquivo.blocoG.BlocoGTest;
+import coffeepot.br.sped.fiscal.arquivo.blocoH.BlocoHTest;
+import coffeepot.br.sped.fiscal.config.Config;
 import coffeepot.br.sped.fiscal.util.Util;
 import coffeepot.br.sped.fiscal.writer.SpedFiscalWriter;
+import java.nio.charset.StandardCharsets;
 
 //private [^+ ]+ regex util.
 /**
  *
  * @author Jeandeson O. Merelis
  */
+@Deprecated
 public class EstruturaTest {
 
-    public static final String TEST_BLOCO_OUT_DIR = "";
-    public static final String TEST_REG_OUT_DIR = "";
-
-    @Test
+    //@Test
     public void testEstrutura() throws Exception {
 
         System.out.println("**** Teste de escrita do arquivo inteiro ***");
-        File file = new File(EstruturaTest.TEST_BLOCO_OUT_DIR + "SpedFiscalTest.tmp");
+        File file = new File(Config.TEST_BLOCO_OUT_DIR + "SpedFiscalTest2.txt");
 
         Estrutura estrutura = new Estrutura();
-        estrutura.setBloco0(createBloco0());
-        estrutura.setBlocoC(createBlocoC());
-        estrutura.setBlocoD(createBlocoD());
-        estrutura.setBlocoE(createBlocoE());
-        estrutura.setBlocoG(createBlocoG());
-        estrutura.setBlocoH(createBlocoH());
-        estrutura.setBloco1(createBloco1());
+        estrutura.setBloco0(Bloco0Test.getDataBloco0());
+        estrutura.setBlocoC(BlocoCTest.getDataBlocoC());
+        estrutura.setBlocoD(BlocoDTest.getDataBlocoD());
+        estrutura.setBlocoE(BlocoETest.getDataBlocoE());
+        estrutura.setBlocoG(BlocoGTest.getDataBlocoG());
+        estrutura.setBlocoH(BlocoHTest.getDataBlocoH());
+        estrutura.setBloco1(Bloco1Test.getDataBloco1());
 
         try {
 
-            Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "ISO-8859-1"));
+            Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
             SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(fw);
 
             //Grava todos blocos, exceto o Bloco9
@@ -104,56 +91,4 @@ public class EstruturaTest {
 
     }
 
-    private Bloco0 createBloco0() {
-        return Bloco0Test.createBloco0();
-    }
-
-    private BlocoC createBlocoC() {
-        return BlocoCTest.createBlocoC();
-    }
-
-    private BlocoD createBlocoD() {
-        RegD001 r1 = new RegD001(IndicadorMovimento.SEM_DADOS);
-        RegD990 r9 = new RegD990(2L);
-        BlocoD bloco = new BlocoD();
-        bloco.setRegD001(r1);
-        bloco.setRegD990(r9);
-        return bloco;
-    }
-
-    private BlocoE createBlocoE() {
-        RegE001 r1 = new RegE001(IndicadorMovimento.SEM_DADOS);
-        RegE990 r9 = new RegE990(2L);
-        BlocoE bloco = new BlocoE();
-        bloco.setRegE001(r1);
-        bloco.setRegE990(r9);
-        return bloco;
-    }
-
-    private BlocoG createBlocoG() {
-        RegG001 r1 = new RegG001(IndicadorMovimento.SEM_DADOS);
-        RegG990 r9 = new RegG990(2L);
-        BlocoG bloco = new BlocoG();
-        bloco.setRegG001(r1);
-        bloco.setRegG990(r9);
-        return bloco;
-    }
-
-    private BlocoH createBlocoH() {
-        RegH001 r1 = new RegH001(IndicadorMovimento.SEM_DADOS);
-        RegH990 r9 = new RegH990(2L);
-        BlocoH bloco = new BlocoH();
-        bloco.setRegH001(r1);
-        bloco.setRegH990(r9);
-        return bloco;
-    }
-
-    private Bloco1 createBloco1() {
-        Reg1001 r1 = new Reg1001(IndicadorMovimento.SEM_DADOS);
-        Reg1990 r9 = new Reg1990(2L);
-        Bloco1 bloco = new Bloco1();
-        bloco.setReg1001(r1);
-        bloco.setReg1990(r9);
-        return bloco;
-    }
 }

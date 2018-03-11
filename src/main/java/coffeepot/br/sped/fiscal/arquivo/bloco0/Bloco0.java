@@ -58,7 +58,7 @@ import lombok.Setter;
 public class Bloco0 {
 
     private Reg0000 reg0000;
-	private Reg0001 reg0001;
+    private Reg0001 reg0001;
     private Reg0005 reg0005;
     private List<Reg0015> reg0015List;
     private Reg0100 reg0100;

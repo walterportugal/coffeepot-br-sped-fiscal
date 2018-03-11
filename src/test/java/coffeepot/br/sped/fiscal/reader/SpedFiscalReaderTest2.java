@@ -35,12 +35,12 @@ package coffeepot.br.sped.fiscal.reader;
  * #L%
  */
 import coffeepot.br.sped.fiscal.arquivo.EstruturaSemBlocos;
-import coffeepot.br.sped.fiscal.arquivo.EstruturaTest2;
 import coffeepot.br.sped.fiscal.arquivo.bloco0.Bloco0;
 import coffeepot.br.sped.fiscal.arquivo.bloco0.Bloco0Test;
 import coffeepot.br.sped.fiscal.arquivo.bloco0.Reg0200;
 import coffeepot.br.sped.fiscal.arquivo.blocoC.BlocoC;
 import coffeepot.br.sped.fiscal.arquivo.blocoD.BlocoD;
+import coffeepot.br.sped.fiscal.config.Config;
 import coffeepot.br.sped.fiscal.tipos.VersaoLayout;
 import coffeepot.br.sped.fiscal.writer.SpedFiscalWriter;
 import java.io.File;
@@ -83,7 +83,7 @@ public class SpedFiscalReaderTest2 {
 
     @Test
     public void read_semInformarVersao_temQueAutodetectarVersaoComoVersao002() throws Exception {
-        Bloco0 b = Bloco0Test.createBloco0();
+        Bloco0 b = Bloco0Test.getDataBloco0();
         b.getReg0000().setCodVer(VersaoLayout.VERSAO_002);
 
         Reg0200 reg = new Reg0200();
@@ -120,7 +120,7 @@ public class SpedFiscalReaderTest2 {
 
     @Test
     public void read_semInformarVersao_temQueAutodetectarVersaoComoVersao010() throws Exception {
-        Bloco0 b = Bloco0Test.createBloco0();
+        Bloco0 b = Bloco0Test.getDataBloco0();
         b.getReg0000().setCodVer(VersaoLayout.VERSAO_010);
 
         Reg0200 reg = new Reg0200();
@@ -157,7 +157,7 @@ public class SpedFiscalReaderTest2 {
 
     @Test
     public void read_semInformarVersao_temQueAutodetectarVersaoComoVersao011() throws Exception {
-        Bloco0 b = Bloco0Test.createBloco0();
+        Bloco0 b = Bloco0Test.getDataBloco0();
         b.getReg0000().setCodVer(VersaoLayout.VERSAO_011);
 
         Reg0200 reg = new Reg0200();
@@ -194,14 +194,16 @@ public class SpedFiscalReaderTest2 {
 
     @Test
     public void temQueLerSomenteOBlocoC() throws Exception {
-        File file = new File(EstruturaTest2.TEST_BLOCO_OUT_DIR + "SpedFiscalTest.txt");
+        File file = new File(Config.TEST_BLOCO_OUT_DIR + "SpedFiscalTest2.txt");
 
 //        try (BufferedReader br = new BufferedReader(new FileReader(file))){
         try (FileReader fr = new FileReader(file)) {
             SpedFiscalReader reader = new SpedFiscalReader(fr);
             BlocoC bc = reader.parseToBlocoC();
+
             String atual = "|" + bc.getRegC001().getReg() + "|" + bc.getRegC001().getIndMov().getCodigo() + "|";
             System.out.println(atual);
+
             assertNotNull(bc);
 
             assertEquals("|C001|0|", atual);
@@ -211,7 +213,7 @@ public class SpedFiscalReaderTest2 {
 
     @Test
     public void temQueLerBlocoCeDSeparadamente() throws Exception {
-        File file = new File(EstruturaTest2.TEST_BLOCO_OUT_DIR + "SpedFiscalTest.txt");
+        File file = new File(Config.TEST_BLOCO_OUT_DIR + "SpedFiscalTest2.txt");
 
 //        try (BufferedReader br = new BufferedReader(new FileReader(file))){
         try (FileReader fr = new FileReader(file)) {
@@ -220,6 +222,11 @@ public class SpedFiscalReaderTest2 {
             assertNotNull(bc);
             BlocoD bd = reader.parseToBlocoD();
             assertNotNull(bd);
+
+            String atual = "|" + bd.getRegD001().getReg() + "|" + bd.getRegD001().getIndMov().getCodigo() + "|";
+            System.out.println(atual);
+
+            assertEquals("|D001|1|", atual);
         }
 
     }
@@ -227,7 +234,7 @@ public class SpedFiscalReaderTest2 {
     @Test
     public void temQueLerTodoArquivo() throws Exception {
 
-        File file = new File(EstruturaTest2.TEST_BLOCO_OUT_DIR + "SpedFiscalTest.txt");
+        File file = new File(Config.TEST_BLOCO_OUT_DIR + "SpedFiscalTest2.txt");
         try (FileReader fr = new FileReader(file)) {
             SpedFiscalReader reader = new SpedFiscalReader(fr);
             EstruturaSemBlocos sped = reader.parseToEstruturaSemBlocos();

@@ -3,8 +3,6 @@
  */
 package coffeepot.br.sped.fiscal.tipos;
 
-import org.apache.commons.lang3.StringUtils;
-
 /*
  * #%L
  * coffeepot-br-sped-fiscal
@@ -52,14 +50,14 @@ public enum IndicadorAtividade implements EnumCodificado {
     }
 
     public static IndicadorAtividade valueOfStripToNull(final String v) {
-        if (StringUtils.stripToNull(v) == null) {
+        if (v == null || v.length() == 0) {
             return null;
         }
         return IndicadorAtividade.valueOf(v);
     }
 
     public static IndicadorAtividade valueOfCodigoStripToNull(final String codigo) {
-        if (StringUtils.stripToNull(codigo) == null) {
+        if (codigo == null || codigo.length() == 0) {
             return null;
         }
 

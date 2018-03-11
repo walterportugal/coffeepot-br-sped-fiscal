@@ -52,6 +52,7 @@ import java.util.List;
     @Field(name = "cest", minVersion = 11),
     @Field(name = "reg0205List"),
     @Field(name = "reg0206"),
+    @Field(name = "reg0210List"),
     @Field(name = "reg0220List")
 })
 @Getter
@@ -72,6 +73,7 @@ public class Reg0200 {
     private String cest;
     private List<Reg0205> reg0205List;
     private Reg0206 reg0206;
+    private List<Reg0210> reg0210List;
     private List<Reg0220> reg0220List;
 
 }

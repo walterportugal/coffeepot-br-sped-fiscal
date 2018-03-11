@@ -54,6 +54,17 @@ import coffeepot.br.sped.fiscal.arquivo.bloco0.Reg0600;
 import coffeepot.br.sped.fiscal.arquivo.bloco0.Reg0990;
 import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1001;
 import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1010;
+import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1100;
+import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1200;
+import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1300;
+import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1350;
+import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1390;
+import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1400;
+import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1500;
+import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1600;
+import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1700;
+import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1800;
+import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1900;
 import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1990;
 import coffeepot.br.sped.fiscal.arquivo.bloco9.Reg9001;
 import coffeepot.br.sped.fiscal.arquivo.bloco9.Reg9900;
@@ -65,17 +76,35 @@ import coffeepot.br.sped.fiscal.arquivo.blocoC.RegC300;
 import coffeepot.br.sped.fiscal.arquivo.blocoC.RegC350;
 import coffeepot.br.sped.fiscal.arquivo.blocoC.RegC400;
 import coffeepot.br.sped.fiscal.arquivo.blocoC.RegC495;
+import coffeepot.br.sped.fiscal.arquivo.blocoC.RegC500;
+import coffeepot.br.sped.fiscal.arquivo.blocoC.RegC600;
+import coffeepot.br.sped.fiscal.arquivo.blocoC.RegC700;
+import coffeepot.br.sped.fiscal.arquivo.blocoC.RegC800;
+import coffeepot.br.sped.fiscal.arquivo.blocoC.RegC860;
 import coffeepot.br.sped.fiscal.arquivo.blocoC.RegC990;
 import coffeepot.br.sped.fiscal.arquivo.blocoD.RegD001;
+import coffeepot.br.sped.fiscal.arquivo.blocoD.RegD100;
+import coffeepot.br.sped.fiscal.arquivo.blocoD.RegD300;
+import coffeepot.br.sped.fiscal.arquivo.blocoD.RegD350;
+import coffeepot.br.sped.fiscal.arquivo.blocoD.RegD400;
+import coffeepot.br.sped.fiscal.arquivo.blocoD.RegD500;
+import coffeepot.br.sped.fiscal.arquivo.blocoD.RegD600;
+import coffeepot.br.sped.fiscal.arquivo.blocoD.RegD695;
 import coffeepot.br.sped.fiscal.arquivo.blocoD.RegD990;
 import coffeepot.br.sped.fiscal.arquivo.blocoE.RegE001;
 import coffeepot.br.sped.fiscal.arquivo.blocoE.RegE100;
+import coffeepot.br.sped.fiscal.arquivo.blocoE.RegE200;
+import coffeepot.br.sped.fiscal.arquivo.blocoE.RegE500;
 import coffeepot.br.sped.fiscal.arquivo.blocoE.RegE990;
 import coffeepot.br.sped.fiscal.arquivo.blocoG.RegG001;
+import coffeepot.br.sped.fiscal.arquivo.blocoG.RegG110;
 import coffeepot.br.sped.fiscal.arquivo.blocoG.RegG990;
 import coffeepot.br.sped.fiscal.arquivo.blocoH.RegH001;
 import coffeepot.br.sped.fiscal.arquivo.blocoH.RegH005;
 import coffeepot.br.sped.fiscal.arquivo.blocoH.RegH990;
+import coffeepot.br.sped.fiscal.arquivo.blocoK.RegK001;
+import coffeepot.br.sped.fiscal.arquivo.blocoK.RegK100;
+import coffeepot.br.sped.fiscal.arquivo.blocoK.RegK990;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -83,7 +112,7 @@ import java.util.List;
 
 /**
  *
- * @author Jeandeson O. Merelis
+ * @author Jeandeson O. Merelis &amp; Edivaldo Merlo Stens
  */
 @Record(fields = {
     @Field(name = "reg0000"),
@@ -109,38 +138,34 @@ import java.util.List;
     @Field(name = "regC350List"),
     @Field(name = "regC400List"),
     @Field(name = "regC495List"),
-    //TODO: Registros Bloco C ainda não implementados
-    //    @Field(name = "regC500List"),
-    //    @Field(name = "regC600List"),
-    //    @Field(name = "regC700List"),
-    //    @Field(name = "regC800List"),
-    //    @Field(name = "regC860List"),              
+    @Field(name = "regC500List"),
+    @Field(name = "regC600List"),
+    @Field(name = "regC700List"),
+    @Field(name = "regC800List"),
+    @Field(name = "regC860List"),              
     @Field(name = "regC990"),
     //
     //bloco D
     @Field(name = "regD001"),
-    //TODO: Registros Bloco D ainda não implementados
-    //    @Field(name = "regD100List"),
-    //    @Field(name = "regD300List"),
-    //    @Field(name = "regD350List"),
-    //    @Field(name = "regD400List"),
-    //    @Field(name = "regD500List"),
-    //    @Field(name = "regD600List"),
-    //    @Field(name = "regD695List"),
+    @Field(name = "regD100List"),
+    @Field(name = "regD300List"),
+    @Field(name = "regD350List"),
+    @Field(name = "regD400List"),
+    @Field(name = "regD500List"),
+    @Field(name = "regD600List"),
+    @Field(name = "regD695List"),
     @Field(name = "regD990"),
     //
     //bloco E
     @Field(name = "regE001"),
     @Field(name = "regE100List"),
-    //TODO: Registros Bloco E ainda não implementados
-    //    @Field(name = "regE200List"),
-    //    @Field(name = "regE500List"),
+    @Field(name = "regE200List"),
+    @Field(name = "regE500List"),
     @Field(name = "regE990"),
     //
     //bloco G
     @Field(name = "regG001"),
-    //TODO: Registros Bloco G ainda não implementados
-    //    @Field(name = "regG110List"),
+    @Field(name = "regG110List"),
     @Field(name = "regG990"),
     //
     //bloco H
@@ -148,21 +173,25 @@ import java.util.List;
     @Field(name = "regH005List"),
     @Field(name = "regH990"),
     //
+    //bloco K
+    @Field(name = "regK001"),
+    @Field(name = "regK100List"),
+    @Field(name = "regK990"),
+    //
     //bloco 1
     @Field(name = "reg1001"),
     @Field(name = "reg1010"),
-    //TODO: Registros Bloco 1 ainda não implementados
-    //    @Field(name = "reg1100List"),
-    //    @Field(name = "reg1200List"),
-    //    @Field(name = "reg1300List"),
-    //    @Field(name = "reg1350List"),
-    //    @Field(name = "reg1390List"),
-    //    @Field(name = "reg1400List"),
-    //    @Field(name = "reg1500List"),
-    //    @Field(name = "reg1600List"),
-    //    @Field(name = "reg1700List"),
-    //    @Field(name = "reg1800"),
-    //    @Field(name = "reg1900List"),
+    @Field(name = "reg1100List"),
+    @Field(name = "reg1200List"),
+    @Field(name = "reg1300List"),
+    @Field(name = "reg1350List"),
+    @Field(name = "reg1390List"),
+    @Field(name = "reg1400List"),
+    @Field(name = "reg1500List"),
+    @Field(name = "reg1600List"),
+    @Field(name = "reg1700List"),
+    @Field(name = "reg1800"),
+    @Field(name = "reg1900List"),
     @Field(name = "reg1990"),
     //
     //bloco 9
@@ -195,18 +224,17 @@ public class EstruturaSemBlocos {
     /// bloco 1
     private Reg1001 reg1001;
     private Reg1010 reg1010;
-    //TODO: Registros Bloco 1 ainda não implementados
-//    private List<Reg1100> reg1100List;
-//    private List<Reg1200> reg1200List;
-//    private List<Reg1300> reg1300List;
-//    private List<Reg1350> reg1350List;
-//    private List<Reg1390> reg1390List;
-//    private List<Reg1400> reg1400List;
-//    private List<Reg1500> reg1500List;
-//    private List<Reg1600> reg1600List;
-//    private List<Reg1700> reg1700List;
-//    private Reg1800 reg1800;
-//    private List<Reg1900> reg1900List;
+    private List<Reg1100> reg1100List;
+    private List<Reg1200> reg1200List;
+    private List<Reg1300> reg1300List;
+    private List<Reg1350> reg1350List;
+    private List<Reg1390> reg1390List;
+    private List<Reg1400> reg1400List;
+    private List<Reg1500> reg1500List;
+    private List<Reg1600> reg1600List;
+    private List<Reg1700> reg1700List;
+    private Reg1800 reg1800;
+    private List<Reg1900> reg1900List;
     private Reg1990 reg1990;
 
     // bloco 9    
@@ -222,43 +250,44 @@ public class EstruturaSemBlocos {
     private List<RegC350> regC350List;
     private List<RegC400> regC400List;
     private List<RegC495> regC495List;
-    //TODO: Registros Bloco C ainda não implementados
-//    private List<RegC500> regC500List;
-//    private List<RegC600> regC600List;
-//    private List<RegC700> regC700List;
-//    private List<RegC800> regC800List;
-//    private List<RegC860> regC860List;              
+    private List<RegC500> regC500List;
+    private List<RegC600> regC600List;
+    private List<RegC700> regC700List;
+    private List<RegC800> regC800List;
+    private List<RegC860> regC860List;              
     private RegC990 regC990;
 
     //bloco D
     private RegD001 regD001;
-    //TODO: Registros Bloco D ainda não implementados
-//    private List<RegD100> regD100List;
-//    private List<RegD300> regD300List;
-//    private List<RegD350> regD350List;
-//    private List<RegD400> regD400List;
-//    private List<RegD500> regD500List;
-//    private List<RegD600> regD600List;
-//    private List<RegD695> regD695List;        
+    private List<RegD100> regD100List;
+    private List<RegD300> regD300List;
+    private List<RegD350> regD350List;
+    private List<RegD400> regD400List;
+    private List<RegD500> regD500List;
+    private List<RegD600> regD600List;
+    private List<RegD695> regD695List;        
     private RegD990 regD990;
 
     //bloco E
     private RegE001 regE001;
     private List<RegE100> regE100List;
-    //TODO: Registros Bloco E ainda não implementados
-//    private List<RegE200> regE200List;
-//    private List<RegE500> regE500List;
+    private List<RegE200> regE200List;
+    private List<RegE500> regE500List;
     private RegE990 regE990;
 
     //bloco G
     private RegG001 regG001;
-    //TODO: Registros Bloco G ainda não implementados
-//    private List<RegG110> regG110List;
+    private List<RegG110> regG110List;
     private RegG990 regG990;
 
     //bloco H
     private RegH001 regH001;
     private List<RegH005> regH005List;
     private RegH990 regH990;
+    
+    //bloco K
+    private RegK001 regK001;
+    private List<RegK100> regK100List;
+    private RegK990 regK990;
 
 }
