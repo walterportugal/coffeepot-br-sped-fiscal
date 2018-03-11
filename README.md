@@ -11,7 +11,7 @@ Para manter uma relação com a documentação oficial do SPED e facilitar o ent
 Requer JDK 1.8
 
 Documentação técnica e layout:
-  http://sped.rfb.gov.br/estatico/55/84F292AA956E838ED01DB91A8D4C6ECD9E53C8/GUIA%20PR%C3%81TICO%20DA%20EFD%20-%20Vers%C3%A3o%202.0.20.pdf
+  http://sped.rfb.gov.br/estatico/0D/2DC4C346EDFCDFAFA26C391C7398D060594B50/GUIA%20PR%C3%81TICO%20DA%20EFD%20-%20Vers%C3%A3o%202.0.22.pdf
 
 Dependência: coffeepot-bean-wr -
 	https://github.com/jean-merelis/coffeepot-bean-wr
@@ -22,7 +22,7 @@ Dependência: coffeepot-bean-wr -
         <dependency>
             <groupId>com.github.jean-merelis</groupId>
             <artifactId>coffeepot-br-sped-fiscal</artifactId>
-            <version>1.0.0-Beta.10</version>
+            <version>1.0.0-Beta.12</version>
         </dependency>
 ```
 
