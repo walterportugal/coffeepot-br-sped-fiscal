@@ -3,21 +3,11 @@
  */
 package coffeepot.br.sped.fiscal.arquivo.blocoC;
 
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.util.LinkedList;
-import java.util.List;
-
-import org.junit.Test;
-
 /*
  * #%L
  * coffeepot-br-sped-fiscal
  * %%
- * Copyright (C) 2013 Jeandeson O. Merelis
+ * Copyright (C) 2013 - 2019 Jeandeson O. Merelis
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +22,7 @@ import org.junit.Test;
  * limitations under the License.
  * #L%
  */
+
 import coffeepot.br.sped.fiscal.config.Config;
 import coffeepot.br.sped.fiscal.tipos.ApuracaoIpi;
 import coffeepot.br.sped.fiscal.tipos.CondicaoPagamento;
@@ -49,11 +40,19 @@ import coffeepot.br.sped.fiscal.tipos.TipoTituloCredito;
 import coffeepot.br.sped.fiscal.tipos.TipoTransporte;
 import coffeepot.br.sped.fiscal.util.Util;
 import coffeepot.br.sped.fiscal.writer.SpedFiscalWriter;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.LinkedList;
+import java.util.List;
+import org.junit.Test;
 
 /**
  *
@@ -129,7 +128,7 @@ public class BlocoCTest {
         reg.setCodSit(SituacaoDocumento.REGULAR);
         reg.setDtDoc(LocalDate.now());
         reg.setIndEmit(EmissaoDocumento.PROPRIA);
-        reg.setIndFrt(Frete.EMITENTE);
+        reg.setIndFrt(Frete.CONTRATACAO_POR_CONTA_DO_REMETENTE);
         reg.setIndOper(Operacao.SAIDA);
         reg.setIndPgto(CondicaoPagamento.A_VISTA);
         reg.setNumDoc(1L);

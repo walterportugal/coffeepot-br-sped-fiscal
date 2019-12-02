@@ -33,9 +33,9 @@ import coffeepot.br.sped.fiscal.tipos.EnumCodificado;
 import coffeepot.br.sped.fiscal.tipos.Operacao;
 import coffeepot.br.sped.fiscal.tipos.SituacaoDocumento;
 import java.time.LocalDate;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
-import java.util.List;
 
 /**
  *
@@ -56,7 +56,7 @@ import java.util.List;
     @Field(name = "dtES"),
     @Field(name = "vlDoc"),
     @Field(name = "vlDesc"),
-    @Field(name = "vlFonr"),
+    @Field(name = "vlForn"),
     @Field(name = "vlServNt"),
     @Field(name = "vlTerc"),
     @Field(name = "vlDa"),
@@ -90,7 +90,7 @@ public class RegC500 {
     private LocalDate dtES;
     private Double vlDoc;
     private Double vlDesc;
-    private Double vlFonr;
+    private Double vlForn;
     private Double vlServNt;
     private Double vlTerc;
     private Double vlDa;

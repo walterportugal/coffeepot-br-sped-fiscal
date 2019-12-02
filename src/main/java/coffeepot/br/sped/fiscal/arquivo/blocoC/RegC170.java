@@ -3,13 +3,11 @@
  */
 package coffeepot.br.sped.fiscal.arquivo.blocoC;
 
-import java.util.List;
-
 /*
  * #%L
  * coffeepot-br-sped-fiscal
  * %%
- * Copyright (C) 2013 Jeandeson O. Merelis
+ * Copyright (C) 2013 - 2019 Jeandeson O. Merelis
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +28,7 @@ import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
 import coffeepot.bean.wr.types.Align;
 import coffeepot.br.sped.fiscal.tipos.ApuracaoIpi;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -75,6 +74,7 @@ import lombok.Setter;
     @Field(name = "aliqCofinsReal"),
     @Field(name = "vlCofins"),
     @Field(name = "codCta"),
+    @Field(name = "vlAbatNt"),
     //---
     @Field(name = "regC171List"),
     @Field(name = "regC172List"),
@@ -126,6 +126,7 @@ public class RegC170 {
     private Double aliqCofinsReal;
     private Double vlCofins;
     private String codCta;
+    private Double vlAbatNt;
     //---
     private List<RegC171> regC171List;
     private List<RegC172> regC172List;

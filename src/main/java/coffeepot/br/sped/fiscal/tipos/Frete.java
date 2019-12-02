@@ -29,9 +29,11 @@ package coffeepot.br.sped.fiscal.tipos;
  */
 public enum Frete implements EnumCodificado {
 
-    EMITENTE(0),
-    DESTINATARIO_REMETENTE(1),
-    TERCEIROS(2),
+    CONTRATACAO_POR_CONTA_DO_REMETENTE(0),
+    CONTRATACAO_POR_CONTA_DO_DESTINATARIO(1),
+    CONTRATACAO_POR_CONTA_DE_TERCEIROS(2),
+    PROPRIO_POR_CONTA_DO_REMETENTE(3),
+    PROPRIO_POR_CONTA_DO_DESTINATARIO(4),
     SEM_FRETE(9);
 
     private final int codigo;

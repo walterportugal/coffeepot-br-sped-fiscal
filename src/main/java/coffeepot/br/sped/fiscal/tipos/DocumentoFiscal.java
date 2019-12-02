@@ -22,7 +22,6 @@ package coffeepot.br.sped.fiscal.tipos;
  * limitations under the License.
  * #L%
  */
-
 /**
  * Tipo de documento fiscal, referenciado no registro C100.
  *
@@ -99,17 +98,9 @@ public enum DocumentoFiscal implements EnumCodificado {
      */
     M16("16"),
     /**
-     * Despacho de Transporte, modelo 17
-     */
-    M17("17"),
-    /**
      * Resumo Movimento Diário, modelo 18
      */
     M18("18"),
-    /**
-     * Ordem de Coleta de Carga, modelo 20
-     */
-    M20("20"),
     /**
      * Nota Fiscal de Serviço de Comunicação, modelo 21
      */
@@ -118,18 +109,6 @@ public enum DocumentoFiscal implements EnumCodificado {
      * Nota Fiscal de Serviço de Telecomunicações, modelo 22
      */
     M22("22"),
-    /**
-     * GNRE
-     */
-    M23("23"),
-    /**
-     * Autorização de Carregamento e Transporte, modelo 24
-     */
-    M24("24"),
-    /**
-     * Manifesto de Carga, modelo 25
-     */
-    M25("25"),
     /**
      * Conhecimento de Transporte Multimodal de Cargas, modelo 26
      */
@@ -163,9 +142,21 @@ public enum DocumentoFiscal implements EnumCodificado {
      */
     M60("60"),
     /**
+     * Bilhete de Passagem Eletrônico – BP-e
+     */
+    M63("63"),
+    /**
      * Nota Fiscal Eletrônica para Consumidor Final
      */
-    M65("65");
+    M65("65"),
+    /**
+     * Nota Fiscal de Energia Elétrica Eletrônica - NF3e
+     */
+    M66("66"),
+    /**
+     * Conhecimento de Transporte Eletrônico - CT-e OS
+     */
+    M67("67");
 
     private final String codigo;
 

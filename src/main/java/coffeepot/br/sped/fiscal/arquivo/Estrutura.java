@@ -75,7 +75,7 @@ import coffeepot.br.sped.fiscal.arquivo.blocoK.BlocoK;
     @Field(name = "bloco1"),
     @Field(name = "bloco9")
 })
-//@Deprecated
+@Deprecated
 public class Estrutura {
 
     private Bloco0 bloco0;
