@@ -24,12 +24,11 @@ package coffeepot.br.sped.fiscal.arquivo.blocoE;
  */
 
 
-import java.util.List;
-
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
 import coffeepot.bean.wr.types.AccessorType;
 import coffeepot.br.sped.fiscal.tipos.EnumCodificado;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -65,7 +64,7 @@ public class RegE210{
 	private Double vlRessarcSt;
 	private Double vlOutCredSt;
 	private Double vlAjCreditosSt;
-	private Double vlRecancaoSt;
+	private Double vlRetencaoSt;
 	private Double vlOutDebSt;
 	private Double vlAjDebitosSt;
 	private Double vlSldDevAntSt;
@@ -73,6 +72,7 @@ public class RegE210{
 	private Double vlIIcmsRecolSt;
 	private Double vlSldCredStTransportar;
 	private Double vlSldCredorAnt;
+        private Double debEspSt;
         //
 	private List<RegE220> regE220List;
 	

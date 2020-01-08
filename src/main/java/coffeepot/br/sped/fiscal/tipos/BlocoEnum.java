@@ -30,6 +30,9 @@ import coffeepot.br.sped.fiscal.arquivo.blocoH.RegH990;
 import coffeepot.br.sped.fiscal.arquivo.blocoK.BlocoK;
 import coffeepot.br.sped.fiscal.arquivo.blocoK.RegK001;
 import coffeepot.br.sped.fiscal.arquivo.blocoK.RegK990;
+import coffepot.br.sped.fiscal.arquivo.blocoB.BlocoB;
+import coffepot.br.sped.fiscal.arquivo.blocoB.RegB001;
+import coffepot.br.sped.fiscal.arquivo.blocoB.RegB990;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -57,6 +60,7 @@ import java.util.logging.Logger;
  */
 public enum BlocoEnum implements EnumCodificado {
     BLOCO_0('0', Bloco0.class, Reg0000.class, Reg0990.class),
+    BLOCO_B('B', BlocoB.class, RegB001.class, RegB990.class),
     BLOCO_C('C', BlocoC.class, RegC001.class, RegC990.class),
     BLOCO_D('D', BlocoD.class, RegD001.class, RegD990.class),
     BLOCO_E('E', BlocoE.class, RegE001.class, RegE990.class),

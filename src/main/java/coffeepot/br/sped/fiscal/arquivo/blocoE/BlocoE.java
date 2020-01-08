@@ -26,10 +26,9 @@ package coffeepot.br.sped.fiscal.arquivo.blocoE;
 
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
 
 /**
  * Bloco E - Apuração do ICMS e do IPI.
@@ -39,9 +38,9 @@ import java.util.List;
 @Record(fields = {
     @Field(name = "regE001"),
     @Field(name = "regE100List"),
-    //TODO: Registros Bloco E ainda não implementados
-    //    @Field(name = "regE200List"),
-    //    @Field(name = "regE500List"),
+    @Field(name = "regE200List"),
+    @Field(name = "regE300List"),
+    @Field(name = "regE500List"),
     @Field(name = "regE990")
 })
 @Getter
@@ -50,9 +49,9 @@ public class BlocoE {
 
     private RegE001 regE001;
     private List<RegE100> regE100List;
-    //TODO: Registros Bloco E ainda não implementados
-//    private List<RegE200> regE200List;
-//    private List<RegE500> regE500List;
+    private List<RegE200> regE200List;
+    private List<RegE300> regE300List;
+    private List<RegE500> regE500List;
     private RegE990 regE990;
 
 }
