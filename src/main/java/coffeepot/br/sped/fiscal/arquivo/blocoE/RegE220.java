@@ -41,7 +41,6 @@ import lombok.Setter;
         //
 	@Field(name = "regE230List"),
 	@Field(name = "regE240List"),
-	@Field(name = "regE250List")
 })
 @Getter
 @Setter
@@ -53,6 +52,5 @@ public class RegE220 {
     //
     private List<RegE230> regE230List;
     private List<RegE240> regE240List;
-    private List<RegE250> regE250List;
 
 }

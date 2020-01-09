@@ -44,7 +44,7 @@ import lombok.Setter;
 	@Field(name = "vlRessarcSt"),
 	@Field(name = "vlOutCredSt"),
 	@Field(name = "vlAjCreditosSt"),
-	@Field(name = "vlRecancaoSt"),
+	@Field(name = "vlRetencaoSt"),
 	@Field(name = "vlOutDebSt"),
 	@Field(name = "vlAjDebitosSt"),
 	@Field(name = "vlSldDevAntSt"),
@@ -53,7 +53,8 @@ import lombok.Setter;
 	@Field(name = "vlSldCredStTransportar"),
 	@Field(name = "debEspSt"),
         //
-	@Field(name = "regE220List")
+	@Field(name = "regE220List"),
+        @Field(name = "regE250List")
 })
 @Getter
 @Setter
@@ -75,6 +76,7 @@ public class RegE210{
         private Double debEspSt;
         //
 	private List<RegE220> regE220List;
+        private List<RegE250> regE250List;
 	
         public enum IndicadorMovimentoSt implements EnumCodificado {
 
