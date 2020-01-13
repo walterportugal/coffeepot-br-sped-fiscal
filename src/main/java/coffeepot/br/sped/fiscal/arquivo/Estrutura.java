@@ -22,8 +22,6 @@ package coffeepot.br.sped.fiscal.arquivo;
  * limitations under the License.
  * #L%
  */
-
-
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
 import coffeepot.br.sped.fiscal.arquivo.bloco0.Bloco0;
@@ -46,24 +44,22 @@ import coffepot.br.sped.fiscal.arquivo.blocoB.BlocoB;
  * <li> C - Documentos Fiscais I  - Mercadorias (ICMS/IPI)</li>
  * <li> D - Documentos Fiscais II - Serviços (ICMS)</li>
  * <li> E - Apuração do ICMS e do IPI</li>
- * <li> G - Controle do Crédito de ICMS do Ativo Permanente - CIAP - modelos "C"
- * e "D"</li>
+ * <li> G - Controle do Crédito de ICMS do Ativo Permanente - CIAP - modelos "C" e "D"</li>
  * <li> H - Inventário Físico</li>
  * <li> 1 - Outras Informações</li>
  * <li> 9 - Controle e Encerramento do Arquivo Digital</li>
  * </ul>
+ * <p>
+ * <strong>Obs.: </strong> Embora seja possível gravarmos SPED FISCAL inteiro utilizando apenas uma instancia desta
+ * classe e a passando para o ObjectWriter escrevê-la, isto não é recomendado, pois o arquivo pode ser enorme e o uso da
+ * memória fica comprometido. A recomendação é gravar os registros sob demanda, e liberando os recursos em seguida.
+ * </p>
  *
  * @author Jeandeson O. Merelis
- * @deprecated Embora seja possível gravarmos SPED FISCAL inteiro
- * utilizando apenas uma instancia desta classe e a passando para o ObjectWriter
- * escrevê-la, isto não seria recomendado, pois o
- * arquivo pode ser enorme e o uso da memória
- * ficaria comprometido. A recomendação é gravar os registros sob demanda, e
- * liberando os recursos em seguida.
+ *
  * <br>
  * <strong>
- * Desta forma, a finalidade desta classe é mais para entendermos a estrutura do
- * Arquivo SPED FISCAL.</strong>
+ * Desta forma, a finalidade desta classe é mais para entendermos a estrutura do Arquivo SPED FISCAL.</strong>
  */
 @Record(fields = {
     @Field(name = "bloco0"),
@@ -77,7 +73,6 @@ import coffepot.br.sped.fiscal.arquivo.blocoB.BlocoB;
     @Field(name = "bloco1"),
     @Field(name = "bloco9")
 })
-@Deprecated
 public class Estrutura {
 
     private Bloco0 bloco0;
@@ -146,7 +141,7 @@ public class Estrutura {
     public void setBlocoH(BlocoH blocoH) {
         this.blocoH = blocoH;
     }
-    
+
     public BlocoK getBlocoK() {
         return blocoK;
     }
