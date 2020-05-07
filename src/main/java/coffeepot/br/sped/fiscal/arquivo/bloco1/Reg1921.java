@@ -26,7 +26,6 @@ package coffeepot.br.sped.fiscal.arquivo.bloco1;
 
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
-import coffeepot.br.sped.fiscal.tipos.EnumCodificado;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
@@ -48,31 +47,31 @@ import lombok.Setter;
 @Setter
 public class Reg1921 {
 
-    private CodigoAjusteSubOperacao codAjApur;
+    private String codAjApur;
     private String descrComplAj;
     private Double vlAjApur;
     //--- detalhes ---
     private List<Reg1922> reg1922List;
     private List<Reg1923> reg1923List;
 
-    public enum CodigoAjusteSubOperacao implements EnumCodificado {
-
-        OUTROS_DEBITOS("0"),
-        ESTORNO_CRETIDOS("1"),
-        OUTROS_CREDITOS("2"),
-        ESTORNO_DEBITOS("3"),
-        DEDUCOES_IMPOSTO_APURADO("4"),
-        DEBITOS_ESPECIAIS("5");
-
-        private final String codigo;
-
-        private CodigoAjusteSubOperacao(String codigo) {
-            this.codigo = codigo;
-        }
-
-        @Override
-        public String getCodigo() {
-            return codigo;
-        }
-    }
+//    public enum CodigoAjusteSubOperacao implements EnumCodificado {
+//
+//        OUTROS_DEBITOS("0"),
+//        ESTORNO_CRETIDOS("1"),
+//        OUTROS_CREDITOS("2"),
+//        ESTORNO_DEBITOS("3"),
+//        DEDUCOES_IMPOSTO_APURADO("4"),
+//        DEBITOS_ESPECIAIS("5");
+//
+//        private final String codigo;
+//
+//        private CodigoAjusteSubOperacao(String codigo) {
+//            this.codigo = codigo;
+//        }
+//
+//        @Override
+//        public String getCodigo() {
+//            return codigo;
+//        }
+//    }
 }

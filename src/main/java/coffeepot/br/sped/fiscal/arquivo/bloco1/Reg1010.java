@@ -46,7 +46,8 @@ import lombok.Setter;
     @Field(name = "indAer", params = "S;N"),
     @Field(name = "indGiaf1", params = "S;N"),
     @Field(name = "indGiaf3", params = "S;N"),
-    @Field(name = "indGiaf4", params = "S;N")
+    @Field(name = "indGiaf4", params = "S;N"),
+    @Field(name = "indRestRessarcComplIcms", params = "S;N")
 })
 @Getter
 @Setter
@@ -64,5 +65,6 @@ public class Reg1010 {
     private Boolean indGiaf1;
     private Boolean indGiaf3;
     private Boolean indGiaf4;
+    private Boolean indRestRessarcComplIcms;
 
 }

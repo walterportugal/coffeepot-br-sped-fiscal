@@ -53,12 +53,12 @@ public class Reg1900 {
 
     public enum IndicadorOutraApuracaoIcms implements EnumCodificado {
 
-        APURACAO_1("1"),
-        APURACAO_2("2"),
-        APURACAO_3("3"),
-        APURACAO_4("4"),
-        APURACAO_5("5"),
-        APURACAO_6("6");
+        APURACAO_1("3"),
+        APURACAO_2("4"),
+        APURACAO_3("5"),
+        APURACAO_4("6"),
+        APURACAO_5("7"),
+        APURACAO_6("8");
 
         private final String codigo;
 
