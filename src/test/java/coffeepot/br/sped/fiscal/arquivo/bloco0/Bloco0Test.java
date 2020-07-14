@@ -43,7 +43,6 @@ import coffeepot.bean.wr.typeHandler.HandlerParseException;
  * limitations under the License.
  * #L%
  */
-import coffeepot.br.sped.fiscal.arquivo.EstruturaTest;
 import coffeepot.br.sped.fiscal.config.Config;
 import coffeepot.br.sped.fiscal.reader.SpedFiscalReader;
 import coffeepot.br.sped.fiscal.tipos.FinalidadeArquivo;
@@ -76,7 +75,8 @@ public class Bloco0Test {
         System.out.println("*** Teste de escrita do BLOCO 0 inteiro ***");
         File file = new File(Config.TEST_BLOCO_OUT_DIR + "Bloco0Test.txt");
 
-        Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
+        Writer fw = new BufferedWriter(new OutputStreamWriter(
+                new FileOutputStream(file), StandardCharsets.UTF_8));
         SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(fw);
 
         Bloco0 bloco0 = createBloco0(file, spedFiscalWriter);
@@ -87,10 +87,12 @@ public class Bloco0Test {
     }
 
     @Test
-    public void Bloco0Version10Test() throws UnknownRecordException, HandlerParseException, Exception {
+    public void Bloco0Version10Test() throws UnknownRecordException,
+            HandlerParseException, Exception {
         try {
             StringWriter sw = new StringWriter();
-            SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(sw, VersaoLayout.VERSAO_010);
+            SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(sw,
+                    VersaoLayout.VERSAO_010);
 
             Reg0001 registroAbertura = new Reg0001(IndicadorMovimento.COM_DADOS);
             Reg0200 registro = new Reg0200();
@@ -104,21 +106,25 @@ public class Bloco0Test {
             spedFiscalWriter.close();
 
             try (StringReader sr = new StringReader(sw.toString())) {
-                SpedFiscalReader reader = new SpedFiscalReader(sr, VersaoLayout.VERSAO_010);
+                SpedFiscalReader reader = new SpedFiscalReader(sr,
+                        VersaoLayout.VERSAO_010);
                 Bloco0 bloco0 = reader.parseToBloco0();
                 assertNull(bloco0.getReg0200List().get(0).getCest());
             }
 
         } catch (IOException ex) {
-            Logger.getLogger(Bloco0Test.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Bloco0Test.class.getName()).log(Level.SEVERE, null,
+                    ex);
         }
     }
 
     @Test
-    public void Bloco0Version11Test() throws UnknownRecordException, HandlerParseException, Exception {
+    public void Bloco0Version11Test() throws UnknownRecordException,
+            HandlerParseException, Exception {
         try {
             StringWriter sw = new StringWriter();
-            SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(sw, VersaoLayout.VERSAO_011);
+            SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(sw,
+                    VersaoLayout.VERSAO_011);
 
             Reg0001 registroAbertura = new Reg0001(IndicadorMovimento.COM_DADOS);
             Reg0200 registro = new Reg0200();
@@ -132,17 +138,22 @@ public class Bloco0Test {
             spedFiscalWriter.close();
 
             try (StringReader sr = new StringReader(sw.toString())) {
-                SpedFiscalReader reader = new SpedFiscalReader(sr, VersaoLayout.VERSAO_011);
+                SpedFiscalReader reader = new SpedFiscalReader(sr,
+                        VersaoLayout.VERSAO_011);
                 Bloco0 bloco0 = reader.parseToBloco0();
                 assertEquals("123124", bloco0.getReg0200List().get(0).getCest());
             }
 
         } catch (IOException ex) {
-            Logger.getLogger(Bloco0Test.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Bloco0Test.class.getName()).log(Level.SEVERE, null,
+                    ex);
         }
     }
 
-    public static Bloco0 createBloco0(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
+    public static Bloco0 createBloco0(File file,
+            SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException,
+            InstantiationException, IllegalAccessException,
+            IllegalArgumentException, InvocationTargetException, IOException {
         Bloco0 bloco = getDataBloco0();
         return (Bloco0) Util.createFileFromBloco(bloco, file, spedFiscalWriter);
     }
@@ -151,6 +162,7 @@ public class Bloco0Test {
         Bloco0 bloco = new Bloco0();
         bloco.setReg0000(createReg0000());
         bloco.setReg0001(createReg0001());
+        bloco.setReg0002(createReg0002());
         bloco.setReg0005(createReg0005());
         bloco.setReg0015List(createReg0015List());
         bloco.setReg0100(createReg0100());
@@ -173,7 +185,8 @@ public class Bloco0Test {
 
         try {
             File file = new File(Config.TEST_REG_OUT_DIR + "Reg0000Test.txt");
-            Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8));
+            Writer fw = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream(file), StandardCharsets.UTF_8));
             SpedFiscalWriter spedFiscalWriter = new SpedFiscalWriter(fw);
 
             spedFiscalWriter.write(reg);
@@ -183,7 +196,8 @@ public class Bloco0Test {
             assertTrue(true);
 
         } catch (IOException ex) {
-            Logger.getLogger(Bloco0Test.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Bloco0Test.class.getName()).log(Level.SEVERE, null,
+                    ex);
         }
 
     }
@@ -549,6 +563,14 @@ public class Bloco0Test {
         reg.setDtAlt(LocalDate.now());
         list.add(reg);
         return list;
+    }
+
+    private static Reg0002 createReg0002() {
+        Reg0002 reg0002 = new Reg0002();
+        
+        reg0002.setClassEstabInd(Reg0002.ClassificacaoEstabIndustrial.INDUSTRIAL_BENEFICIAMENTO);
+        
+        return reg0002;
     }
 
 }
