@@ -23,8 +23,6 @@ package coffeepot.br.sped.fiscal.arquivo.blocoC;
  * limitations under the License.
  * #L%
  */
-
-
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
 import coffeepot.br.sped.fiscal.tipos.DocumentoFiscal;
@@ -42,7 +40,7 @@ import lombok.Setter;
  * @author Edivaldo Merlo Stens
  */
 @Record(fields = {
-    @Field(name = "reg", id=true, constantValue = "C500"),
+    @Field(name = "reg", id = true, constantValue = "C500"),
     @Field(name = "indOper"),
     @Field(name = "indEmit"),
     @Field(name = "codPart"),
@@ -69,6 +67,13 @@ import lombok.Setter;
     @Field(name = "vlCofins"),
     @Field(name = "tpLigacao"),
     @Field(name = "codGrupoTensao"),
+    @Field(name = "chvDoce"),
+    @Field(name = "finDoce"),
+    @Field(name = "chvDoceRef"),
+    @Field(name = "indDest"),
+    @Field(name = "codMunDest"),
+    @Field(name = "codCta"),
+    
     //--- detalhes ---
     @Field(name = "regC510List"),
     @Field(name = "regC590List")
@@ -103,10 +108,16 @@ public class RegC500 {
     private Double vlCofins;
     private TipoLigacao tpLigacao;
     private CodigoGrupoTensao codGrupoTensao;
+    private String chvDoce;
+    private FinalidadeDocumento finDoce;
+    private String chvDoceRef;
+    private IndicadorDestinatarioAcessante indDest;
+    private String codMunDest;
+    private String codCta;
     //--- detalhes ---
     private List<RegC510> regC510List;
     private List<RegC590> regC590List;
-    
+
     public enum CodigoConsumo implements EnumCodificado {
 
         COMERCIAL("01"),
@@ -129,7 +140,7 @@ public class RegC500 {
             return codigo;
         }
     }
-    
+
     public enum TipoLigacao implements EnumCodificado {
 
         MONOFASICO("1"),
@@ -147,7 +158,7 @@ public class RegC500 {
             return codigo;
         }
     }
-    
+
     public enum CodigoGrupoTensao implements EnumCodificado {
 
         A1_ALTA_TENSAO_240v_MAIS("01"),
@@ -175,6 +186,42 @@ public class RegC500 {
         public String getCodigo() {
             return codigo;
         }
+    }
+
+    public enum FinalidadeDocumento implements EnumCodificado {
+        NORMAL("1"),
+        SUBSTITUICAO("2"),
+        NORMAL_COM_AJUSTE("3");
+
+        private final String codigo;
+
+        private FinalidadeDocumento(String codigo) {
+            this.codigo = codigo;
+        }
+
+        @Override
+        public String getCodigo() {
+            return codigo;
+        }
+    }
+
+    public enum IndicadorDestinatarioAcessante implements EnumCodificado {
+        CONTRIBUINTE_ICMS("1"),
+        CONTRIBUINTE_ISENTO("2"),
+        NAO_CONTRUIBUINTE("9")
+        ;
+        
+         private final String codigo;
+
+        private IndicadorDestinatarioAcessante(String codigo) {
+            this.codigo = codigo;
+        }
+
+        @Override
+        public String getCodigo() {
+            return codigo;
+        }
+
     }
 
 }

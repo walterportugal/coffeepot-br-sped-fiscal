@@ -3,13 +3,11 @@
  */
 package coffeepot.br.sped.fiscal.arquivo.bloco0;
 
-import java.util.List;
-
 /*
  * #%L
  * coffeepot-br-sped-fiscal
  * %%
- * Copyright (C) 2013 Jeandeson O. Merelis
+ * Copyright (C) 2013 - 2020 Jeandeson O. Merelis
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +26,7 @@ import java.util.List;
 
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,6 +38,7 @@ import lombok.Setter;
 @Record(fields = {
     @Field(name = "reg0000"),
     @Field(name = "reg0001"),
+    @Field(name = "reg0002"),
     @Field(name = "reg0005"),
     @Field(name = "reg0015List"),
     @Field(name = "reg0100"),
@@ -59,6 +59,7 @@ public class Bloco0 {
 
     private Reg0000 reg0000;
     private Reg0001 reg0001;
+    private Reg0002 reg0002;
     private Reg0005 reg0005;
     private List<Reg0015> reg0015List;
     private Reg0100 reg0100;
