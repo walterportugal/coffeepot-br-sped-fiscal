@@ -1,16 +1,10 @@
-/*
- * Copyright 2013 - Jeandeson O. Merelis
- */
-package coffeepot.br.sped.fiscal.arquivo;
-
-import lombok.Getter;
-import lombok.Setter;
+package coffeepot.br.sped.contribuicoes.bloco1;
 
 /*
  * #%L
  * coffeepot-br-sped-fiscal
  * %%
- * Copyright (C) 2013 Jeandeson O. Merelis
+ * Copyright (C) 2013 - 2020 Jeandeson O. Merelis
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,17 +20,23 @@ import lombok.Setter;
  * #L%
  */
 
-
 /**
- * Registro de encerramento de bloco.
+ * Class: Bloco1.
  *
- * @author Jeandeson O. Merelis
+ * <p>
+ * Insert description here.
+ * </p>
+ *
+ * <p>
+ * History:<br><br>
+ *      - walter - Sep 2, 2020: Criação do Arquivo<br>
+ * <p>
+ *
+ * @author walter
+ * @since 2.0.0
+ *
  */
-@Getter
-@Setter
-public class RegEncerramentoBlocoBase {
 
-    protected String reg;
-    protected Long qtdLin;
+public class Bloco1 {
 
 }

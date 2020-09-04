@@ -1,13 +1,10 @@
-/*
- * Copyright 2013 - Jeandeson O. Merelis
- */
-package coffeepot.br.sped.fiscal.arquivo;
+package coffeepot.br.sped.contribuicoes.bloco9;
 
 /*
  * #%L
  * coffeepot-br-sped-fiscal
  * %%
- * Copyright (C) 2013 Jeandeson O. Merelis
+ * Copyright (C) 2013 - 2020 Jeandeson O. Merelis
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,21 +20,23 @@ package coffeepot.br.sped.fiscal.arquivo;
  * #L%
  */
 
-
-import coffeepot.br.sped.fiscal.tipos.IndicadorMovimento;
-import lombok.Getter;
-import lombok.Setter;
-
 /**
- * Registro de abertura de bloco.
+ * Class: Bloco9.
  *
- * @author Jeandeson O. Merelis
+ * <p>
+ * Insert description here.
+ * </p>
+ *
+ * <p>
+ * History:<br><br>
+ *      - walter - Sep 2, 2020: Criação do Arquivo<br>
+ * <p>
+ *
+ * @author walter
+ * @since 2.0.0
+ *
  */
-@Getter
-@Setter
-public class RegAberturaBlocoBase {
 
-    protected String reg;
-    protected IndicadorMovimento indMov;
+public class Bloco9 {
 
 }

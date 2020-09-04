@@ -1,10 +1,10 @@
-package coffeepot.br.sped.fiscal.arquivo;
+package coffeepot.br.sped.contribuicoes.blocoC;
 
 /*
  * #%L
  * coffeepot-br-sped-fiscal
  * %%
- * Copyright (C) 2013 Jeandeson O. Merelis
+ * Copyright (C) 2013 - 2020 Jeandeson O. Merelis
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,28 +20,38 @@ package coffeepot.br.sped.fiscal.arquivo;
  * #L%
  */
 
-
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
-import coffeepot.bean.wr.types.AccessorType;
-import coffeepot.br.sped.fiscal.tipos.IndicadorMovimento;
+import coffeepot.br.sped.contribuicoes.tipos.OrigemProcesso;
+import lombok.Getter;
+import lombok.Setter;
 
-@Record( accessorType = AccessorType.PROPERTY, fields = {
-    @Field(name = "reg", id=true, classType = String.class),
-    @Field(name = "indMov")
+/**
+ * Class: RegC198.
+ *
+ * <p>
+ * Processo Referenciado.
+ * </p>
+ *
+ * <p>
+ * History:<br><br>
+ * - walter - Sep 4, 2020: Criação do Arquivo<br>
+ * <p>
+ *
+ * @author walter
+ * @since 2.0.0
+ *
+ */
+@Record(fields = {
+    @Field(name = "", id = true, constantValue = "C198"),
+    @Field(name = "numProc", maxLength = 20),
+    @Field(name = "indProc")
 })
-public class RegAberturaBlocoGenerico extends RegAberturaBlocoBase {
+@Getter
+@Setter
+public class RegC198 {
 
-    public RegAberturaBlocoGenerico() {
-    }
+    private String numProc;
+    private OrigemProcesso indProc;
 
-    public RegAberturaBlocoGenerico(String reg, IndicadorMovimento indMov) {
-        this.reg = reg;
-        this.indMov = indMov;
-    }
-
-    @Override
-    public void setReg(String reg) {
-        super.setReg(reg);
-    }
 }
