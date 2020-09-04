@@ -1,4 +1,4 @@
-package coffeepot.br.sped.contribuicoes.blocoC;
+package coffeepot.br.sped.contribuicoes.blocoD;
 
 /*
  * #%L
@@ -23,19 +23,20 @@ package coffeepot.br.sped.contribuicoes.blocoC;
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
 import coffeepot.bean.wr.types.Align;
+import coffeepot.br.sped.contribuicoes.tipos.NaturezaFreteContratado;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Class: RegC501.
+ * Class: RegD105.
  *
  * <p>
- * Complemento da Operação (Códigos 06, 28 e 29) – PIS/Pasep.
+ * Complemento do Documento de Transporte (Códigos 07, 08, 8B, 09, 10, 11, 26, 27 e 57) – Cofins.
  * </p>
  *
  * <p>
  * History:<br><br>
- *      - walter - Sep 4, 2020: Criação do Arquivo<br>
+ * - walter - Sep 4, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
@@ -43,25 +44,27 @@ import lombok.Setter;
  *
  */
 @Record(fields = {
-    @Field(name = "reg", id = true, constantValue = "C501"),
-    @Field(name = "cstPis", minLength = 2, align = Align.RIGHT, padding = '0'),
+    @Field(name = "reg", id = true, constantValue = "D105"),
+    @Field(name = "indNatFrt"),
     @Field(name = "vlItem"),
+    @Field(name = "cstCofins", minLength = 2, align = Align.RIGHT, padding = '0'),
     @Field(name = "natBcCred"),
-    @Field(name = "vlBcPis"),
-    @Field(name = "aliqPis"),
-    @Field(name = "vlPis"),
+    @Field(name = "vlBcCofins"),
+    @Field(name = "aliqCofins"),
+    @Field(name = "vlCofins"),
     @Field(name = "codCta")
 })
 @Getter
 @Setter
-public class RegC501 {
-    
-    private String cstPis;
+public class RegD105 {
+
+    private NaturezaFreteContratado indNatFrt;
     private Double vlItem;
+    private String cstCofins;
     private String natBcCred;
-    private Double vlBcPis;
-    private Double aliqPis;
-    private Double vlPis;
+    private Double vlBcCofins;
+    private Double aliqCofins;
+    private Double vlCofins;
     private String codCta;
 
 }

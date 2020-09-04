@@ -1,4 +1,4 @@
-package coffeepot.br.sped.contribuicoes.blocoC;
+package coffeepot.br.sped.contribuicoes.blocoD;
 
 /*
  * #%L
@@ -22,15 +22,15 @@ package coffeepot.br.sped.contribuicoes.blocoC;
 
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
-import coffeepot.bean.wr.types.Align;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Class: RegC501.
+ * Class: RegD010.
  *
  * <p>
- * Complemento da Operação (Códigos 06, 28 e 29) – PIS/Pasep.
+ * Insert description here.
  * </p>
  *
  * <p>
@@ -43,25 +43,17 @@ import lombok.Setter;
  *
  */
 @Record(fields = {
-    @Field(name = "reg", id = true, constantValue = "C501"),
-    @Field(name = "cstPis", minLength = 2, align = Align.RIGHT, padding = '0'),
-    @Field(name = "vlItem"),
-    @Field(name = "natBcCred"),
-    @Field(name = "vlBcPis"),
-    @Field(name = "aliqPis"),
-    @Field(name = "vlPis"),
-    @Field(name = "codCta")
+    @Field(name = "reg", id = true, constantValue = "D010"),
+    @Field(name = "cnpj"),
+    @Field(name = "regD100List"),
+    @Field(name = "regD500List")
 })
 @Getter
 @Setter
-public class RegC501 {
+public class RegD010 {
     
-    private String cstPis;
-    private Double vlItem;
-    private String natBcCred;
-    private Double vlBcPis;
-    private Double aliqPis;
-    private Double vlPis;
-    private String codCta;
+    private String cnpj;
+    private List<RegD100> regD100List;
+    private List<RegD500> regD500List;
 
 }

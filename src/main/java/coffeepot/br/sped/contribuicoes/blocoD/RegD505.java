@@ -1,4 +1,4 @@
-package coffeepot.br.sped.contribuicoes.blocoC;
+package coffeepot.br.sped.contribuicoes.blocoD;
 
 /*
  * #%L
@@ -27,10 +27,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Class: RegC501.
+ * Class: RegD505.
  *
  * <p>
- * Complemento da Operação (Códigos 06, 28 e 29) – PIS/Pasep.
+ * Complemento da Operação (Códigos 21 e 22) – Cofins.
  * </p>
  *
  * <p>
@@ -43,25 +43,25 @@ import lombok.Setter;
  *
  */
 @Record(fields = {
-    @Field(name = "reg", id = true, constantValue = "C501"),
-    @Field(name = "cstPis", minLength = 2, align = Align.RIGHT, padding = '0'),
+    @Field(name = "reg", id = true, constantValue = "D505"),
+    @Field(name = "cstCofins", minLength = 2, align = Align.RIGHT, padding = '0'),
     @Field(name = "vlItem"),
     @Field(name = "natBcCred"),
-    @Field(name = "vlBcPis"),
-    @Field(name = "aliqPis"),
-    @Field(name = "vlPis"),
+    @Field(name = "vlBcCofins"),
+    @Field(name = "aliqCofins"),
+    @Field(name = "vlCofins"),
     @Field(name = "codCta")
 })
 @Getter
 @Setter
-public class RegC501 {
+public class RegD505 {
     
-    private String cstPis;
+    private String cstCofins;
     private Double vlItem;
     private String natBcCred;
-    private Double vlBcPis;
-    private Double aliqPis;
-    private Double vlPis;
+    private Double vlBcCofins;
+    private Double aliqCofins;
+    private Double vlCofins;
     private String codCta;
 
 }

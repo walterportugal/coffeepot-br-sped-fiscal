@@ -1,5 +1,13 @@
 package coffeepot.br.sped.contribuicoes.blocoD;
 
+import coffeepot.bean.wr.annotation.Field;
+import coffeepot.bean.wr.annotation.Record;
+import coffeepot.br.sped.fiscal.arquivo.blocoD.RegD001;
+import coffeepot.br.sped.fiscal.arquivo.blocoD.RegD990;
+import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
+
 /*
  * #%L
  * coffeepot-br-sped-fiscal
@@ -19,24 +27,37 @@ package coffeepot.br.sped.contribuicoes.blocoD;
  * limitations under the License.
  * #L%
  */
-
 /**
  * Class: BlocoD.
  *
  * <p>
- * Insert description here.
+ * Documentos Fiscais – II - Serviços (ICMS).
+ *
+ * Este registro deve ser gerado para abertura do Bloco D e indica se há informações sobre prestações ou contratações de
+ * serviços de comunicação, transporte interestadual e intermunicipal, com o devido suporte do correspondente documento
+ * fiscal.
  * </p>
  *
  * <p>
  * History:<br><br>
- *      - walter - Sep 2, 2020: Criação do Arquivo<br>
+ * - walter - Sep 2, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
  * @since 2.0.0
  *
  */
-
+@Record(fields = {
+    @Field(name = "regD001"),
+    @Field(name = "regD010List"),
+    @Field(name = "regD990")
+})
+@Getter
+@Setter
 public class BlocoD {
+    
+    private RegD001 regD001;
+    private List<RegD010> regD010List;
+    private RegD990 regD990;
 
 }

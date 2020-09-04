@@ -1,4 +1,4 @@
-package coffeepot.br.sped.contribuicoes.blocoC;
+package coffeepot.br.sped.contribuicoes.blocoD;
 
 /*
  * #%L
@@ -22,20 +22,20 @@ package coffeepot.br.sped.contribuicoes.blocoC;
 
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
-import coffeepot.bean.wr.types.Align;
+import coffeepot.br.sped.contribuicoes.tipos.OrigemProcesso;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Class: RegC501.
+ * Class: RegD509.
  *
  * <p>
- * Complemento da Operação (Códigos 06, 28 e 29) – PIS/Pasep.
+ * Processo Referenciado.
  * </p>
  *
  * <p>
  * History:<br><br>
- *      - walter - Sep 4, 2020: Criação do Arquivo<br>
+ * - walter - Sep 4, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
@@ -43,25 +43,15 @@ import lombok.Setter;
  *
  */
 @Record(fields = {
-    @Field(name = "reg", id = true, constantValue = "C501"),
-    @Field(name = "cstPis", minLength = 2, align = Align.RIGHT, padding = '0'),
-    @Field(name = "vlItem"),
-    @Field(name = "natBcCred"),
-    @Field(name = "vlBcPis"),
-    @Field(name = "aliqPis"),
-    @Field(name = "vlPis"),
-    @Field(name = "codCta")
+    @Field(name = "reg", id = true, constantValue = "D509"),
+    @Field(name = "numProc", maxLength = 20),
+    @Field(name = "indProc")
 })
 @Getter
 @Setter
-public class RegC501 {
+public class RegD509 {
     
-    private String cstPis;
-    private Double vlItem;
-    private String natBcCred;
-    private Double vlBcPis;
-    private Double aliqPis;
-    private Double vlPis;
-    private String codCta;
+    private String numProc;
+    private OrigemProcesso indProc;
 
 }
