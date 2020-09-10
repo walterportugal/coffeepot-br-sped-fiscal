@@ -1,10 +1,4 @@
-package coffeepot.br.sped.contribuicoes.blocoA;
-
-import coffeepot.bean.wr.annotation.Field;
-import coffeepot.bean.wr.annotation.Record;
-import java.util.List;
-import lombok.Getter;
-import lombok.Setter;
+package coffeepot.br.sped.contribuicoes.blocoF;
 
 /*
  * #%L
@@ -26,33 +20,40 @@ import lombok.Setter;
  * #L%
  */
 
+import coffeepot.bean.wr.annotation.Field;
+import coffeepot.bean.wr.annotation.Record;
+import coffeepot.bean.wr.types.AccessorType;
+import coffeepot.br.sped.commons.RegAberturaBlocoBase;
+import coffeepot.br.sped.fiscal.tipos.IndicadorMovimento;
+
 /**
- * Class: BlocoA.
+ * Class: RegF001.
  *
  * <p>
- * Documentos Fiscais - Serviços (ISS).
+ * Abertura do Bloco F.
  * </p>
  *
  * <p>
  * History:<br><br>
- *      - walter - Sep 2, 2020: Criação do Arquivo<br>
+ * - walter - Sep 9, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
  * @since 2.0.0
  *
  */
-@Record(fields = {
-    @Field(name = "regA001"),
-    @Field(name = "regA010List"),
-    @Field(name = "regA990")
+@Record(accessorType = AccessorType.PROPERTY, fields = {
+    @Field(name = "reg", id = true, constantValue = "F001"),
+    @Field(name = "indMov")
 })
-@Getter
-@Setter
-public class BlocoA {
-    
-    private RegA001 regA001;
-    private List<RegA010> regA010List;
-    private RegA990 regA990;
-    
+public class RegF001 extends RegAberturaBlocoBase {
+
+    public RegF001() {
+        this.reg = "F001";
+    }
+
+    public RegF001(IndicadorMovimento indMov) {
+        this.reg = "F001";
+        this.indMov = indMov;
+    }
 }

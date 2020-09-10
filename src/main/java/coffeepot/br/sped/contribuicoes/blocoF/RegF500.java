@@ -1,4 +1,4 @@
-package coffeepot.br.sped.contribuicoes.blocoA;
+package coffeepot.br.sped.contribuicoes.blocoF;
 
 /*
  * #%L
@@ -23,20 +23,22 @@ package coffeepot.br.sped.contribuicoes.blocoA;
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
 import coffeepot.bean.wr.types.Align;
-import coffeepot.br.sped.contribuicoes.tipos.IndicadorOrigemCredito;
+import coffeepot.br.sped.fiscal.tipos.DocumentoFiscal;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Class: RegA170.
+ * Class: RegF500.
  *
  * <p>
- * Complemento do Documento - Itens do Documento.
+ * Consolidação das Operações da Pessoa Jurídica Submetida ao Regime de Tributação com Base no Lucro Presumido –
+ * Incidência do PIS/Pasep e da Cofins pelo Regime de Caixa.
  * </p>
  *
  * <p>
  * History:<br><br>
- *      - walter - Sep 3, 2020: Criação do Arquivo<br>
+ * - walter - Sep 10, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
@@ -44,45 +46,44 @@ import lombok.Setter;
  *
  */
 @Record(fields = {
-    @Field(name = "reg", id=true, constantValue = "A170"),
-    @Field(name = "numItem"),
-    @Field(name = "codItem"),
-    @Field(name = "descrCompl"),
-    @Field(name = "vlItem"),
-    @Field(name = "vlDesc"),
-    @Field(name = "natBcCred"),
-    @Field(name = "indOrigCred"),
+    @Field(name = "reg", id = true, constantValue = "F500"),
+    @Field(name = "vlRecCaixa"),
     @Field(name = "cstPis", minLength = 2, align = Align.RIGHT, padding = '0'),
+    @Field(name = "vlDescPis"),
     @Field(name = "vlBcPis"),
     @Field(name = "aliqPis"),
     @Field(name = "vlPis"),
     @Field(name = "cstCofins", minLength = 2, align = Align.RIGHT, padding = '0'),
+    @Field(name = "vlDescCofins"),
     @Field(name = "vlBcCofins"),
     @Field(name = "aliqCofins"),
     @Field(name = "vlCofins"),
+    @Field(name = "codMod"),
+    @Field(name = "cfop"),
     @Field(name = "codCta"),
-    @Field(name = "codCcus")
+    @Field(name = "infoCompl"),
+    @Field(name = "regF509List")
 })
 @Getter
 @Setter
-public class RegA170 {
-    
-    private Integer numItem;
-    private String codItem;
-    private String descrCompl;
-    private Double vlItem;
-    private Double vlDesc;
-    private String natBcCred;
-    private IndicadorOrigemCredito indOrigCred;
+public class RegF500 {
+
+    private Double vlRecCaixa;
     private String cstPis;
+    private Double vlDescPis;
     private Double vlBcPis;
     private Double aliqPis;
     private Double vlPis;
     private String cstCofins;
+    private Double vlDescCofins;
     private Double vlBcCofins;
     private Double aliqCofins;
     private Double vlCofins;
+    private DocumentoFiscal codMod;
+    private Integer cfop;
     private String codCta;
-    private String codCcus;
+    private String infoCompl;
+
+    private List<RegF509> regF509List;
 
 }

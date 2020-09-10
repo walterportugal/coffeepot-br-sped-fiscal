@@ -53,7 +53,6 @@ import lombok.Setter;
     @Field(name = "indOper"),
     @Field(name = "indEmit"),
     @Field(name = "codPart"),
-    @Field(name = "codMod"),
     @Field(name = "codSit"),
     @Field(name = "ser"),
     @Field(name = "numDoc"),
@@ -109,7 +108,7 @@ public class RegA100 {
      * <ul>
      * <li>0 - Serviço Contratado pelo Estabelecimento;</li>
      * <li>1 - Serviço Prestado pelo Estabelecimento.</li>
-     * </ul </p>
+     * </ul> </p>
      */
     public enum TipoOperacaoServico implements EnumCodificado {
 

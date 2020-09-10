@@ -1,5 +1,11 @@
 package coffeepot.br.sped.contribuicoes.blocoF;
 
+import coffeepot.bean.wr.annotation.Field;
+import coffeepot.bean.wr.annotation.Record;
+import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
+
 /*
  * #%L
  * coffeepot-br-sped-fiscal
@@ -19,24 +25,33 @@ package coffeepot.br.sped.contribuicoes.blocoF;
  * limitations under the License.
  * #L%
  */
-
 /**
  * Class: BlocoF.
  *
  * <p>
- * Insert description here.
+ * Demais Documentos e Operações. Neste bloco serão informadas pela pessoa jurídica, as demais operações geradoras de
+ * contribuição ou de crédito, não informadas nos Blocos A, C e D.
  * </p>
  *
  * <p>
  * History:<br><br>
- *      - walter - Sep 2, 2020: Criação do Arquivo<br>
+ * - walter - Sep 2, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
  * @since 2.0.0
  *
  */
-
+@Record(fields = {
+    @Field(name = "regF001"),
+    @Field(name = "regF010List"),
+    @Field(name = "regF990")
+})
+@Getter
+@Setter
 public class BlocoF {
 
+    private RegF001 regF001;
+    private List<RegF010> regF010List;
+    private RegF990 regF990;
 }
