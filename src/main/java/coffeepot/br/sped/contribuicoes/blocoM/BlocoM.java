@@ -1,5 +1,11 @@
 package coffeepot.br.sped.contribuicoes.blocoM;
 
+import coffeepot.bean.wr.annotation.Field;
+import coffeepot.bean.wr.annotation.Record;
+import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
+
 /*
  * #%L
  * coffeepot-br-sped-fiscal
@@ -24,7 +30,7 @@ package coffeepot.br.sped.contribuicoes.blocoM;
  * Class: BlocoM.
  *
  * <p>
- * Insert description here.
+ * Apuração da Contribuição e Crédito de PIS/PASEP e da COFINS.
  * </p>
  *
  * <p>
@@ -36,7 +42,35 @@ package coffeepot.br.sped.contribuicoes.blocoM;
  * @since 2.0.0
  *
  */
-
+@Record(fields = {
+    @Field(name = "regM001"),
+    @Field(name = "regM100List"),
+    @Field(name = "regM200"),
+    @Field(name = "regM300List"),
+    @Field(name = "regM350"),
+    @Field(name = "regM400List"),
+    @Field(name = "regM500List"),
+    @Field(name = "regM600List"),
+    @Field(name = "regM700List"),
+    @Field(name = "regM800List"),
+    @Field(name = "regM990")
+})
+@Getter
+@Setter
 public class BlocoM {
+    
+    private RegM001 regM001;
+    
+    private List<RegM100> regM100List;
+    private RegM200 regM200;
+    private List<RegM300> regM300List;
+    private RegM350 regM350;
+    private List<RegM400> regM400List;
+    private List<RegM500> regM500List;
+    private List<RegM600> regM600List;
+    private List<RegM700> regM700List;
+    private List<RegM800> regM800List;
+    
+    private RegM990 regM990;
 
 }

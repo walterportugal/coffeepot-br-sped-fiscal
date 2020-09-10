@@ -1,4 +1,4 @@
-package coffeepot.br.sped.contribuicoes.blocoF;
+package coffeepot.br.sped.contribuicoes.blocoM;
 
 /*
  * #%L
@@ -19,41 +19,42 @@ package coffeepot.br.sped.contribuicoes.blocoF;
  * limitations under the License.
  * #L%
  */
+
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
 import coffeepot.bean.wr.types.AccessorType;
-import coffeepot.br.sped.commons.RegEncerramentoBlocoBase;
+import coffeepot.br.sped.commons.RegAberturaBlocoBase;
+import coffeepot.br.sped.fiscal.tipos.IndicadorMovimento;
 
 /**
- * Class: RegF990.
+ * Class: RegM001.
  *
  * <p>
- * ncerramento do Bloco F.
+ * Abertura do Bloco M.
  * </p>
  *
  * <p>
  * History:<br><br>
- * - walter - Sep 9, 2020: Criação do Arquivo<br>
+ *      - walter - Sep 10, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
  * @since 2.0.0
  *
  */
-@Record(accessorType = AccessorType.PROPERTY,
-        fields = {
-            @Field(name = "reg", id = true, constantValue = "F990"),
-            @Field(name = "qtdLin", classType = Long.class)
-        })
-public class RegF990 extends RegEncerramentoBlocoBase {
+@Record(accessorType = AccessorType.PROPERTY, fields = {
+    @Field(name = "reg", id = true, constantValue = "M001"),
+    @Field(name = "indMov")
+})
+public class RegM001 extends RegAberturaBlocoBase{
 
-    public RegF990() {
-        this.reg = "F990";
+    public RegM001() {
+        this.reg = "M001";
     }
 
-    public RegF990(Long qtdLin) {
-        this.reg = "F990";
-        this.qtdLin = qtdLin;
+    public RegM001(IndicadorMovimento indMov) {
+        this.reg = "M001";
+        this.indMov = indMov;
     }
-
+    
 }

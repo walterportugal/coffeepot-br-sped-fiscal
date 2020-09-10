@@ -1,4 +1,4 @@
-package coffeepot.br.sped.contribuicoes.blocoF;
+package coffeepot.br.sped.contribuicoes.blocoM;
 
 /*
  * #%L
@@ -19,41 +19,46 @@ package coffeepot.br.sped.contribuicoes.blocoF;
  * limitations under the License.
  * #L%
  */
+
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
-import coffeepot.bean.wr.types.AccessorType;
-import coffeepot.br.sped.commons.RegEncerramentoBlocoBase;
+import coffeepot.bean.wr.typeHandler.DefaultStringHandler;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
- * Class: RegF990.
+ * Class: RegM630.
  *
  * <p>
- * ncerramento do Bloco F.
+ * Informações Adicionais de Diferimento.
  * </p>
  *
  * <p>
  * History:<br><br>
- * - walter - Sep 9, 2020: Criação do Arquivo<br>
+ * - walter - Sep 10, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
  * @since 2.0.0
  *
  */
-@Record(accessorType = AccessorType.PROPERTY,
-        fields = {
-            @Field(name = "reg", id = true, constantValue = "F990"),
-            @Field(name = "qtdLin", classType = Long.class)
-        })
-public class RegF990 extends RegEncerramentoBlocoBase {
+@Record(fields = {
+    @Field(name = "reg", id = true, constantValue = "M630"),
+    @Field(name = "cnpj", params = {DefaultStringHandler.PARAM_FILTER_NUMBER_ONLY}),
+    @Field(name = "vlVend"),
+    @Field(name = "vlNaoReceb"),
+    @Field(name = "vlContDif"),
+    @Field(name = "vlCredDif"),
+    @Field(name = "codCred", length = 3)
+})
+@Getter
+@Setter
+public class RegM630 {
 
-    public RegF990() {
-        this.reg = "F990";
-    }
-
-    public RegF990(Long qtdLin) {
-        this.reg = "F990";
-        this.qtdLin = qtdLin;
-    }
-
+    private String cnpj;
+    private Double vlVend;
+    private Double vlNaoReceb;
+    private Double vlContDif;
+    private Double vlCredDif;
+    private String codCred;
 }

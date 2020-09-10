@@ -1,4 +1,4 @@
-package coffeepot.br.sped.contribuicoes.blocoF;
+package coffeepot.br.sped.contribuicoes.blocoM;
 
 /*
  * #%L
@@ -19,41 +19,48 @@ package coffeepot.br.sped.contribuicoes.blocoF;
  * limitations under the License.
  * #L%
  */
+
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
-import coffeepot.bean.wr.types.AccessorType;
-import coffeepot.br.sped.commons.RegEncerramentoBlocoBase;
+import coffeepot.bean.wr.types.Align;
+import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
- * Class: RegF990.
+ * Class: RegM800.
  *
  * <p>
- * ncerramento do Bloco F.
+ * Receitas Isentas, Não Alcançadas pela Incidência da Contribuição, Sujeitas a Alíquota Zero ou de Vendas Com Suspensão
+ * – Cofins.
  * </p>
  *
  * <p>
  * History:<br><br>
- * - walter - Sep 9, 2020: Criação do Arquivo<br>
+ * - walter - Sep 10, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
  * @since 2.0.0
  *
  */
-@Record(accessorType = AccessorType.PROPERTY,
-        fields = {
-            @Field(name = "reg", id = true, constantValue = "F990"),
-            @Field(name = "qtdLin", classType = Long.class)
-        })
-public class RegF990 extends RegEncerramentoBlocoBase {
+@Record(fields = {
+    @Field(name = "reg", id = true, constantValue = "M800"),
+    @Field(name = "cstCofins", minLength = 2, align = Align.RIGHT, padding = '0'),
+    @Field(name = "vlTotRec"),
+    @Field(name = "codCta"),
+    @Field(name = "descCompl"),
+    @Field(name = "regM810List")
+})
+@Getter
+@Setter
+public class RegM800 {
 
-    public RegF990() {
-        this.reg = "F990";
-    }
+    private String cstCofins;
+    private Double vlTotRec;
+    private String codCta;
+    private String descCompl;
 
-    public RegF990(Long qtdLin) {
-        this.reg = "F990";
-        this.qtdLin = qtdLin;
-    }
+    private List<RegM810> regM810List;
 
 }

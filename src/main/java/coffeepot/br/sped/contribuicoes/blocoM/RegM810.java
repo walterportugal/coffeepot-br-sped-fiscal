@@ -1,4 +1,4 @@
-package coffeepot.br.sped.contribuicoes.blocoF;
+package coffeepot.br.sped.contribuicoes.blocoM;
 
 /*
  * #%L
@@ -19,41 +19,43 @@ package coffeepot.br.sped.contribuicoes.blocoF;
  * limitations under the License.
  * #L%
  */
+
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
-import coffeepot.bean.wr.types.AccessorType;
-import coffeepot.br.sped.commons.RegEncerramentoBlocoBase;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
- * Class: RegF990.
+ * Class: RegM810.
  *
  * <p>
- * ncerramento do Bloco F.
+ * Detalhamento das Receitas Isentas, Não Alcançadas pela Incidência da Contribuição, Sujeitas a Alíquota Zero ou de
+ * Vendas com Suspensão – Cofins.
  * </p>
  *
  * <p>
  * History:<br><br>
- * - walter - Sep 9, 2020: Criação do Arquivo<br>
+ * - walter - Sep 10, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
  * @since 2.0.0
  *
  */
-@Record(accessorType = AccessorType.PROPERTY,
-        fields = {
-            @Field(name = "reg", id = true, constantValue = "F990"),
-            @Field(name = "qtdLin", classType = Long.class)
-        })
-public class RegF990 extends RegEncerramentoBlocoBase {
+@Record(fields = {
+    @Field(name = "reg", id = true, constantValue = "M810"),
+    @Field(name = "natRec", length = 3),
+    @Field(name = "vlRec"),
+    @Field(name = "codCta"),
+    @Field(name = "descCompl")
+})
+@Getter
+@Setter
+public class RegM810 {
 
-    public RegF990() {
-        this.reg = "F990";
-    }
-
-    public RegF990(Long qtdLin) {
-        this.reg = "F990";
-        this.qtdLin = qtdLin;
-    }
+    private String natRec;
+    private Double vlRec;
+    private String codCta;
+    private String descCompl;
 
 }

@@ -1,4 +1,4 @@
-package coffeepot.br.sped.contribuicoes.blocoF;
+package coffeepot.br.sped.contribuicoes.blocoM;
 
 /*
  * #%L
@@ -19,41 +19,48 @@ package coffeepot.br.sped.contribuicoes.blocoF;
  * limitations under the License.
  * #L%
  */
+
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
-import coffeepot.bean.wr.types.AccessorType;
-import coffeepot.br.sped.commons.RegEncerramentoBlocoBase;
+import coffeepot.br.sped.contribuicoes.tipos.IndicadorTipoAjuste;
+import java.time.LocalDate;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
- * Class: RegF990.
+ * Class: RegM620.
  *
  * <p>
- * ncerramento do Bloco F.
+ * Ajustes da Cofins Apurada.
  * </p>
  *
  * <p>
  * History:<br><br>
- * - walter - Sep 9, 2020: Criação do Arquivo<br>
+ * - walter - Sep 10, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
  * @since 2.0.0
  *
  */
-@Record(accessorType = AccessorType.PROPERTY,
-        fields = {
-            @Field(name = "reg", id = true, constantValue = "F990"),
-            @Field(name = "qtdLin", classType = Long.class)
-        })
-public class RegF990 extends RegEncerramentoBlocoBase {
+@Record(fields = {
+    @Field(name = "reg", id = true, constantValue = "M620"),
+    @Field(name = "indAj"),
+    @Field(name = "vlAj"),
+    @Field(name = "codAj"),
+    @Field(name = "numDoc"),
+    @Field(name = "descrAj"),
+    @Field(name = "dtRef")
+})
+@Getter
+@Setter
+public class RegM620 {
 
-    public RegF990() {
-        this.reg = "F990";
-    }
-
-    public RegF990(Long qtdLin) {
-        this.reg = "F990";
-        this.qtdLin = qtdLin;
-    }
+    private IndicadorTipoAjuste indAj;
+    private Double vlAj;
+    private String codAj;
+    private String numDoc;
+    private String descrAj;
+    private LocalDate dtRef;
 
 }

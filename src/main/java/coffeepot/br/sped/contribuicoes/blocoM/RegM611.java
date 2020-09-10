@@ -1,4 +1,4 @@
-package coffeepot.br.sped.contribuicoes.blocoF;
+package coffeepot.br.sped.contribuicoes.blocoM;
 
 /*
  * #%L
@@ -19,41 +19,45 @@ package coffeepot.br.sped.contribuicoes.blocoF;
  * limitations under the License.
  * #L%
  */
+
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
-import coffeepot.bean.wr.types.AccessorType;
-import coffeepot.br.sped.commons.RegEncerramentoBlocoBase;
+import coffeepot.br.sped.contribuicoes.tipos.IndicadorTipoSociedadeCooperativa;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
- * Class: RegF990.
+ * Class: RegM611.
  *
  * <p>
- * ncerramento do Bloco F.
+ * Sociedades Cooperativas – Composição da Base de Calculo – Cofins.
  * </p>
  *
  * <p>
  * History:<br><br>
- * - walter - Sep 9, 2020: Criação do Arquivo<br>
+ * - walter - Sep 10, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
  * @since 2.0.0
  *
  */
-@Record(accessorType = AccessorType.PROPERTY,
-        fields = {
-            @Field(name = "reg", id = true, constantValue = "F990"),
-            @Field(name = "qtdLin", classType = Long.class)
-        })
-public class RegF990 extends RegEncerramentoBlocoBase {
+@Record(fields = {
+    @Field(name = "reg", id = true, constantValue = "M611"),
+    @Field(name = "indTipCoop"),
+    @Field(name = "vlBcContAntExcCoop"),
+    @Field(name = "vlExcCoopGer"),
+    @Field(name = "vlExcEspCoop"),
+    @Field(name = "vlBcCont")
+})
+@Getter
+@Setter
+public class RegM611 {
 
-    public RegF990() {
-        this.reg = "F990";
-    }
-
-    public RegF990(Long qtdLin) {
-        this.reg = "F990";
-        this.qtdLin = qtdLin;
-    }
+    private IndicadorTipoSociedadeCooperativa indTipCoop;
+    private Double vlBcContAntExcCoop;
+    private Double vlExcCoopGer;
+    private Double vlExcEspCoop;
+    private Double vlBcCont;
 
 }
