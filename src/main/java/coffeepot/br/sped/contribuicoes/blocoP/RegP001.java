@@ -1,11 +1,5 @@
 package coffeepot.br.sped.contribuicoes.blocoP;
 
-import coffeepot.bean.wr.annotation.Field;
-import coffeepot.bean.wr.annotation.Record;
-import java.util.List;
-import lombok.Getter;
-import lombok.Setter;
-
 /*
  * #%L
  * coffeepot-br-sped-fiscal
@@ -26,37 +20,42 @@ import lombok.Setter;
  * #L%
  */
 
+import coffeepot.bean.wr.annotation.Field;
+import coffeepot.bean.wr.annotation.Record;
+import coffeepot.bean.wr.types.AccessorType;
+import coffeepot.br.sped.commons.RegAberturaBlocoBase;
+import coffeepot.br.sped.fiscal.tipos.IndicadorMovimento;
+
 /**
- * Class: BlocoP.
+ * Class: RegP001.
  *
  * <p>
- * Apuração da Contribuição Previdenciária sobre a Receita Bruta (Fatos Geradores a partir de Março de 2012).
+ * Abertura do Bloco P.
  * </p>
  *
  * <p>
  * History:<br><br>
- *      - walter - Sep 2, 2020: Criação do Arquivo<br>
+ *      - walter - Sep 11, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
  * @since 2.0.0
  *
  */
-@Record(fields = {
-    @Field(name = "regP001"),
-    @Field(name = "regP010List"),
-    @Field(name = "regP200List"),
-    @Field(name = "regP990")
+@Record(accessorType = AccessorType.PROPERTY, fields = {
+    @Field(name = "reg", id = true, constantValue = "P001"),
+    @Field(name = "indMov")
 })
-@Getter
-@Setter
-public class BlocoP {
+public class RegP001 extends RegAberturaBlocoBase {
     
-    private RegP001 regP001;
-    
-    private List<RegP010> regP010List;
-    private List<RegP200> regP200List;
-    
-    private RegP990 regP990;
+    public RegP001() {
+        this.reg = "P001";
+    }
+
+    public RegP001(IndicadorMovimento indMov) {
+        this.reg = "P001";
+        this.indMov = indMov;
+    }
 
 }
+

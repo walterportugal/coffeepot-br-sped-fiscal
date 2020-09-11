@@ -1,7 +1,7 @@
 /*
  * Copyright 2013 - Jeandeson O. Merelis
  */
-package coffeepot.br.sped.fiscal.arquivo.bloco9;
+package coffeepot.br.sped.commons.bloco9;
 
 /*
  * #%L

@@ -1,4 +1,4 @@
-package coffeepot.br.sped.contribuicoes.bloco9;
+package coffeepot.br.sped.contribuicoes.blocoP;
 
 /*
  * #%L
@@ -20,23 +20,41 @@ package coffeepot.br.sped.contribuicoes.bloco9;
  * #L%
  */
 
+import coffeepot.bean.wr.annotation.Field;
+import coffeepot.bean.wr.annotation.Record;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
- * Class: Bloco9.
+ * Class: RegP110.
  *
  * <p>
- * Insert description here.
+ * Complemento da Escrituração – Detalhamento da Apuração da Contribuição.
  * </p>
  *
  * <p>
  * History:<br><br>
- *      - walter - Sep 2, 2020: Criação do Arquivo<br>
+ *      - walter - Sep 11, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
  * @since 2.0.0
  *
  */
-
-public class Bloco9 {
+@Record(fields = {
+    @Field(name = "reg", id = true, constantValue = "P110"),
+    @Field(name = "numCampo", length = 2),
+    @Field(name = "codRet", maxLength = 8),
+    @Field(name = "detValor"),
+    @Field(name = "infCompl")
+})
+@Getter
+@Setter
+public class RegP110 {
+    
+    private String numCampo;
+    private String codRet;
+    private Double detValor;
+    private String infCompl;
 
 }

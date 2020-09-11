@@ -22,6 +22,7 @@ package coffeepot.br.sped.contribuicoes.blocoF;
 
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
+import coffeepot.bean.wr.typeHandler.DefaultStringHandler;
 import coffeepot.br.sped.fiscal.tipos.EnumCodificado;
 import java.time.LocalDate;
 import lombok.Getter;
@@ -51,7 +52,7 @@ import lombok.Setter;
     @Field(name = "vlRet"),
     @Field(name = "codRec"),
     @Field(name = "indNatRec"),
-    @Field(name = "cnpj", maxLength = 14),
+    @Field(name = "cnpj", maxLength = 14, params = {DefaultStringHandler.PARAM_FILTER_NUMBER_ONLY}),
     @Field(name = "vlRetPis"),
     @Field(name = "vlRetCofins"),
     @Field(name = "indDec")    

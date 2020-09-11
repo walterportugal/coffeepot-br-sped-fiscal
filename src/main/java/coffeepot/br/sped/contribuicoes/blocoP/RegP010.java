@@ -1,13 +1,10 @@
-/*
- * Copyright 2013 - Jeandeson O. Merelis
- */
-package coffeepot.br.sped.fiscal.arquivo.bloco9;
+package coffeepot.br.sped.contribuicoes.blocoP;
 
 /*
  * #%L
  * coffeepot-br-sped-fiscal
  * %%
- * Copyright (C) 2013 Jeandeson O. Merelis
+ * Copyright (C) 2013 - 2020 Jeandeson O. Merelis
  * %%
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,26 +20,39 @@ package coffeepot.br.sped.fiscal.arquivo.bloco9;
  * #L%
  */
 
-
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
+import coffeepot.bean.wr.typeHandler.DefaultStringHandler;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
+ * Class: RegP010.
  *
- * @author Jeandeson O. Merelis
+ * <p>
+ * Identificação do Estabelecimento.
+ * </p>
+ *
+ * <p>
+ * History:<br><br>
+ *      - walter - Sep 11, 2020: Criação do Arquivo<br>
+ * <p>
+ *
+ * @author walter
+ * @since 2.0.0
+ *
  */
 @Record(fields = {
-    @Field(name = "", id=true, constantValue = "9900"),
-    @Field(name = "regBlc"),
-    @Field(name = "qtdRegBlc")
+    @Field(name = "reg", id=true, constantValue = "P010"),
+    @Field(name = "cnpj", params = {DefaultStringHandler.PARAM_FILTER_NUMBER_ONLY}),
+    @Field(name = "regP100List")
 })
 @Getter
 @Setter
-public class Reg9900 {
-
-    private String regBlc;
-    private Long qtdRegBlc;
+public class RegP010 {
     
+    private String cnpj;
+    private List<RegP100> regP100List;
+
 }

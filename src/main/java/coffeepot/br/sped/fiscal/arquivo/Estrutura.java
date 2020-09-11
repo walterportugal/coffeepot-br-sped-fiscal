@@ -26,7 +26,7 @@ import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
 import coffeepot.br.sped.fiscal.arquivo.bloco0.Bloco0;
 import coffeepot.br.sped.fiscal.arquivo.bloco1.Bloco1;
-import coffeepot.br.sped.fiscal.arquivo.bloco9.Bloco9;
+import coffeepot.br.sped.commons.bloco9.Bloco9;
 import coffeepot.br.sped.fiscal.arquivo.blocoC.BlocoC;
 import coffeepot.br.sped.fiscal.arquivo.blocoD.BlocoD;
 import coffeepot.br.sped.fiscal.arquivo.blocoE.BlocoE;

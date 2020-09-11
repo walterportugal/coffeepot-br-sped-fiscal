@@ -22,9 +22,9 @@ package coffeepot.br.sped.contribuicoes.arquivo;
 
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
+import coffeepot.br.sped.commons.bloco9.Bloco9;
 import coffeepot.br.sped.contribuicoes.bloco0.Bloco0;
 import coffeepot.br.sped.contribuicoes.bloco1.Bloco1;
-import coffeepot.br.sped.contribuicoes.bloco9.Bloco9;
 import coffeepot.br.sped.contribuicoes.blocoA.BlocoA;
 import coffeepot.br.sped.contribuicoes.blocoC.BlocoC;
 import coffeepot.br.sped.contribuicoes.blocoD.BlocoD;

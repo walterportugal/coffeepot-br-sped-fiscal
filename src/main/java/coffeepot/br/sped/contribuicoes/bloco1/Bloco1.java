@@ -1,5 +1,11 @@
 package coffeepot.br.sped.contribuicoes.bloco1;
 
+import coffeepot.bean.wr.annotation.Field;
+import coffeepot.bean.wr.annotation.Record;
+import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
+
 /*
  * #%L
  * coffeepot-br-sped-fiscal
@@ -19,24 +25,44 @@ package coffeepot.br.sped.contribuicoes.bloco1;
  * limitations under the License.
  * #L%
  */
-
 /**
  * Class: Bloco1.
  *
  * <p>
- * Insert description here.
+ * Complemento da Escrituração – Controle de Saldos de Créditos e de Retenções, Operações Extemporâneas e Outras
+ * Informações.
  * </p>
  *
  * <p>
  * History:<br><br>
- *      - walter - Sep 2, 2020: Criação do Arquivo<br>
+ * - walter - Sep 2, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
  * @since 2.0.0
  *
  */
-
+@Record(fields = {
+    @Field(name = "reg1001"),
+    @Field(name = "reg1010List"),
+    @Field(name = "reg1020List"),
+    @Field(name = "reg1100List"),
+    @Field(name = "reg1500List"),
+    @Field(name = "reg1900List"),
+    @Field(name = "reg1990")
+})
+@Getter
+@Setter
 public class Bloco1 {
+    
+    private Reg1001 reg1001;
+    
+    private List<Reg1010> reg1010List;
+    private List<Reg1020> reg1020List;
+    private List<Reg1100> reg1100List;
+    private List<Reg1500> reg1500List;
+    private List<Reg1900> reg1900List;
+    
+    private Reg1990 reg1990;
 
 }

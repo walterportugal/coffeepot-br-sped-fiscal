@@ -35,7 +35,7 @@ import org.junit.Test;
  */
 import coffeepot.br.sped.fiscal.arquivo.bloco0.Bloco0Test;
 import coffeepot.br.sped.fiscal.arquivo.bloco1.Bloco1Test;
-import coffeepot.br.sped.fiscal.arquivo.bloco9.Bloco9;
+import coffeepot.br.sped.commons.bloco9.Bloco9;
 import coffeepot.br.sped.fiscal.arquivo.blocoC.BlocoCTest;
 import coffeepot.br.sped.fiscal.arquivo.blocoD.BlocoDTest;
 import coffeepot.br.sped.fiscal.arquivo.blocoE.BlocoETest;

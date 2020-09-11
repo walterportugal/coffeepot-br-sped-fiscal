@@ -1,11 +1,5 @@
 package coffeepot.br.sped.contribuicoes.blocoP;
 
-import coffeepot.bean.wr.annotation.Field;
-import coffeepot.bean.wr.annotation.Record;
-import java.util.List;
-import lombok.Getter;
-import lombok.Setter;
-
 /*
  * #%L
  * coffeepot-br-sped-fiscal
@@ -26,16 +20,22 @@ import lombok.Setter;
  * #L%
  */
 
+import coffeepot.bean.wr.annotation.Field;
+import coffeepot.bean.wr.annotation.Record;
+import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
- * Class: BlocoP.
+ * Class: RegP200.
  *
  * <p>
- * Apuração da Contribuição Previdenciária sobre a Receita Bruta (Fatos Geradores a partir de Março de 2012).
+ * Consolidação da Contribuição Previdenciária sobre a Receita Bruta.
  * </p>
  *
  * <p>
  * History:<br><br>
- *      - walter - Sep 2, 2020: Criação do Arquivo<br>
+ *      - walter - Sep 11, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
@@ -43,20 +43,25 @@ import lombok.Setter;
  *
  */
 @Record(fields = {
-    @Field(name = "regP001"),
-    @Field(name = "regP010List"),
-    @Field(name = "regP200List"),
-    @Field(name = "regP990")
+    @Field(name = "reg", id = true, constantValue = "P200"),
+    @Field(name = "vlTotContApu", length = 6),
+    @Field(name = "vlTotAjReduc"),
+    @Field(name = "vlTotAjAcres"),
+    @Field(name = "vlTotContDev"),
+    @Field(name = "codRec"),
+    @Field(name = "regP210List")
 })
 @Getter
 @Setter
-public class BlocoP {
+public class RegP200 {
     
-    private RegP001 regP001;
+    private String perRef;
+    private Double vlTotContApu;
+    private Double vlTotAjReduc;
+    private Double vlTotAjAcres;
+    private Double vlTotContDev;
+    private String codRec;
     
-    private List<RegP010> regP010List;
-    private List<RegP200> regP200List;
-    
-    private RegP990 regP990;
+    private List<RegP210> regP210List;
 
 }

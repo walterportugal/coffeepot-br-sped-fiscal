@@ -38,7 +38,7 @@ import coffeepot.br.sped.fiscal.arquivo.bloco1.Bloco1;
 import coffeepot.br.sped.fiscal.arquivo.bloco1.Bloco1Test;
 import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1001;
 import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1990;
-import coffeepot.br.sped.fiscal.arquivo.bloco9.Bloco9;
+import coffeepot.br.sped.commons.bloco9.Bloco9;
 import coffeepot.br.sped.fiscal.arquivo.blocoC.BlocoCTest;
 import coffeepot.br.sped.fiscal.arquivo.blocoD.BlocoD;
 import coffeepot.br.sped.fiscal.arquivo.blocoD.BlocoDTest;

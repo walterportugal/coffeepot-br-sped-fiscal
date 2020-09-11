@@ -1,10 +1,4 @@
-package coffeepot.br.sped.contribuicoes.blocoP;
-
-import coffeepot.bean.wr.annotation.Field;
-import coffeepot.bean.wr.annotation.Record;
-import java.util.List;
-import lombok.Getter;
-import lombok.Setter;
+package coffeepot.br.sped.contribuicoes.bloco1;
 
 /*
  * #%L
@@ -26,37 +20,40 @@ import lombok.Setter;
  * #L%
  */
 
+import coffeepot.bean.wr.annotation.Field;
+import coffeepot.bean.wr.annotation.Record;
+import coffeepot.bean.wr.types.AccessorType;
+import coffeepot.br.sped.commons.RegEncerramentoBlocoBase;
+
 /**
- * Class: BlocoP.
+ * Class: Reg1990.
  *
  * <p>
- * Apuração da Contribuição Previdenciária sobre a Receita Bruta (Fatos Geradores a partir de Março de 2012).
+ * Encerramento do Bloqo 1.
  * </p>
  *
  * <p>
  * History:<br><br>
- *      - walter - Sep 2, 2020: Criação do Arquivo<br>
+ *      - walter - Sep 11, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
  * @since 2.0.0
  *
  */
-@Record(fields = {
-    @Field(name = "regP001"),
-    @Field(name = "regP010List"),
-    @Field(name = "regP200List"),
-    @Field(name = "regP990")
-})
-@Getter
-@Setter
-public class BlocoP {
-    
-    private RegP001 regP001;
-    
-    private List<RegP010> regP010List;
-    private List<RegP200> regP200List;
-    
-    private RegP990 regP990;
+@Record(accessorType = AccessorType.PROPERTY,
+        fields = {
+            @Field(name = "reg", id = true, constantValue = "1990"),
+            @Field(name = "qtdLin", classType = Long.class)
+        })
+public class Reg1990  extends RegEncerramentoBlocoBase {
 
+    public Reg1990() {
+        this.reg = "1990";
+    }
+
+    public Reg1990(Long qtdLin) {
+        this.reg = "1990";
+        this.qtdLin = qtdLin;
+    }
 }
