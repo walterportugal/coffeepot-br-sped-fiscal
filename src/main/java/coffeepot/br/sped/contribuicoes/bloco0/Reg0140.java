@@ -19,7 +19,6 @@ package coffeepot.br.sped.contribuicoes.bloco0;
  * limitations under the License.
  * #L%
  */
-
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
 import coffeepot.bean.wr.typeHandler.DefaultStringHandler;
@@ -39,7 +38,7 @@ import lombok.Setter;
  *
  * <p>
  * History:<br><br>
- *      - walter - Sep 2, 2020: Criação do Arquivo<br>
+ * - walter - Sep 2, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
@@ -48,7 +47,6 @@ import lombok.Setter;
  */
 @Record(fields = {
     @Field(name = "reg", id = true, constantValue = "0140"),
-    @Field(name = "reg0145"),
     @Field(name = "codEst", maxLength = 60),
     @Field(name = "nome", maxLength = 100),
     @Field(name = "cnpj", params = {DefaultStringHandler.PARAM_FILTER_NUMBER_ONLY}),
@@ -57,6 +55,7 @@ import lombok.Setter;
     @Field(name = "codMun", length = 7, align = Align.RIGHT, padding = '0', paddingIfNullOrEmpty = true),
     @Field(name = "im", params = {DefaultStringHandler.PARAM_FILTER_NUMBER_LETTERS_ONLY}),
     @Field(name = "suframa", length = 9, params = {DefaultStringHandler.PARAM_FILTER_NUMBER_LETTERS_ONLY}),
+    @Field(name = "reg0145"),
     @Field(name = "reg0150List"),
     @Field(name = "reg0190List"),
     @Field(name = "reg0200List"),
@@ -66,7 +65,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Reg0140 {
-    
+
     private String codEst;
     private String nome;
     private String cnpj;

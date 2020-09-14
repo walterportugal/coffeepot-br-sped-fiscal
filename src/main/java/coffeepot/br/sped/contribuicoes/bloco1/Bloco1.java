@@ -2,6 +2,8 @@ package coffeepot.br.sped.contribuicoes.bloco1;
 
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
+import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1001;
+import coffeepot.br.sped.fiscal.arquivo.bloco1.Reg1990;
 import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
