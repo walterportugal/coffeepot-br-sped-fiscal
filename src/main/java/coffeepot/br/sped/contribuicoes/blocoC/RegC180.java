@@ -22,6 +22,7 @@ package coffeepot.br.sped.contribuicoes.blocoC;
 
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
+import coffeepot.br.sped.fiscal.tipos.DocumentoFiscal;
 import java.time.LocalDate;
 import java.util.List;
 import lombok.Getter;
@@ -61,7 +62,7 @@ import lombok.Setter;
 @Setter
 public class RegC180 {
 
-    private String codMod;
+    private DocumentoFiscal codMod;
     private LocalDate dtDocIni;
     private LocalDate dtDocFin;
     private String codItem;
@@ -69,7 +70,7 @@ public class RegC180 {
     private String exIpi;
     private Double vlTotItem;
 
-    private List<RegC181> regC180List;
+    private List<RegC181> regC181List;
     private List<RegC185> regC185List;
     private List<RegC188> regC188List;
 

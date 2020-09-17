@@ -68,6 +68,6 @@ public class RegC185 {
     private Double quantBcCofins;
     private Double aliqCofinsQuant;
     private Double vlCofins;
-    private Double codCta;
+    private String codCta;
 
 }

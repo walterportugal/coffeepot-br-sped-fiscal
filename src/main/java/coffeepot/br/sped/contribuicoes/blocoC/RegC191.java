@@ -71,6 +71,6 @@ public class RegC191 {
     private Double quantBcPis;
     private Double aliqPisQuant;
     private Double vlPis;
-    private Double codCta;
+    private String codCta;
 
 }

@@ -25,6 +25,7 @@ import coffeepot.bean.wr.annotation.Record;
 import coffeepot.bean.wr.typeHandler.DefaultStringHandler;
 import java.util.List;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -50,6 +51,7 @@ import lombok.Setter;
 })
 @Getter
 @Setter
+@NoArgsConstructor
 public class RegA010 {
     
     private String cnpj;
