@@ -1,4 +1,4 @@
-package coffeepot.br.sped.fiscal.contribuicoes.blocoA;
+package coffeepot.br.sped.contribuicoes.blocoA;
 
 /*
  * #%L

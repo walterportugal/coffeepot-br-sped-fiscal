@@ -44,8 +44,8 @@ import lombok.Setter;
 @Record(fields = {
     @Field(name = "reg", id = true, constantValue = "M605"),
     @Field(name = "numCampo", length = 2),
-    @Field(name = "vlTotCredDesc", length = 6),
-    @Field(name = "vlTotCredDescAnt")
+    @Field(name = "codRec", length = 6),
+    @Field(name = "vlDebito")
 })
 @Getter
 @Setter

@@ -44,11 +44,12 @@ import lombok.Setter;
  */
 @Record(fields = {
     @Field(name = "reg", id = true, constantValue = "P200"),
-    @Field(name = "vlTotContApu", length = 6),
+    @Field(name = "perRef", length = 6),
+    @Field(name = "vlTotContApu"),
     @Field(name = "vlTotAjReduc"),
     @Field(name = "vlTotAjAcres"),
     @Field(name = "vlTotContDev"),
-    @Field(name = "codRec"),
+    @Field(name = "codRec", maxLength = 6),
     @Field(name = "regP210List")
 })
 @Getter

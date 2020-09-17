@@ -44,7 +44,7 @@ import lombok.Setter;
  */
 @Record(fields = {
     @Field(name = "reg", id = true, constantValue = "M410"),
-    @Field(name = "natRec", length = 3),
+    @Field(name = "natRec", maxLength = 3),
     @Field(name = "vlRec"),
     @Field(name = "codCta"),
     @Field(name = "descCompl")
