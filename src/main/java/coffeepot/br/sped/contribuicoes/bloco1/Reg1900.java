@@ -1,5 +1,14 @@
 package coffeepot.br.sped.contribuicoes.bloco1;
 
+import coffeepot.bean.wr.annotation.Field;
+import coffeepot.bean.wr.annotation.Record;
+import coffeepot.bean.wr.typeHandler.DefaultStringHandler;
+import coffeepot.bean.wr.types.Align;
+import coffeepot.br.sped.fiscal.tipos.DocumentoFiscal;
+import coffeepot.br.sped.fiscal.tipos.SituacaoDocumento;
+import lombok.Getter;
+import lombok.Setter;
+
 /*
  * #%L
  * coffeepot-br-sped-fiscal
@@ -19,24 +28,53 @@ package coffeepot.br.sped.contribuicoes.bloco1;
  * limitations under the License.
  * #L%
  */
-
 /**
  * Class: Reg1900.
  *
  * <p>
- * Insert description here.
+ * Consolidação dos Documentos Emitidos no Período por Pessoa Jurídica Submetida ao Regime de Tributação Com Base no
+ * Lucro Presumido – Regime de Caixa ou de Competência.
  * </p>
  *
  * <p>
  * History:<br><br>
- *      - walter - Sep 11, 2020: Criação do Arquivo<br>
+ * - walter - Sep 11, 2020: Criação do Arquivo<br>
  * <p>
  *
  * @author walter
  * @since 2.0.0
  *
  */
-
+@Record(fields = {
+    @Field(name = "reg", id = true, constantValue = "1900"),
+    @Field(name = "cnpj", maxLength = 14, params = {DefaultStringHandler.PARAM_FILTER_NUMBER_ONLY}),
+    @Field(name = "codMod"),
+    @Field(name = "ser"),
+    @Field(name = "subSer"),
+    @Field(name = "codSit"),
+    @Field(name = "vlTotRec"),
+    @Field(name = "quantDoc"),
+    @Field(name = "cstPis", minLength = 2, align = Align.RIGHT, padding = '0'),
+    @Field(name = "cstCofins", minLength = 2, align = Align.RIGHT, padding = '0'),
+    @Field(name = "cfop"),
+    @Field(name = "infCompl"),
+    @Field(name = "codCta")
+})
+@Getter
+@Setter
 public class Reg1900 {
+
+    private String cnpj;
+    private DocumentoFiscal codMod;
+    private String ser;
+    private String subSer;
+    private SituacaoDocumento codSit;
+    private Double vlTotRec;
+    private Integer quantDoc;
+    private String cstPis;
+    private String cstCofins;
+    private Integer cfop;
+    private String infCompl;
+    private String codCta;
 
 }

@@ -62,7 +62,7 @@ import lombok.Setter;
     @Field(name = "vlCredTrans"),
     @Field(name = "vlCredOut"),
     @Field(name = "sldCredFim"),
-    @Field(name = "reg1101List")
+    @Field(name = "reg1501List")
 })
 @Getter
 @Setter

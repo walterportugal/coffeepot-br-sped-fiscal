@@ -47,7 +47,7 @@ import lombok.Setter;
     @Field(name = "reg", id = true, constantValue = "1020"),
     @Field(name = "numProc", maxLength = 20),
     @Field(name = "indNatAcao"),
-    @Field(name = "dtSentJud")
+    @Field(name = "dtDecAdm")
 })
 @Getter
 @Setter

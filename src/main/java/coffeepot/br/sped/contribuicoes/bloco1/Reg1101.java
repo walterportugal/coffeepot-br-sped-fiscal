@@ -25,6 +25,7 @@ import coffeepot.bean.wr.annotation.Record;
 import coffeepot.bean.wr.typeHandler.DefaultStringHandler;
 import coffeepot.bean.wr.types.Align;
 import coffeepot.br.sped.contribuicoes.tipos.IndicadorOrigemCredito;
+import coffeepot.br.sped.fiscal.tipos.DocumentoFiscal;
 import java.time.LocalDate;
 import lombok.Getter;
 import lombok.Setter;
@@ -75,7 +76,7 @@ public class Reg1101 {
 
     private String codPart;
     private String codItem;
-    private String codMod;
+    private DocumentoFiscal codMod;
     private String ser;
     private String subSer;
     private String numDoc;
