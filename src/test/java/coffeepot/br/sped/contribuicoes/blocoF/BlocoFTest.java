@@ -72,7 +72,7 @@ public class BlocoFTest {
         System.out.println("Arquivo gerado em: " + file.getAbsolutePath());
     }
 
-    private BlocoF createBlocoF(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException,
+    public static BlocoF createBlocoF(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException,
             InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException,
             IOException {
         BlocoF blocoF = createBlocoF();
@@ -80,7 +80,7 @@ public class BlocoFTest {
         return (BlocoF) Util.createFileFromBloco(blocoF, file, spedFiscalWriter);
     }
 
-    private BlocoF createBlocoF() {
+    public static BlocoF createBlocoF() {
         BlocoF blocoF = new BlocoF();
         
         blocoF.setRegF001(new RegF001(IndicadorMovimento.COM_DADOS));
@@ -89,7 +89,7 @@ public class BlocoFTest {
         return blocoF;
     }
 
-    private List<RegF010> createRegF010List() {
+    private static List<RegF010> createRegF010List() {
         RegF010 reg = new RegF010();
         
         reg.setCnpj("36.293.264/0001-28");
@@ -105,7 +105,7 @@ public class BlocoFTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegF100> createRegF100List() {
+    private static List<RegF100> createRegF100List() {
         RegF100 reg = new RegF100();
         
         reg.setAliqCofins(3.65);
@@ -132,7 +132,7 @@ public class BlocoFTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegF120> createRegF120List() {
+    private static List<RegF120> createRegF120List() {
         RegF120 reg = new RegF120();
         
         reg.setAliqCofins(3.65);
@@ -158,7 +158,7 @@ public class BlocoFTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegF500> createRegF500List() {
+    private static List<RegF500> createRegF500List() {
         RegF500 reg = new RegF500();
         
         reg.setAliqCofins(3.65);
@@ -182,7 +182,7 @@ public class BlocoFTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegF525> createRegF525List() {
+    private static List<RegF525> createRegF525List() {
         RegF525 reg = new RegF525();
         
         reg.setCnpjCpf("36.293.264/0001-28");
@@ -199,7 +199,7 @@ public class BlocoFTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegF550> createRegF550List() {
+    private static List<RegF550> createRegF550List() {
         RegF550 reg = new RegF550();
         
         reg.setAliqCofins(3.65);
@@ -221,7 +221,7 @@ public class BlocoFTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegF560> createRegF560List() {
+    private static List<RegF560> createRegF560List() {
         RegF560 reg = new RegF560();
         
         reg.setAliqCofinsQuant(0.0);
@@ -245,7 +245,7 @@ public class BlocoFTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegF600> createRegF600List() {
+    private static List<RegF600> createRegF600List() {
         RegF600 reg = new RegF600();
         
         reg.setCnpj("16.932.651/0003-40");
@@ -262,7 +262,7 @@ public class BlocoFTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegF111> createRegF111List() {
+    private static List<RegF111> createRegF111List() {
         RegF111 reg = new RegF111();
         
         reg.setNumProc("0123456");
@@ -271,7 +271,7 @@ public class BlocoFTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegF129> createRegF129List() {
+    private static List<RegF129> createRegF129List() {
         RegF129 reg = new RegF129();
         
         reg.setNumProc("0123456");
@@ -280,7 +280,7 @@ public class BlocoFTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegF509> createReg509List() {
+    private static List<RegF509> createReg509List() {
         RegF509 reg = new RegF509();
         
         reg.setNumProc("0123456");
@@ -289,7 +289,7 @@ public class BlocoFTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegF569> createRegF569List() {
+    private static List<RegF569> createRegF569List() {
          RegF569 reg = new RegF569();
         
         reg.setNumProc("0123456");

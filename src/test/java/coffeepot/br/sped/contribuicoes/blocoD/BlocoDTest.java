@@ -75,7 +75,7 @@ public class BlocoDTest {
         System.out.println("Arquivo gerado em: " + file.getAbsolutePath());
     }
 
-    private BlocoD createBlocoD(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException,
+    public static BlocoD createBlocoD(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException,
             InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException,
             IOException {
         BlocoD blocoD = createBlocoD();
@@ -83,7 +83,7 @@ public class BlocoDTest {
         return (BlocoD) Util.createFileFromBloco(blocoD, file, spedFiscalWriter);
     }
 
-    private BlocoD createBlocoD() {
+    public static BlocoD createBlocoD() {
         BlocoD blocoD = new BlocoD();
 
         blocoD.setRegD001(new RegD001(IndicadorMovimento.COM_DADOS));
@@ -92,7 +92,7 @@ public class BlocoDTest {
         return blocoD;
     }
 
-    private List<RegD010> createRegD010List() {
+    private static List<RegD010> createRegD010List() {
         RegD010 reg = new RegD010();
 
         reg.setCnpj("36.293.264/0001-28");
@@ -102,7 +102,7 @@ public class BlocoDTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegD100> createRegD100List() {
+    private static List<RegD100> createRegD100List() {
         List<RegD100> list = new LinkedList<>();
         for (int i = 0; i < 2; i++) {
             list.add(createRegD100());
@@ -110,7 +110,7 @@ public class BlocoDTest {
         return list;
     }
 
-    private List<RegD500> createRegD500List() {
+    private static List<RegD500> createRegD500List() {
         RegD500 reg = new RegD500();
         
         reg.setCodInf("123");
@@ -141,7 +141,7 @@ public class BlocoDTest {
         return Collections.singletonList(reg);
     }
 
-    private RegD100 createRegD100() {
+    private static RegD100 createRegD100() {
         RegD100 reg = new RegD100();
 
         reg.setChvCte("1234567890 1234567890 1234567890 1234567890 1234");
@@ -172,7 +172,7 @@ public class BlocoDTest {
         return reg;
     }
 
-    private List<RegD101> createRegD101List() {
+    private static List<RegD101> createRegD101List() {
         RegD101 reg = new RegD101();
         
         reg.setAliqPis(1.65);
@@ -187,7 +187,7 @@ public class BlocoDTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegD105> createRegD105List() {
+    private static List<RegD105> createRegD105List() {
         RegD105 reg = new RegD105();
         
         reg.setAliqCofins(3.65);
@@ -203,7 +203,7 @@ public class BlocoDTest {
 
     }
 
-    private List<RegD111> createRegD111List() {
+    private static List<RegD111> createRegD111List() {
         RegD111 reg = new RegD111();
         
         reg.setNumProc("123456");
@@ -213,7 +213,7 @@ public class BlocoDTest {
 
     }
 
-    private List<RegD501> createRegD501List() {
+    private static List<RegD501> createRegD501List() {
         RegD501 reg = new RegD501();
         
         reg.setAliqPis(1.65);
@@ -227,7 +227,7 @@ public class BlocoDTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegD505> createRegD505List() {
+    private static List<RegD505> createRegD505List() {
         RegD505 reg = new RegD505();
         
         reg.setAliqCofins(3.65);
@@ -241,7 +241,7 @@ public class BlocoDTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegD509> createRegD509List() {
+    private static List<RegD509> createRegD509List() {
         RegD509 reg = new RegD509();
         
         reg.setNumProc("123456");

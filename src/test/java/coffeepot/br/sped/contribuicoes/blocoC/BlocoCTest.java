@@ -20,28 +20,6 @@ package coffeepot.br.sped.contribuicoes.blocoC;
  * #L%
  */
 
-import coffeepot.br.sped.contribuicoes.blocoC.BlocoC;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC010;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC100;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC110;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC111;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC120;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC170;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC175;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC180;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC181;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC185;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC188;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC190;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC191;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC195;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC198;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC199;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC395;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC500;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC501;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC505;
-import coffeepot.br.sped.contribuicoes.blocoC.RegC509;
 import coffeepot.br.sped.contribuicoes.tipos.OrigemProcesso;
 import coffeepot.br.sped.fiscal.arquivo.blocoC.RegC001;
 import coffeepot.br.sped.fiscal.config.Config;
@@ -100,7 +78,7 @@ public class BlocoCTest {
         System.out.println("Arquivo gerado em: " + file.getAbsolutePath());
     }
 
-    private BlocoC createBlocoC(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException,
+    public static BlocoC createBlocoC(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException,
             InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException,
             IOException {
         BlocoC blocoC = createBlocoC();
@@ -109,7 +87,7 @@ public class BlocoCTest {
 
     }
 
-    private BlocoC createBlocoC() {
+    public static BlocoC createBlocoC() {
         BlocoC blocoC = new BlocoC();
         
         blocoC.setRegC001(new RegC001(IndicadorMovimento.COM_DADOS));
@@ -118,7 +96,7 @@ public class BlocoCTest {
         return blocoC;
     }
 
-    private List<RegC010> createRegC010List() {
+    private static List<RegC010> createRegC010List() {
         RegC010 regC010 = new RegC010();
         
         regC010.setCnpj("36.293.264/0001-28");
@@ -133,7 +111,7 @@ public class BlocoCTest {
         return Collections.singletonList(regC010);
     }
 
-    private List<RegC100> createRegC100List() {
+    private static List<RegC100> createRegC100List() {
         List<RegC100> list = new LinkedList<>();
         for (int i = 0; i < 2; i++) {
             list.add(createRegC100());
@@ -141,7 +119,7 @@ public class BlocoCTest {
         return list;
     }
 
-    private List<RegC180> createReg180List() {
+    private static List<RegC180> createReg180List() {
         RegC180 regC180 = new RegC180();
         
         regC180.setCodItem("000001");
@@ -159,7 +137,7 @@ public class BlocoCTest {
         return Collections.singletonList(regC180);
     }
 
-    private List<RegC190> createRegC190List() {
+    private static List<RegC190> createRegC190List() {
         RegC190 regC190 = new RegC190();
         
         regC190.setCodItem("000001");
@@ -176,7 +154,7 @@ public class BlocoCTest {
         return Collections.singletonList(regC190);
     }
 
-    private List<RegC395> createRegC395List() {
+    private static List<RegC395> createRegC395List() {
         RegC395 reg = new RegC395();
         
         reg.setCodMod(DocumentoFiscal.M59);
@@ -191,7 +169,7 @@ public class BlocoCTest {
         
     }
 
-    private List<RegC500> createRegC500List() {
+    private static List<RegC500> createRegC500List() {
         RegC500 reg = new RegC500();
         
         reg.setCodInf("123");
@@ -215,7 +193,7 @@ public class BlocoCTest {
         return Collections.singletonList(reg);
     }
 
-    private RegC100 createRegC100() {
+    private static RegC100 createRegC100() {
         RegC100 reg = new RegC100();
         
         reg.setChvNfe("1234567890 1234567890 1234567890 1234567890 1234");
@@ -254,7 +232,7 @@ public class BlocoCTest {
         return reg;
     }
 
-    private List<RegC110> createRegC110List() {
+    private static List<RegC110> createRegC110List() {
         RegC110 regC110 = new RegC110();
         
         regC110.setCodInf("123");
@@ -263,7 +241,7 @@ public class BlocoCTest {
         return Collections.singletonList(regC110);
     }
 
-    private List<RegC111> createRegC111List() {
+    private static List<RegC111> createRegC111List() {
         RegC111 regC111 = new RegC111();
         
         regC111.setNumProc("123");
@@ -272,7 +250,7 @@ public class BlocoCTest {
         return Collections.singletonList(regC111);
     }
 
-    private List<RegC120> createRegC120List() {
+    private static List<RegC120> createRegC120List() {
         RegC120 regC120 = new RegC120();
         
         regC120.setCodDocImp(DocumentoImportacao.DECLARACAO_IMPORTACAO);
@@ -284,7 +262,7 @@ public class BlocoCTest {
         return Collections.singletonList(regC120);
     }
 
-    private List<RegC170> createRegC170List() {
+    private static List<RegC170> createRegC170List() {
         RegC170 reg = new RegC170();
         
         reg.setAliqCofinsPerc(5.5);
@@ -327,7 +305,7 @@ public class BlocoCTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegC175> createRegC175List() {
+    private static List<RegC175> createRegC175List() {
         RegC175 regC175 = new RegC175();
         
         regC175.setAliqCofins(3.65);
@@ -351,7 +329,7 @@ public class BlocoCTest {
         return Collections.singletonList(regC175);
     }
 
-    private List<RegC181> createReg181List() {
+    private static List<RegC181> createReg181List() {
         RegC181 reg = new RegC181();
         
         reg.setAliqPis(1.65);
@@ -368,7 +346,7 @@ public class BlocoCTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegC185> createRegC181List() {
+    private static List<RegC185> createRegC181List() {
         RegC185 reg = new RegC185();
         
         reg.setAliqCofins(3.65);
@@ -385,7 +363,7 @@ public class BlocoCTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegC188> createRegC188List() {
+    private static List<RegC188> createRegC188List() {
         RegC188 reg = new RegC188();
         
         reg.setNumProc("123");
@@ -394,7 +372,7 @@ public class BlocoCTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegC191> createRegC191List() {
+    private static List<RegC191> createRegC191List() {
         RegC191 reg = new RegC191();
         
         reg.setAliqPis(1.65);
@@ -412,7 +390,7 @@ public class BlocoCTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegC195> createRegC195List() {
+    private static List<RegC195> createRegC195List() {
         RegC195 reg = new RegC195();
         
         reg.setAliqCofins(3.65);
@@ -430,7 +408,7 @@ public class BlocoCTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegC198> createRegC198List() {
+    private static List<RegC198> createRegC198List() {
         RegC198 reg = new RegC198();
         
         reg.setNumProc("123");
@@ -439,7 +417,7 @@ public class BlocoCTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegC199> createRegC199List() {
+    private static List<RegC199> createRegC199List() {
         RegC199 reg = new RegC199();
         
         reg.setCodDocImp(DocumentoImportacao.DECLARACAO_IMPORTACAO);
@@ -451,7 +429,7 @@ public class BlocoCTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegC501> createRegC501List() {
+    private static List<RegC501> createRegC501List() {
         RegC501 reg = new RegC501();
         
         reg.setAliqPis(1.65);
@@ -465,7 +443,7 @@ public class BlocoCTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegC505> createRegC505List() {
+    private static List<RegC505> createRegC505List() {
         RegC505 reg = new RegC505();
         
         reg.setAliqCofins(3.65);
@@ -479,7 +457,7 @@ public class BlocoCTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegC509> createRegC509List() {
+    private static List<RegC509> createRegC509List() {
         RegC509 reg = new RegC509();
         
         reg.setNumProc("123");

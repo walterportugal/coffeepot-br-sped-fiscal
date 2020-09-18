@@ -70,7 +70,7 @@ public class BlocoPTest {
         System.out.println("Arquivo gerado em: " + file.getAbsolutePath());
     }
 
-    private BlocoP createBlocoP(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException,
+    public static BlocoP createBlocoP(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException,
             InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException,
             IOException {
         BlocoP blocoP = createBlocoP();
@@ -78,7 +78,7 @@ public class BlocoPTest {
         return (BlocoP) Util.createFileFromBloco(blocoP, file, spedFiscalWriter);
     }
 
-    private BlocoP createBlocoP() {
+    public static BlocoP createBlocoP() {
         BlocoP blocoP = new BlocoP();
         
         blocoP.setRegP001(new RegP001(IndicadorMovimento.COM_DADOS));
@@ -88,7 +88,7 @@ public class BlocoPTest {
         return blocoP;
     }
 
-    private List<RegP010> createRegP010List() {
+    private static List<RegP010> createRegP010List() {
         RegP010 reg = new RegP010();
         
         reg.setCnpj("00.000.000/0001-01");
@@ -97,7 +97,7 @@ public class BlocoPTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegP200> createRegP200List() {
+    private static List<RegP200> createRegP200List() {
         RegP200 reg = new RegP200();
         
         reg.setCodRec("012345");
@@ -112,7 +112,7 @@ public class BlocoPTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegP100> createRegP100List() {
+    private static List<RegP100> createRegP100List() {
         RegP100 reg = new RegP100();
         
         reg.setAliqCont(0.0);
@@ -133,7 +133,7 @@ public class BlocoPTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegP110> createRegP110List() {
+    private static List<RegP110> createRegP110List() {
         RegP110 reg = new RegP110();
         
         reg.setCodRet("01234567");
@@ -144,7 +144,7 @@ public class BlocoPTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegP199> createRegP199List() {
+    private static List<RegP199> createRegP199List() {
         RegP199 reg = new RegP199();
         
         reg.setNumProc("0123456");
@@ -153,7 +153,7 @@ public class BlocoPTest {
         return Collections.singletonList(reg);
     }
 
-    private List<RegP210> createRegP210List() {
+    private static List<RegP210> createRegP210List() {
         RegP210 reg = new RegP210();
         
         reg.setCodAj("01");

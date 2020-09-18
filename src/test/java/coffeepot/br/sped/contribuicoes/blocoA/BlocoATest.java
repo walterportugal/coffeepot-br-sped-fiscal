@@ -20,12 +20,6 @@ package coffeepot.br.sped.contribuicoes.blocoA;
  * #L%
  */
 
-import coffeepot.br.sped.contribuicoes.blocoA.BlocoA;
-import coffeepot.br.sped.contribuicoes.blocoA.RegA001;
-import coffeepot.br.sped.contribuicoes.blocoA.RegA010;
-import coffeepot.br.sped.contribuicoes.blocoA.RegA100;
-import coffeepot.br.sped.contribuicoes.blocoA.RegA120;
-import coffeepot.br.sped.contribuicoes.blocoA.RegA170;
 import coffeepot.br.sped.contribuicoes.tipos.IndicadorOrigemCredito;
 import coffeepot.br.sped.fiscal.config.Config;
 import coffeepot.br.sped.fiscal.tipos.CondicaoPagamento;
@@ -78,13 +72,13 @@ public class BlocoATest {
         System.out.println("Arquivo gerado em: " + file.getAbsolutePath());
     }
 
-    private BlocoA createBlocoA(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
+    public static BlocoA createBlocoA(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, IOException {
         BlocoA blocoA = createBlocoA();
         
         return (BlocoA) Util.createFileFromBloco(blocoA, file, spedFiscalWriter);
     }
 
-    private BlocoA createBlocoA() {
+    public static BlocoA createBlocoA() {
         BlocoA blocoA = new BlocoA();
         
         blocoA.setRegA001(new RegA001(IndicadorMovimento.COM_DADOS));
@@ -93,7 +87,7 @@ public class BlocoATest {
         return blocoA;
     }
 
-    private List<RegA010> createRegA010List() {
+    private static List<RegA010> createRegA010List() {
         RegA010 regA010 = new RegA010();
         
         regA010.setCnpj("36.293.264/0001-28");
@@ -102,7 +96,7 @@ public class BlocoATest {
         return Collections.singletonList(regA010);
     }
 
-    private List<RegA100> createRegA100List() {
+    private static List<RegA100> createRegA100List() {
         RegA100 regA100 = new RegA100();
         
         regA100.setChvNfse("012345678901234567890123456789012345678901234567890123456789");
@@ -132,7 +126,7 @@ public class BlocoATest {
         
     }
 
-    private List<RegA120> createRegA120List() {
+    private static List<RegA120> createRegA120List() {
         RegA120 regA120 = new RegA120();
         
         regA120.setDtPagCofins(LocalDate.now());
@@ -147,7 +141,7 @@ public class BlocoATest {
         return Collections.singletonList(regA120);
     }
 
-    private List<RegA170> createRegA170List() {
+    private static List<RegA170> createRegA170List() {
        RegA170 regA170 = new RegA170();
        
        regA170.setAliqCofins(3.65);

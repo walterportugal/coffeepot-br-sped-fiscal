@@ -19,20 +19,6 @@ package coffeepot.br.sped.contribuicoes.bloco0;
  * limitations under the License.
  * #L%
  */
-import coffeepot.br.sped.contribuicoes.bloco0.Bloco0;
-import coffeepot.br.sped.contribuicoes.bloco0.Reg0000;
-import coffeepot.br.sped.contribuicoes.bloco0.Reg0001;
-import coffeepot.br.sped.contribuicoes.bloco0.Reg0100;
-import coffeepot.br.sped.contribuicoes.bloco0.Reg0110;
-import coffeepot.br.sped.contribuicoes.bloco0.Reg0111;
-import coffeepot.br.sped.contribuicoes.bloco0.Reg0120;
-import coffeepot.br.sped.contribuicoes.bloco0.Reg0140;
-import coffeepot.br.sped.contribuicoes.bloco0.Reg0145;
-import coffeepot.br.sped.contribuicoes.bloco0.Reg0150;
-import coffeepot.br.sped.contribuicoes.bloco0.Reg0190;
-import coffeepot.br.sped.contribuicoes.bloco0.Reg0200;
-import coffeepot.br.sped.contribuicoes.bloco0.Reg0208;
-import coffeepot.br.sped.contribuicoes.bloco0.Reg0500;
 import coffeepot.br.sped.contribuicoes.tipos.IndicadorAtividadePrepoderante;
 import coffeepot.br.sped.contribuicoes.tipos.IndicadorNaturezaPj;
 import coffeepot.br.sped.fiscal.arquivo.bloco0.Reg0205;

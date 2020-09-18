@@ -43,7 +43,7 @@ import java.util.List;
 import org.junit.Test;
 
 /**
- * Class: BlocoMTeste.
+ * Class: BlocoMTest.
  *
  * <p>
  * History:<br><br>
@@ -54,7 +54,7 @@ import org.junit.Test;
  * @since 2.0.0
  *
  */
-public class BlocoMTeste {
+public class BlocoMTest {
 
     @Test
     public void testBlocoM() throws Exception {
@@ -72,7 +72,7 @@ public class BlocoMTeste {
         System.out.println("Arquivo gerado em: " + file.getAbsolutePath());
     }
 
-    private BlocoM createBlocoM(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException,
+    public static BlocoM createBlocoM(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException,
             InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException,
             IOException {
         BlocoM blocoM = createBlocoM();
@@ -80,7 +80,7 @@ public class BlocoMTeste {
         return (BlocoM) Util.createFileFromBloco(blocoM, file, spedFiscalWriter);
     }
 
-    private BlocoM createBlocoM() {
+    public static BlocoM createBlocoM() {
         BlocoM blocoM = new BlocoM();
 
         blocoM.setRegM001(new RegM001(IndicadorMovimento.COM_DADOS));
@@ -97,7 +97,7 @@ public class BlocoMTeste {
         return blocoM;
     }
 
-    private List<RegM100> createRegM100List() {
+    private static List<RegM100> createRegM100List() {
         RegM100 reg = new RegM100();
         
         reg.setAliqPis(1.65);
@@ -121,7 +121,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private RegM200 createRegM200() {
+    private static RegM200 createRegM200() {
         RegM200 reg = new RegM200();
         
         reg.setVlContCumRec(0.0);
@@ -143,7 +143,7 @@ public class BlocoMTeste {
         return reg;
     }
 
-    private List<RegM300> createRegM300List() {
+    private static List<RegM300> createRegM300List() {
         RegM300 reg = new RegM300();
         
         reg.setCodCont("01010101");
@@ -157,7 +157,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private RegM350 createRegM350() {
+    private static RegM350 createRegM350() {
         RegM350 reg = new RegM350();
         
         reg.setAliqPisFol(5.0);
@@ -169,7 +169,7 @@ public class BlocoMTeste {
         return reg;
     }
 
-    private List<RegM400> createRegM400List() {
+    private static List<RegM400> createRegM400List() {
         RegM400 reg = new RegM400();
         
         reg.setCodCta("0101010");
@@ -182,7 +182,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private List<RegM500> createRegM500List() {
+    private static List<RegM500> createRegM500List() {
         RegM500 reg = new RegM500();
         
         reg.setAliqCofins(3.65);
@@ -206,7 +206,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private List<RegM600> createRegM600List() {
+    private static List<RegM600> createRegM600List() {
         RegM600 reg = new RegM600();
         
         reg.setVlContCumRec(0.0);
@@ -228,7 +228,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private List<RegM700> createRegM700List() {
+    private static List<RegM700> createRegM700List() {
         RegM700 reg = new RegM700();
         
         reg.setCodCont("010101");
@@ -242,7 +242,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private List<RegM800> createRegM800List() {
+    private static List<RegM800> createRegM800List() {
         RegM800 reg = new RegM800();
         
         reg.setCodCta("010101");
@@ -254,7 +254,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private List<RegM105> createRegM105List() {
+    private static List<RegM105> createRegM105List() {
         RegM105 reg = new RegM105();
         
         reg.setCstPis("01");
@@ -269,7 +269,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private List<RegM110> createRegM110List() {
+    private static List<RegM110> createRegM110List() {
         RegM110 reg = new RegM110();
         
         reg.setCodAj("01");
@@ -283,7 +283,7 @@ public class BlocoMTeste {
 
     }
 
-    private List<RegM205> createRegM205List() {
+    private static List<RegM205> createRegM205List() {
         RegM205 reg = new RegM205();
         
         reg.setCodRec("012345");
@@ -294,7 +294,7 @@ public class BlocoMTeste {
 
     }
 
-    private List<RegM210> createRegM210List() {
+    private static List<RegM210> createRegM210List() {
         RegM210 reg = new RegM210();
         
         reg.setAliqPis(1.65);
@@ -317,7 +317,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private List<RegM410> createRegM410List() {
+    private static List<RegM410> createRegM410List() {
         RegM410 reg = new RegM410();
     
         reg.setCodCta("0101010");
@@ -328,7 +328,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private List<RegM505> createRegM505List() {
+    private static List<RegM505> createRegM505List() {
         RegM505 reg = new RegM505();
         
         reg.setCstCofins("01");
@@ -343,7 +343,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private List<RegM510> createRegM510List() {
+    private static List<RegM510> createRegM510List() {
         RegM510 reg = new RegM510();
         
         reg.setCodAj("01");
@@ -357,7 +357,7 @@ public class BlocoMTeste {
 
     }
 
-    private List<RegM605> createRegM605List() {
+    private static List<RegM605> createRegM605List() {
         RegM605 reg = new RegM605();
         
         reg.setCodRec("012345");
@@ -367,7 +367,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private List<RegM610> createRegM610List() {
+    private static List<RegM610> createRegM610List() {
         RegM610 reg = new RegM610();
         
         reg.setAliqCofins(3.65);
@@ -386,7 +386,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private List<RegM810> createRegM810List() {
+    private static List<RegM810> createRegM810List() {
         RegM810 reg = new RegM810();
         
         reg.setCodCta("010101");
@@ -397,7 +397,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private RegM211 createRegM211() {
+    private static RegM211 createRegM211() {
         RegM211 reg = new RegM211();
         
         reg.setIndTipCoop(IndicadorTipoSociedadeCooperativa.OUTRAS);
@@ -409,7 +409,7 @@ public class BlocoMTeste {
         return reg;
     }
 
-    private List<RegM220> createRegM220List() {
+    private static List<RegM220> createRegM220List() {
         RegM220 reg = new RegM220();
         
         reg.setCodAj("010");
@@ -424,7 +424,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private List<RegM230> createRegM230List() {
+    private static List<RegM230> createRegM230List() {
         RegM230 reg = new RegM230();
         
         reg.setCnpj("16.200.121/0001-16");
@@ -437,7 +437,7 @@ public class BlocoMTeste {
         return Collections.singletonList(reg);
     }
 
-    private List<RegM225> createRegM225List() {
+    private static List<RegM225> createRegM225List() {
         RegM225 reg = new RegM225();
         
         reg.setCodCta("010101");

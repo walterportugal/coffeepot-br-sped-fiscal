@@ -72,7 +72,7 @@ public class Bloco1Test {
         System.out.println("Arquivo gerado em: " + file.getAbsolutePath());
     }
 
-    private Bloco1 createBloco1(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException,
+    public static Bloco1 createBloco1(File file, SpedFiscalWriter spedFiscalWriter) throws NoSuchMethodException,
             InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException,
             IOException {
         Bloco1 bloco1 = createBloco1();
@@ -80,7 +80,7 @@ public class Bloco1Test {
         return (Bloco1) Util.createFileFromBloco(bloco1, file, spedFiscalWriter);
     }
 
-    private Bloco1 createBloco1() {
+    public static Bloco1 createBloco1() {
         Bloco1 bloco1 = new Bloco1();
         
         bloco1.setReg1001(new Reg1001(IndicadorMovimento.COM_DADOS));
@@ -93,7 +93,7 @@ public class Bloco1Test {
         return bloco1;
     }
 
-    private List<Reg1010> createReg1010List() {
+    private static List<Reg1010> createReg1010List() {
         Reg1010 reg = new Reg1010();
         
         reg.setDescDecJud("Descrição Dec. Jud.");
@@ -106,7 +106,7 @@ public class Bloco1Test {
         return Collections.singletonList(reg);
     }
 
-    private List<Reg1020> createReg1020List() {
+    private static List<Reg1020> createReg1020List() {
         Reg1020 reg = new Reg1020();
         
         reg.setDtDecAdm(LocalDate.now());
@@ -116,7 +116,7 @@ public class Bloco1Test {
         return Collections.singletonList(reg);
     }
 
-    private List<Reg1100> createReg1100List() {
+    private static List<Reg1100> createReg1100List() {
         Reg1100 reg = new Reg1100();
         
         reg.setCnpjSuc("00.000.123/0003-40");
@@ -141,7 +141,7 @@ public class Bloco1Test {
         return Collections.singletonList(reg);
     }
 
-    private List<Reg1500> createReg1500List() {
+    private static List<Reg1500> createReg1500List() {
         Reg1500 reg = new Reg1500();
         
         reg.setCnpjSuc("00.000.123/0003-40");
@@ -166,7 +166,7 @@ public class Bloco1Test {
         return Collections.singletonList(reg);
     }
 
-    private List<Reg1900> createReg1900List() {
+    private static List<Reg1900> createReg1900List() {
         Reg1900 reg = new Reg1900();
         
         reg.setCfop(1102);
@@ -185,7 +185,7 @@ public class Bloco1Test {
         return Collections.singletonList(reg);
     }
 
-    private List<Reg1101> createReg1101List() {
+    private static List<Reg1101> createReg1101List() {
         Reg1101 reg = new Reg1101();
         
         reg.setAliqPis(1.65);
@@ -213,7 +213,7 @@ public class Bloco1Test {
         return Collections.singletonList(reg);
     }
 
-    private List<Reg1501> createReg1501List() {
+    private static List<Reg1501> createReg1501List() {
         Reg1501 reg = new Reg1501();
         
         reg.setAliqCofins(1.65);
