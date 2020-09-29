@@ -48,6 +48,7 @@ import lombok.Setter;
     @Field(name = "cnpj", params = {DefaultStringHandler.PARAM_FILTER_NUMBER_ONLY}),
     @Field(name = "regF100List"),
     @Field(name = "regF120List"),
+    @Field(name = "regF130List"),
     @Field(name = "regF500List"),
     @Field(name = "regF525List"),
     @Field(name = "regF550List"),
@@ -61,6 +62,7 @@ public class RegF010 {
     private String cnpj;
     private List<RegF100> regF100List;
     private List<RegF120> regF120List;
+    private List<RegF130> regF130List;
     private List<RegF500> regF500List;
     private List<RegF525> regF525List;
     private List<RegF550> regF550List;

@@ -32,7 +32,7 @@ import lombok.Setter;
  * Class: RegF600.
  *
  * <p>
- * Insert description here.
+ * Contribuição Retida na Fonte.
  * </p>
  *
  * <p>
