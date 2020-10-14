@@ -79,7 +79,7 @@ public class RegC010 {
      */
     public enum IndicadorApuracaoContribuicoesCreditos implements EnumCodificado {
 
-        REGISTROS_APURACAO("1"),
+        REGISTRO_CONSOLIDADO("1"),
         REGISTRO_INDIVIDUALIZADO("2");
 
         private final String codigo;

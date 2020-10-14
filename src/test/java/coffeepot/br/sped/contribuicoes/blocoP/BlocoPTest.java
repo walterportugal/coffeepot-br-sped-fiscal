@@ -136,7 +136,7 @@ public class BlocoPTest {
     private static List<RegP110> createRegP110List() {
         RegP110 reg = new RegP110();
         
-        reg.setCodRet("01234567");
+        reg.setCodDet("01234567");
         reg.setDetValor(100.0);
         reg.setInfCompl("Teste complementar");
         reg.setNumCampo("01");

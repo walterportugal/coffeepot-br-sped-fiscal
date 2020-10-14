@@ -44,7 +44,7 @@ import lombok.Setter;
 @Record(fields = {
     @Field(name = "reg", id = true, constantValue = "P110"),
     @Field(name = "numCampo", length = 2),
-    @Field(name = "codRet", maxLength = 8),
+    @Field(name = "codDet", maxLength = 8),
     @Field(name = "detValor"),
     @Field(name = "infCompl")
 })
@@ -53,7 +53,7 @@ import lombok.Setter;
 public class RegP110 {
     
     private String numCampo;
-    private String codRet;
+    private String codDet;
     private Double detValor;
     private String infCompl;
 
