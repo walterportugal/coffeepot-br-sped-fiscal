@@ -8,7 +8,7 @@ import coffeepot.br.sped.contribuicoes.tipos.IndicadorAtividadePrepoderante;
 import coffeepot.br.sped.contribuicoes.tipos.IndicadorNaturezaPj;
 import coffeepot.br.sped.contribuicoes.tipos.IndicadorSituacaoEspecial;
 import coffeepot.br.sped.fiscal.tipos.FinalidadeArquivo;
-import coffeepot.br.sped.fiscal.tipos.VersaoLayout;
+import coffeepot.br.sped.fiscal.tipos.VersaoLayoutSpedContribuicoes;
 import java.time.LocalDate;
 import lombok.Getter;
 import lombok.Setter;
@@ -69,7 +69,7 @@ import lombok.Setter;
 @Setter
 public class Reg0000 {
 
-    private VersaoLayout codVer;
+    private VersaoLayoutSpedContribuicoes codVer;
     private FinalidadeArquivo tipoEscrit;
     private IndicadorSituacaoEspecial indSitEsp;
     private String numRecAnterior;

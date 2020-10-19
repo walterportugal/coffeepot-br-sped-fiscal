@@ -115,6 +115,7 @@ public class BlocoPTest {
     private static List<RegP100> createRegP100List() {
         RegP100 reg = new RegP100();
         
+        reg.setCodigoEmpresa("001");//Campo não existente no SPED. Utilizado para mapeamento das informações por empresa.
         reg.setAliqCont(0.0);
         reg.setCodAtivEcon("12345678");
         reg.setCodCta("010101");

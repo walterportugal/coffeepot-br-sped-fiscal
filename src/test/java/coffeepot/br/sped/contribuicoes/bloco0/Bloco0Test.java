@@ -30,7 +30,7 @@ import coffeepot.br.sped.fiscal.tipos.FinalidadeArquivo;
 import coffeepot.br.sped.fiscal.tipos.IndicadorMovimento;
 import coffeepot.br.sped.fiscal.tipos.NaturezaContaContabil;
 import coffeepot.br.sped.fiscal.tipos.TipoContaContabil;
-import coffeepot.br.sped.fiscal.tipos.VersaoLayout;
+import coffeepot.br.sped.fiscal.tipos.VersaoLayoutSpedContribuicoes;
 import coffeepot.br.sped.fiscal.util.Util;
 import coffeepot.br.sped.fiscal.writer.SpedFiscalWriter;
 import java.io.BufferedWriter;
@@ -88,7 +88,7 @@ public class Bloco0Test {
     public static Reg0000 createReg0000() {
         Reg0000 reg = new Reg0000();
 
-        reg.setCodVer(VersaoLayout.VERSAO_011);
+        reg.setCodVer(VersaoLayoutSpedContribuicoes.getLastVersionImpl());
         reg.setTipoEscrit(FinalidadeArquivo.ARQUIVO_ORIGINAL);
         //reg.setIndSitEsp(IndicadorSituacaoEspecial.ABERTURA);
         //reg.setNumRecAnterior(numRecAnterior);        

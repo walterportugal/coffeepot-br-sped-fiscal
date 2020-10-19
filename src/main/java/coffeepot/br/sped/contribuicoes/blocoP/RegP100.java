@@ -63,6 +63,7 @@ import lombok.Setter;
 @Setter
 public class RegP100 {
     
+    private String codigoEmpresa;//Campo não existente no SPED. Utilizado para mapeamento das informações por empresa.
     private LocalDate dtIni;
     private LocalDate dtFin;
     private Double vlRecTotEst;
