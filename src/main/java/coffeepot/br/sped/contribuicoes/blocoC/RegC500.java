@@ -75,7 +75,7 @@ public class RegC500 {
     private SituacaoDocumento codSit;
     private String ser;
     private String sub;
-    private Long numDoc;
+    private Integer numDoc;
     private LocalDate dtDoc;
     private LocalDate dtES;
     private Double vlDoc;

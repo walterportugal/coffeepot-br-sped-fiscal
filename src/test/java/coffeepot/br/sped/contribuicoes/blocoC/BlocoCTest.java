@@ -178,7 +178,7 @@ public class BlocoCTest {
         reg.setCodSit(SituacaoDocumento.REGULAR);
         reg.setDtDoc(LocalDate.now());
         reg.setDtES(LocalDate.now());
-        reg.setNumDoc(new Long(12345));
+        reg.setNumDoc(12345);
         reg.setSer("1");
         reg.setSub("");
         reg.setVlCofins(3.65);
