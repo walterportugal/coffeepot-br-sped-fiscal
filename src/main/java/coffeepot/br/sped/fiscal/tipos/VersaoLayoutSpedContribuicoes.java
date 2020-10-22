@@ -60,7 +60,7 @@ public enum VersaoLayoutSpedContribuicoes implements EnumCodificado {
      * @return última versão implementada.
      */
     public static VersaoLayoutSpedContribuicoes getLastVersionImpl() {
-        return VersaoLayoutSpedContribuicoes.values()[VersaoLayout.values().length - 1];
+        return VersaoLayoutSpedContribuicoes.values()[VersaoLayoutSpedContribuicoes.values().length - 1];
     }
 
 }

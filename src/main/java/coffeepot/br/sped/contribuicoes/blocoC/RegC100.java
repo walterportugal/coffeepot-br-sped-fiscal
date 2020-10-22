@@ -82,7 +82,10 @@ import lombok.Setter;
     @Field(name = "vlPisSt"),
     @Field(name = "vlCofinsSt"),
     @Field(name = "regC110List"),
-    @Field(name = "regC111List")
+    @Field(name = "regC111List"),
+    @Field(name = "regC120List"),
+    @Field(name = "regC170List"),
+    @Field(name = "regC175List")
 })
 @Getter
 @Setter
