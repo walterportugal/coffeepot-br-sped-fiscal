@@ -43,7 +43,7 @@ import lombok.Setter;
  *
  */
 @Record(fields = {
-    @Field(name = "reg", id = true, constantValue = "F129"),
+    @Field(name = "reg", id = true, constantValue = "F139"),
     @Field(name = "numProc", maxLength = 20),
     @Field(name = "indProc")
 })

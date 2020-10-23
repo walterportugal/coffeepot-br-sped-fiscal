@@ -113,13 +113,13 @@ public class RegC170 {
     private Double vlBcPis;
     private Double aliqPisPerc;
     private Double quantBcPis;
-    private Double aliqPisReal;
+    private Double aliqPisQuant;
     private Double vlPis;
     private String cstCofins;
     private Double vlBcCofins;
     private Double aliqCofinsPerc;
     private Double quantBcCofins;
-    private Double aliqCofinsReal;
+    private Double aliqCofinsQuant;
     private Double vlCofins;
     private String codCta;
 

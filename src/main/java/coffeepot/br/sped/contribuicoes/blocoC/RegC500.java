@@ -55,12 +55,13 @@ import lombok.Setter;
     @Field(name = "sub"),
     @Field(name = "numDoc"),
     @Field(name = "dtDoc"),
-    @Field(name = "dtES"),
+    @Field(name = "dtEnt"),
     @Field(name = "vlDoc"),
     @Field(name = "vlIcms"),
     @Field(name = "codInf"),
     @Field(name = "vlPis"),
     @Field(name = "vlCofins"),
+    @Field(name = "chvDoce"),
     
     @Field(name = "regC501List"),
     @Field(name = "regC505List"),
@@ -77,12 +78,13 @@ public class RegC500 {
     private String sub;
     private Integer numDoc;
     private LocalDate dtDoc;
-    private LocalDate dtES;
+    private LocalDate dtEnt;
     private Double vlDoc;
     private Double vlIcms;
     private String codInf;
     private Double vlPis;
     private Double vlCofins;
+    private String chvDoce;
 
     private List<RegC501> regC501List;
     private List<RegC505> regC505List;

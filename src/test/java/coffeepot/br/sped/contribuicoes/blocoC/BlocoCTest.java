@@ -177,7 +177,7 @@ public class BlocoCTest {
         reg.setCodPart("F00002");
         reg.setCodSit(SituacaoDocumento.REGULAR);
         reg.setDtDoc(LocalDate.now());
-        reg.setDtES(LocalDate.now());
+        reg.setDtEnt(LocalDate.now());
         reg.setNumDoc(12345);
         reg.setSer("1");
         reg.setSub("");
@@ -266,11 +266,11 @@ public class BlocoCTest {
         RegC170 reg = new RegC170();
         
         reg.setAliqCofinsPerc(5.5);
-        reg.setAliqCofinsReal(10.1);
+        reg.setAliqCofinsQuant(10.1);
         reg.setAliqIcms(18.0);
         reg.setAliqIpi(9.9);
         reg.setAliqPisPerc(15.0);
-        reg.setAliqPisReal(1.0);
+        reg.setAliqPisQuant(1.0);
         reg.setAliqSt(1.09);
         reg.setCfop(5102);
         reg.setCodCta("0001");

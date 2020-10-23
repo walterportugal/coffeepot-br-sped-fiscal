@@ -58,7 +58,6 @@ import lombok.Setter;
     @Field(name = "dtFin"),
     @Field(name = "nome", maxLength = 100),
     @Field(name = "cnpj", params = {DefaultStringHandler.PARAM_FILTER_NUMBER_ONLY}),
-    @Field(name = "cpf", params = {DefaultStringHandler.PARAM_FILTER_NUMBER_ONLY}),
     @Field(name = "uf"),
     @Field(name = "codMun", length = 7, align = Align.RIGHT, padding = '0', paddingIfNullOrEmpty = true),
     @Field(name = "suframa", length = 9, params = {DefaultStringHandler.PARAM_FILTER_NUMBER_LETTERS_ONLY}),
@@ -77,7 +76,6 @@ public class Reg0000 {
     private LocalDate dtFin;
     private String nome;
     private String cnpj;
-    private String cpf;
     private String uf;
     private Integer codMun;
     private String suframa;
