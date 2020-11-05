@@ -72,13 +72,13 @@ import lombok.Setter;
     @Field(name = "vlBcPis"),
     @Field(name = "aliqPisPerc"),
     @Field(name = "quantBcPis"),
-    @Field(name = "aliqPisReal"),
+    @Field(name = "aliqPisQuant"),
     @Field(name = "vlPis"),
     @Field(name = "cstCofins", minLength = 2, align = Align.RIGHT, padding = '0'),
     @Field(name = "vlBcCofins"),
     @Field(name = "aliqCofinsPerc"),
     @Field(name = "quantBcCofins"),
-    @Field(name = "aliqCofinsReal"),
+    @Field(name = "aliqCofinsQuant"),
     @Field(name = "vlCofins"),
     @Field(name = "codCta")
 })
