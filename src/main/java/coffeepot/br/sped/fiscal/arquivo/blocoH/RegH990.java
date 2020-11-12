@@ -27,7 +27,7 @@ package coffeepot.br.sped.fiscal.arquivo.blocoH;
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
 import coffeepot.bean.wr.types.AccessorType;
-import coffeepot.br.sped.fiscal.arquivo.RegEncerramentoBlocoBase;
+import coffeepot.br.sped.commons.RegEncerramentoBlocoBase;
 
 /**
  *

@@ -22,6 +22,8 @@ package coffeepot.br.sped.fiscal.arquivo.bloco9;
  * limitations under the License.
  * #L%
  */
+import coffeepot.br.sped.commons.bloco9.Reg9001;
+import coffeepot.br.sped.commons.bloco9.Bloco9;
 import coffeepot.br.sped.fiscal.config.Config;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;

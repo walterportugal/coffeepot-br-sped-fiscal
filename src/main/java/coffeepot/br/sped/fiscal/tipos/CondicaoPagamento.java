@@ -33,7 +33,9 @@ public enum CondicaoPagamento  implements EnumCodificado{
 
     A_VISTA("0"),
     A_PRAZO("1"),
-    OUTROS("2");
+    OUTROS("2"),
+    SEM_PAGAMENTO("9");
+    
     private final String codigo;
 
     private CondicaoPagamento(String codigo) {

@@ -156,7 +156,15 @@ public enum DocumentoFiscal implements EnumCodificado {
     /**
      * Conhecimento de Transporte Eletrônico - CT-e OS
      */
-    M67("67");
+    M67("67"),
+    /**
+     * Nota Fiscal de Prestação de Serviços (ISSQN)
+     */
+    M98("98"),
+    /**
+     * Outros Documentos
+     */
+    M99("99");
 
     private final String codigo;
 

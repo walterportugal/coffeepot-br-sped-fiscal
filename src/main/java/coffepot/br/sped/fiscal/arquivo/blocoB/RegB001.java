@@ -26,7 +26,7 @@ package coffepot.br.sped.fiscal.arquivo.blocoB;
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
 import coffeepot.bean.wr.types.AccessorType;
-import coffeepot.br.sped.fiscal.arquivo.RegAberturaBlocoBase;
+import coffeepot.br.sped.commons.RegAberturaBlocoBase;
 import coffeepot.br.sped.fiscal.tipos.IndicadorMovimento;
 
 /**

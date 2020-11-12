@@ -35,7 +35,7 @@ import lombok.Setter;
  * @author Jeandeson O. Merelis
  */
 @Record(fields = {
-    @Field(name = "", id=true, constantValue = "C120"),
+    @Field(name = "reg", id=true, constantValue = "C120"),
     @Field( name = "codDocImp"),
     @Field( name = "numDocImp"),
     @Field( name = "pisImp"),

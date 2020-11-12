@@ -22,11 +22,11 @@ package coffeepot.br.sped.fiscal.util;
  * limitations under the License.
  * #L%
  */
-import coffeepot.br.sped.fiscal.arquivo.bloco9.Bloco9;
-import coffeepot.br.sped.fiscal.arquivo.bloco9.Reg9001;
-import coffeepot.br.sped.fiscal.arquivo.bloco9.Reg9900;
-import coffeepot.br.sped.fiscal.arquivo.bloco9.Reg9990;
-import coffeepot.br.sped.fiscal.arquivo.bloco9.Reg9999;
+import coffeepot.br.sped.commons.bloco9.Bloco9;
+import coffeepot.br.sped.commons.bloco9.Reg9001;
+import coffeepot.br.sped.commons.bloco9.Reg9900;
+import coffeepot.br.sped.commons.bloco9.Reg9990;
+import coffeepot.br.sped.commons.bloco9.Reg9999;
 import coffeepot.br.sped.fiscal.tipos.BlocoEnum;
 import coffeepot.br.sped.fiscal.tipos.IndicadorMovimento;
 import coffeepot.br.sped.fiscal.writer.SpedFiscalWriter;

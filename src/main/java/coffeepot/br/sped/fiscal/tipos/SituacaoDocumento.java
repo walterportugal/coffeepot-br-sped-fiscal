@@ -22,54 +22,56 @@ package coffeepot.br.sped.fiscal.tipos;
  * limitations under the License.
  * #L%
  */
-
-
 /**
  * Situação do Documento, referenciado no registro C100.
  *
  * @author Jeandeson O. Merelis
  */
-public enum SituacaoDocumento  implements EnumCodificado{
+public enum SituacaoDocumento implements EnumCodificado {
     /**
      * Documento regular.
      */
-    REGULAR( "00" ),
+    REGULAR("00"),
     /**
      * Escrituração extemporânea de documento regular.
      */
-    EXTEMPORANEA_REGULAR( "01" ),
+    EXTEMPORANEA_REGULAR("01"),
     /**
      * Documento cancelado.
      */
-    CANCELADO( "02" ),
+    CANCELADO("02"),
     /**
      * Escrituração extemporânea de documento cancelado.
      */
-    EXTEMPORANEA_CANCELADO( "03" ),
+    EXTEMPORANEA_CANCELADO("03"),
     /**
      * NF-e, NFC-e ou CT-e denegado.
      */
-    DENEGADO( "04" ),
+    DENEGADO("04"),
     /**
      * Numeração inutilizada.
      */
-    NUM_INUTILIZADO( "05" ),
+    NUM_INUTILIZADO("05"),
     /**
      * Documento Fiscal Complementar.
      */
-    COMPLEMENTAR( "06" ),
+    COMPLEMENTAR("06"),
     /**
      * Escrituração extemporânea de documento complementar.
      */
-    EXTEMPORANEA_COMPLEMENTAR( "07" ),
+    EXTEMPORANEA_COMPLEMENTAR("07"),
     /**
      * Documento Fiscal emitido com base em Regime Especial ou Norma Específica.
      */
-    ESPECIAL( "08" );
+    ESPECIAL("08"),
+    /**
+     * Outros.
+     */
+    OUTROS("99");
 
     private final String codigo;
 
-    private SituacaoDocumento( String codigo ) {
+    private SituacaoDocumento(String codigo) {
         this.codigo = codigo;
     }
 
