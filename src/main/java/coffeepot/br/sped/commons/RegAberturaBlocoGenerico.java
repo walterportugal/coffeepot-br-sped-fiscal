@@ -21,7 +21,6 @@ package coffeepot.br.sped.commons;
  */
 
 
-import coffeepot.br.sped.commons.RegAberturaBlocoBase;
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
 import coffeepot.bean.wr.types.AccessorType;

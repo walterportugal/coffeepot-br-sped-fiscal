@@ -83,7 +83,11 @@ public enum VersaoLayout implements EnumCodificado {
     /**
      * Versão 1.14 Ato COTEPE 01/01/2019.
      */
-    VERSAO_014("014");
+    VERSAO_014("014"),
+    /**
+     * Versão 1.15 Ato COTEPE 01/01/2020.
+     */
+    VERSAO_015("015");
 
     private final String codigo;
 
@@ -104,4 +108,5 @@ public enum VersaoLayout implements EnumCodificado {
     public static VersaoLayout getLastVersionImpl() {
         return VersaoLayout.values()[VersaoLayout.values().length - 1];
     }
+    
 }
