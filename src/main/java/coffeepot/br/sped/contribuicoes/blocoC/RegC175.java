@@ -59,7 +59,8 @@ import lombok.Setter;
     @Field(name = "quantBcCofins"),
     @Field(name = "aliqCofinsQuant"),
     @Field(name = "vlCofins"),
-    @Field(name = "codCta")
+    @Field(name = "codCta"),
+    @Field(name = "infoCompl")
 })
 @Getter
 @Setter
