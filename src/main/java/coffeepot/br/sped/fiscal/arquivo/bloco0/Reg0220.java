@@ -37,7 +37,8 @@ import lombok.Setter;
 @Record(fields = {
     @Field(name = "reg", id=true, constantValue = "0220"),
     @Field(name = "unidConv"),
-    @Field(name = "fatConv")
+    @Field(name = "fatConv"),
+    @Field(name = "codBarra")
 })
 @Getter
 @Setter
@@ -45,5 +46,6 @@ public class Reg0220 {
 
     private String unidConv;
     private Double fatConv;
+    private String codBarra;
 
 }

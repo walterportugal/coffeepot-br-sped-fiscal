@@ -73,6 +73,13 @@ import lombok.Setter;
     @Field(name = "indDest"),
     @Field(name = "codMunDest"),
     @Field(name = "codCta"),
+    @Field(name = "codModDocRef"),
+    @Field(name = "hashDocRef"),
+    @Field(name = "serDocRef"),
+    @Field(name = "numDocRef"),
+    @Field(name = "mesDocRef"),
+    @Field(name = "energInjet"),
+    @Field(name = "outrasDed"),
     
     //--- detalhes ---
     @Field(name = "regC510List"),
@@ -114,6 +121,13 @@ public class RegC500 {
     private IndicadorDestinatarioAcessante indDest;
     private String codMunDest;
     private String codCta;
+    private DocumentoFiscal codModDocRef;
+    private String hashDocRef;
+    private String serDocRef;
+    private String numDocRef;
+    private String mesDocRef;
+    private Integer energInjet;
+    private Integer outrasDed;
     //--- detalhes ---
     private List<RegC510> regC510List;
     private List<RegC590> regC590List;
