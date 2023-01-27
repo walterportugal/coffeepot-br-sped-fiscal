@@ -35,6 +35,7 @@ import lombok.Setter;
  */
 @Record(fields = {
     @Field(name = "regK001"),
+    @Field(name = "regK010"),
     @Field(name = "regK100List"),
     @Field(name = "regK990")
 })
@@ -43,6 +44,7 @@ import lombok.Setter;
 public class BlocoK {
 
     private RegK001 regK001;
+    private RegK010 regK010;
     private List<RegK100> regK100List;
     private RegK990 regK990;
 
