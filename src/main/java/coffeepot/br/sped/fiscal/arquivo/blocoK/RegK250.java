@@ -41,7 +41,7 @@ import lombok.Setter;
     @Field(name = "codItem"),
     @Field(name = "qtd"),
     //
-    @Field(name = "regK235List")
+    @Field(name = "regK255List")
 })
 @Getter
 @Setter
@@ -50,5 +50,5 @@ public class RegK250 {
     private LocalDate dtProd;
     private String codItem;
     private Double qtd;
-    private List<RegK235> regK235List;
+    private List<RegK255> regK255List;
 }

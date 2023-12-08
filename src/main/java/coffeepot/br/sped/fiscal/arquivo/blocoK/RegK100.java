@@ -22,8 +22,6 @@ package coffeepot.br.sped.fiscal.arquivo.blocoK;
  * limitations under the License.
  * #L%
  */
-
-
 import coffeepot.bean.wr.annotation.Field;
 import coffeepot.bean.wr.annotation.Record;
 import java.time.LocalDate;
@@ -36,12 +34,20 @@ import lombok.Setter;
  * @author Edivaldo Merlo Stens
  */
 @Record(fields = {
-    @Field(name = "reg", id=true, constantValue = "K100"),
+    @Field(name = "reg", id = true, constantValue = "K100"),
     @Field(name = "dtIni"),
     @Field(name = "dtFim"),
     //
     @Field(name = "regK200List"),
-    @Field(name = "regK210List")
+    @Field(name = "regK210List"),
+    @Field(name = "regK220List"),
+    @Field(name = "regK230List"),
+    @Field(name = "regK250List"),
+    @Field(name = "regK260List"),
+    @Field(name = "regK270List"),
+    @Field(name = "regK280List"),
+    @Field(name = "regK290List"),
+    @Field(name = "regK300List")
 })
 @Getter
 @Setter
@@ -52,4 +58,13 @@ public class RegK100 {
     //
     private List<RegK200> regK200List;
     private List<RegK210> regK210List;
+    private List<RegK220> regK220List;
+    private List<RegK230> regK230List;
+    private List<RegK250> regK250List;
+    private List<RegK260> regK260List;
+    private List<RegK270> regK270List;
+    private List<RegK280> regK280List;
+    private List<RegK290> regK290List;
+    private List<RegK300> regK300List;
+
 }
