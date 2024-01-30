@@ -73,29 +73,33 @@ public enum VersaoLayout implements EnumCodificado {
      */
     VERSAO_011("011"),
     /**
-     * Versão 1.12 Ato COTEPE 01/01/2018.
+     * Versão 1.11 Ato COTEPE 01/01/2018.
      */
     VERSAO_012("012"),
     /**
-     * Versão 1.13 Ato COTEPE 01/01/2019.
+     * Versão 1.12 Ato COTEPE 01/01/2019.
      */
     VERSAO_013("013"),
     /**
-     * Versão 1.14 Ato COTEPE 01/01/2019.
+     * Versão 1.13 Ato COTEPE 01/01/2019.
      */
     VERSAO_014("014"),
     /**
-     * Versão 1.15 Ato COTEPE 01/01/2020.
+     * Versão 1.14 Ato COTEPE 01/01/2020.
      */
     VERSAO_015("015"),
     /**
-     * Versão 1.16 Ato COTEPE 02/12/2021.
+     * Versão 1.15 Ato COTEPE 02/12/2021.
      */
     VERSAO_016("016"),
     /**
-     * Versão 1.17 Ato COTEPE 15/12/2022.
+     * Versão 1.16 Ato COTEPE 15/12/2022.
      */
-    VERSAO_017("017");
+    VERSAO_017("017"),
+    /**
+     * Versão 1.17 Ato COTEPE 15/12/2023.
+     */
+    VERSAO_018("018");
 
     private final String codigo;
 
