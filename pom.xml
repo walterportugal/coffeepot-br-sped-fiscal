@@ -10,7 +10,7 @@
 
     <groupId>com.github.jean-merelis</groupId>
     <artifactId>coffeepot-br-sped-fiscal</artifactId>
-    <version>2.0.5-SOFTLAND</version>
+    <version>2.0.6-SOFTLAND</version>
     <packaging>jar</packaging>
     <description>
         Project to be used in Brazil to write file in accordance to local regulations.
