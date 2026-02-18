@@ -42,6 +42,7 @@ import lombok.Setter;
         @Field(name = "regD500List"),
         @Field(name = "regD600List"),
         @Field(name = "regD695List"),
+        @Field(name = "regD700List"),
     @Field(name = "regD990")
 })
 @Getter
@@ -56,6 +57,7 @@ public class BlocoD {
     private List<RegD500> regD500List;
     private List<RegD600> regD600List;
     private List<RegD695> regD695List;
+    private List<RegD700> regD700List;
     private RegD990 regD990;
 
 }
