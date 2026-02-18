@@ -141,6 +141,10 @@ public enum DocumentoFiscal implements EnumCodificado {
      * Cupom Fiscal Eletrônico (CF-e-ECF)
      */
     M60("60"),
+     /**
+     * NFECom
+     */
+    M62("62"),
     /**
      * Bilhete de Passagem Eletrônico – BP-e
      */
